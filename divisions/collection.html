@@ -147,6 +147,9 @@ body{background:var(--bg)}
 .sbar span{font-size:12px;color:var(--grey)}
 .sbar .pill{height:44px;padding:0 18px;font-size:13px}
 footer{padding-bottom:110px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+
 </style>
 </head>
 <body>
@@ -163,7 +166,7 @@ footer{padding-bottom:110px}
     <div class="wall-cta"><p>The Frame Tee <span>· R599</span></p><a class="pill solid" href="#shop" data-go="shop">Shop now <i>→</i></a></div>
   </section>
 
-  <section class="sec" id="shop"><div class="w">
+  <section class="sec reveal" id="shop"><div class="w">
     <div class="head"><h2>The Frame Tee</h2><p>Three ranges: Executive, Ivory and Greyston. Heavyweight, oversized, embroidered.</p></div>
     <div class="grid">
       <button class="card" type="button" data-c="Executive"><div class="ph"><span class="badge">NEW</span><img src="../work/collection/executive-flat.jpg" alt="Frame Tee, Executive Range" loading="lazy"><img class="alt" src="../work/collection/executive-front.jpg?v=4" alt="" loading="lazy"><span class="quick">Choose size</span></div><h3>Executive Range</h3><div class="pr" style="color:var(--grey);font-size:13px;margin-bottom:4px">The Frame Tee · black</div><div class="pr">R 599.00</div><div class="sws"><i class="on" style="background:#121214"></i><i style="background:#f3efe6"></i><i style="background:#55555a"></i></div></button>
@@ -172,7 +175,7 @@ footer{padding-bottom:110px}
     </div>
   </div></section>
 
-  <section class="sec" style="padding-top:0"><div class="w">
+  <section class="sec reveal" style="padding-top:0"><div class="w">
     <div class="head"><h2>The drop</h2><p>Point of view. Stitched in.</p></div>
     <div class="drop">
       <button type="button" data-c="Executive"><img src="../work/collection/banner2-executive-sm.jpg?v=3" alt="Executive: Point of view." loading="lazy"></button>
@@ -205,7 +208,7 @@ footer{padding-bottom:110px}
     </div>
   </div></section>
 
-  <section class="sec" style="padding-top:0"><div class="w">
+  <section class="sec reveal" style="padding-top:0"><div class="w">
     <div class="icons">
       <div><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/><path d="m9.5 9 1.7 1.7L14.5 7.5"/></svg><h3>Premium quality</h3><p>Heavyweight. Made to last.</p></div>
       <div><svg viewBox="0 0 24 24"><path d="M12 3c.6 4.6 2.4 6.4 7 7-4.6.6-6.4 2.4-7 7-.6-4.6-2.4-6.4-7-7 4.6-.6 6.4-2.4 7-7z"/></svg><h3>Embroidered detail</h3><p>Clean. Elevated. Timeless.</p></div>
@@ -214,12 +217,12 @@ footer{padding-bottom:110px}
     </div>
   </div></section>
 
-  <section class="sec" style="padding-top:0"><div class="w">
+  <section class="sec reveal" style="padding-top:0"><div class="w">
     <div class="head"><h2>In the details</h2></div>
     <div class="details" id="details"></div>
   </div></section>
 
-  <section class="mani"><div class="w"><p class="lbl">Point of view</p><h2>See it<br>differently.</h2><p>A reminder stitched into every shirt.</p><a class="pill solid big" href="#buy" data-go="buy">Get the Frame Tee · R599 <i>→</i></a></div></section>
+  <section class="mani reveal"><div class="w"><p class="lbl">Point of view</p><h2>See it<br>differently.</h2><p>A reminder stitched into every shirt.</p><a class="pill solid big" href="#buy" data-go="buy">Get the Frame Tee · R599 <i>→</i></a></div></section>
 
   <section class="sec"><div class="w">
     <div class="head"><h2>Questions</h2></div>
@@ -277,6 +280,7 @@ window.POV_PIXEL_ID=window.POV_PIXEL_ID||'';   // Meta Pixel ID for ad tracking
   const bar=$('sbar');let past=false,buyIn=false;const sync=()=>{const on=past&&!buyIn;bar.classList.toggle('on',on);bar.setAttribute('aria-hidden',!on)};
   new IntersectionObserver(es=>{past=!es[0].isIntersecting&&es[0].boundingClientRect.top<0;sync()}).observe(document.querySelector('.wall-cta'));
   new IntersectionObserver(es=>{buyIn=es[0].isIntersecting;sync()},{threshold:.2}).observe(document.querySelector('.info'));
+  const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rio.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});document.querySelectorAll('.reveal').forEach(el=>rio.observe(el));
   render();upd();
 })();
 </script>
