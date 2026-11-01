@@ -342,8 +342,8 @@ footer{border-top:1px solid var(--hair);padding-block:34px calc(34px + 96px)}
 /* "ecosystem": a soft, organic serif in living greens that breathes */
 .reveal-line .eco-word{font:italic 400 1.12em/1 "Fraunces",Georgia,serif;font-variation-settings:"SOFT" 100,"WONK" 1,"opsz" 144;text-transform:none;letter-spacing:-.01em;padding-inline:.04em}
 .eco-word em{font-style:inherit;display:inline-block;padding-inline:.02em;
-  background:linear-gradient(100deg,#9fbf8a 0%,#cfe0b4 25%,#d9c7a5 50%,#8fb39a 75%,#b9d3a3 100%) 0 0/600% 100%;background-position:calc(var(--d)*11%) 0;
-  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#b9d3a3;
+  background:linear-gradient(100deg,#ff8c1a 0%,#ffc27a 25%,#ffd9a8 50%,#ff9a3c 75%,#ffb366 100%) 0 0/600% 100%;background-position:calc(var(--d)*11%) 0;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#ff9a3c;
   animation:ecobreathe 4.5s ease-in-out infinite,ecoflow 9s ease-in-out infinite;animation-delay:calc(var(--d)*.18s),calc(var(--d)*-.4s)}
 @keyframes ecoflow{0%,100%{background-position:calc(var(--d)*11%) 0}50%{background-position:calc(var(--d)*11% + 40%) 0}}
 @keyframes ecobreathe{0%,100%{transform:translateY(0)}50%{transform:translateY(-.05em)}}
@@ -654,6 +654,7 @@ header .nav{box-shadow:0 0 0 1px rgba(65,105,225,.22),0 20px 40px -20px rgba(0,0
 .flegal a:hover,.flegal button:hover{color:var(--tang)}
 ::selection{background:var(--royal);color:#fff}
 h2.sweep{box-shadow:none!important}
+.dcard{cursor:pointer}
 .vreels-sec{padding-bottom:clamp(40px,5vw,72px)}
 .vr-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:max(16px,calc((100vw - 1160px)/2 + 16px));padding:10px max(16px,calc((100vw - 1160px)/2 + 16px)) 18px;scrollbar-width:none;overscroll-behavior-x:contain}
 .vr-track::-webkit-scrollbar{display:none}
@@ -927,6 +928,13 @@ h2.sweep{box-shadow:none!important}
     document.getElementById('vrPrev').addEventListener('click',()=>tr.scrollBy({left:-step()*2,behavior:'smooth'}));
     document.getElementById('vrNext').addEventListener('click',()=>tr.scrollBy({left:step()*2,behavior:'smooth'}));
   })();
+
+  // whole division card opens its page (ignores drags)
+  (function(){const tr=document.getElementById('carTrack');if(!tr)return;let sx=0,sy=0;
+    (tr.closest('.carousel')||tr.parentElement).addEventListener('pointerdown',e=>{sx=e.clientX;sy=e.clientY},true);
+    (tr.closest('.carousel')||tr.parentElement).addEventListener('click',e=>{const el=document.elementFromPoint(e.clientX,e.clientY)||e.target;if(el.closest('a,button'))return;const c=el.closest('.dcard');if(!c)return;
+      if(Math.abs(e.clientX-sx)>6||Math.abs(e.clientY-sy)>6)return;const a=c.querySelector('a.div-go');if(a){track('cta_clicked',{cta:'division_card',place:c.dataset.slug});location.href=a.getAttribute('href')}});
+  })();
   const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
   // attribution kept for the visit and attached to every lead
@@ -1007,7 +1015,7 @@ h2.sweep{box-shadow:none!important}
     const nodes=NAMES.map((n,i)=>({n,a:i/NAMES.length*6.283,sp:.00011+(i%3)*.00003,r:1+(i%2?.12:0)}));
     const size=()=>{dpr=Math.min(1.25,devicePixelRatio||1);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
       spores=Array.from({length:Math.round(Math.min(110,W*H/9000))},()=>({x:Math.random()*W,y:Math.random()*H,v:.12+Math.random()*.35,s:Math.random()*6.28,r:Math.random()<.2?1.8:1}))};
-    const sage='159,191,138',gold='65,105,225';
+    const sage='255,140,26',gold='255,190,120';
     const pos=(nd,cx,cy,rx,ry)=>({x:cx+Math.cos(nd.a)*rx*nd.r,y:cy+Math.sin(nd.a)*ry*nd.r,d:(Math.sin(nd.a)+1)/2});
     const frame=ts=>{requestAnimationFrame(frame);const v=window.__ecoV||0;cv.style.opacity=v.toFixed(3);if(v<=0.001){last=ts;return}
       const dt=last?Math.min(50,ts-last):16;last=ts;t+=dt;
@@ -1033,7 +1041,7 @@ h2.sweep{box-shadow:none!important}
         const [m2x,m2y]=curve(p,q,.22);ctx.strokeStyle='rgba('+sage+','+(.06+.12*Math.min(p.d,q.d))+')';ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.quadraticCurveTo(m2x,m2y,q.x,q.y);ctx.stroke();
         // pulse travelling inward
         const u=((t*.00035+i*.17)%1),iu=1-u;const px=iu*iu*p.x+2*iu*u*m1x+u*u*cx,py=iu*iu*p.y+2*iu*u*m1y+u*u*cy;
-        let pg=ctx.createRadialGradient(px,py,0,px,py,10);pg.addColorStop(0,'rgba(220,240,200,'+(.55*(1-u))+')');pg.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=pg;ctx.fillRect(px-10,py-10,20,20);
+        let pg=ctx.createRadialGradient(px,py,0,px,py,10);pg.addColorStop(0,'rgba(255,214,170,'+(.55*(1-u))+')');pg.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=pg;ctx.fillRect(px-10,py-10,20,20);
       });
       // nodes
       P.forEach((p,i)=>{const r=3+3*p.d;let ng=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,r*6);ng.addColorStop(0,'rgba('+gold+','+(.5+.4*p.d)+')');ng.addColorStop(.25,'rgba('+sage+','+(.18+.2*p.d)+')');ng.addColorStop(1,'rgba(0,0,0,0)');
@@ -1045,7 +1053,7 @@ h2.sweep{box-shadow:none!important}
       ctx.globalCompositeOperation='source-over';
       // division names beside their nodes
       ctx.font='600 '+(mob?10:12)+'px Manrope,Arial,sans-serif';ctx.textAlign='center';
-      P.forEach((p,i)=>{ctx.fillStyle='rgba(65,105,225,'+(.25+.6*p.d)+')';ctx.fillText(('POV '+nodes[i].n).toUpperCase(),p.x,p.y-16-6*p.d)});
+      P.forEach((p,i)=>{ctx.fillStyle='rgba(255,214,170,'+(.3+.6*p.d)+')';ctx.fillText(('POV '+nodes[i].n).toUpperCase(),p.x,p.y-16-6*p.d)});
     };
     size();addEventListener('resize',size);if(!reduce)requestAnimationFrame(frame);else window.__ecoV=0;
   })();
