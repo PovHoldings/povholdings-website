@@ -9,7 +9,30 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Manrope:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="pov.css">
-<style id="acc">:root{--gold:#c49a6c}.hero::after{background:radial-gradient(circle,rgba(150,104,62,.18),transparent 65%)!important}.slab{box-shadow:0 0 0 1px rgba(150,104,62,.22),inset 0 1px 0 rgba(255,255,255,.06),0 30px 60px -30px rgba(0,0,0,1)!important}.slab::before,.nav::before{background:linear-gradient(90deg,transparent,rgba(150,104,62,.7),transparent)!important}.partner{margin-top:14px;display:inline-flex;gap:8px;align-items:center;font:600 13px/1 var(--sans);letter-spacing:.06em;color:var(--grey);padding:9px 14px;border-radius:999px;box-shadow:0 0 0 1px rgba(150,104,62,.4)}.partner b{color:var(--gold);font-weight:700}</style>
+<style id="acc">:root{--gold:#c49a6c}.hero::after{background:radial-gradient(circle,rgba(150,104,62,.18),transparent 65%)!important}.slab{box-shadow:0 0 0 1px rgba(150,104,62,.22),inset 0 1px 0 rgba(255,255,255,.06),0 30px 60px -30px rgba(0,0,0,1)!important}.slab::before,.nav::before{background:linear-gradient(90deg,transparent,rgba(150,104,62,.7),transparent)!important}.partner{margin-top:14px;display:inline-flex;gap:8px;align-items:center;font:600 13px/1 var(--sans);letter-spacing:.06em;color:var(--grey);padding:9px 14px;border-radius:999px;box-shadow:0 0 0 1px rgba(150,104,62,.4)}.partner b{color:var(--gold);font-weight:700}.shop{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(22px,4vw,56px);align-items:center}
+@media (max-width:820px){.shop{grid-template-columns:1fr}}
+.tee-stage{position:relative;aspect-ratio:1/1;border-radius:28px;background:radial-gradient(70% 60% at 50% 40%,rgba(255,140,26,.12),transparent 70%),linear-gradient(160deg,#202024,#141416);box-shadow:0 0 0 1px rgba(150,104,62,.25),0 30px 60px -30px rgba(0,0,0,1);display:grid;place-items:center;overflow:hidden}
+.tee-stage svg{width:78%;height:auto;filter:drop-shadow(0 30px 40px rgba(0,0,0,.55));transition:transform .5s var(--ease)}
+.tee-stage:hover svg{transform:translateY(-6px) rotate(-1deg)}
+.tee-body{transition:fill .45s var(--ease)}
+.tee-badge{position:absolute;left:18px;top:18px;font:600 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(196,154,108,.4);border-radius:999px;padding:8px 12px}
+.shop h2{font-size:clamp(34px,4vw,52px)}
+.shop .amt{font:800 clamp(34px,4vw,48px)/1 var(--display);color:var(--ink);margin:14px 0 4px}
+.shop .opt{margin-top:24px}
+.shop .opt>span{display:block;font:600 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--grey);margin-bottom:12px}
+.shop .opt b{color:var(--ink);letter-spacing:.04em;text-transform:none;font-size:14px;margin-left:6px}
+.sw{display:flex;gap:12px;flex-wrap:wrap}
+.sw button{width:44px;height:44px;border-radius:50%;border:0;cursor:pointer;box-shadow:0 0 0 1px rgba(255,255,255,.18);transition:box-shadow .25s,transform .25s}
+.sw button[aria-pressed="true"]{box-shadow:0 0 0 2px #141416,0 0 0 4px #ff8c1a;transform:scale(1.05)}
+.sz{display:flex;gap:10px;flex-wrap:wrap}
+.sz button{min-width:56px;height:46px;padding:0 16px;border-radius:999px;border:0;background:#1c1c20;color:var(--ink);font:600 15px/1 var(--sans);cursor:pointer;box-shadow:0 0 0 1px var(--hair);transition:box-shadow .25s,background .25s}
+.sz button[aria-pressed="true"]{background:#0d0d0f;box-shadow:0 0 0 1px #ff8c1a,0 0 14px -2px rgba(255,140,26,.55)}
+.qty{display:inline-flex;align-items:center;border-radius:999px;box-shadow:0 0 0 1px var(--hair);background:#1c1c20}
+.qty button{width:44px;height:44px;border:0;background:none;color:var(--ink);font-size:20px;cursor:pointer}
+.qty output{min-width:28px;text-align:center;font-weight:600}
+.buy-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:28px}
+.shop .fine{margin-top:14px}
+</style>
 </head>
 <body>
 <header><div class="nav"><a class="back" href="../index.html">← POV Holdings</a><span class="brandname"><span>POV</span> Collection</span><a class="arrow" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20to%20find%20out%20more%20about%20POV%20Collection." target="_blank" rel="noopener">Get in touch <i>→</i></a></div></header>
@@ -17,18 +40,37 @@
   <section class="hero"><div class="wrap">
     <p class="kicker">Clothing range</p>
     <h1><span>POV</span>Collection</h1>
-    <p class="lede">The POV clothing range. Clean, minimal pieces for the people behind the camera and on the showroom floor.</p>
-    <div class="hero-row"><a class="pill" href="#pricing">See pricing <i>→</i></a><a class="arrow" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20to%20find%20out%20more%20about%20POV%20Collection." target="_blank" rel="noopener">WhatsApp us <i>↗</i></a></div>
+    <p class="lede">The Frame Tee. Clean, minimal and made for the people behind the camera and on the showroom floor. R599, in three colourways.</p>
+    <div class="hero-row"><a class="pill" href="#shop">Shop the Frame Tee <i>→</i></a><a class="arrow" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20to%20find%20out%20more%20about%20POV%20Collection." target="_blank" rel="noopener">WhatsApp us <i>↗</i></a></div>
     <div class="vid" id="video"><div class="vid-ph"><span class="vid-play" aria-hidden="true"></span><b>Robert on POV Collection</b><span>Video coming soon</span></div></div>
   </div></section>
   <div class="tabs-wrap"><div class="wrap"><nav class="tabs" aria-label="POV Collection pages"><a href="#overview">Overview</a><a href="#pricing">Pricing</a><a href="#stories">Clients &amp; stories</a></nav></div></div>
 
   <section class="view wrap" id="v-overview" data-view="overview">
-    <div class="block"><h2>What you get</h2><div class="grid3"><article class="slab feature"><span class="num">01</span><h3>Minimal by design</h3><p>Clean cuts and quiet branding that go with anything.</p></article><article class="slab feature"><span class="num">02</span><h3>Ivory</h3><p>Our signature colourway. Never just white.</p></article><article class="slab feature"><span class="num">03</span><h3>Limited drops</h3><p>Small runs, released in drops.</p></article></div></div>
-    <div class="block"><h2>How it works</h2><div class="steps"><div class="step"><b>Drop</b><span>We announce each drop on our socials.</span></div><div class="step"><b>Order</b><span>Message us to reserve your size.</span></div><div class="step"><b>Pay</b><span>Pay securely once your order is confirmed.</span></div><div class="step"><b>Wear</b><span>Delivered to your door.</span></div></div></div>
+    <div class="block" id="shop"><div class="shop">
+      <div class="tee-stage"><span class="tee-badge" id="teeName">Executive</span>
+        <svg viewBox="0 0 200 200" aria-hidden="true"><path class="tee-body" id="teeBody" d="M60 18 L88 8 C96 22 124 22 132 8 L160 18 L196 52 L172 82 L156 70 L156 192 L44 192 L44 70 L28 82 L4 52 Z" fill="#121214" stroke="rgba(255,255,255,.14)" stroke-width="1"/><path d="M88 8 C96 22 124 22 132 8" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="2"/><text id="teeMark" x="100" y="86" text-anchor="middle" font-family="Big Shoulders Display,Arial Narrow,sans-serif" font-weight="900" font-size="22" letter-spacing="1" fill="#f5f2ea">POV</text></svg></div>
+      <div>
+        <p class="kicker">POV Collection</p><h2 style="margin-top:12px">The Frame Tee</h2>
+        <p class="amt">R599</p><p class="sub" style="margin:0">Per shirt. Named after the POV frame: minimal branding, everyday fit.</p>
+        <div class="opt"><span>Colour <b id="colLbl">Executive</b></span><div class="sw" role="group" aria-label="Colour">
+          <button type="button" data-c="Executive" data-hex="#121214" data-ink="#f5f2ea" style="background:#121214" aria-label="Executive (black)" aria-pressed="true"></button>
+          <button type="button" data-c="Ivory" data-hex="#f3efe6" data-ink="#141416" style="background:#f3efe6" aria-label="Ivory (white)" aria-pressed="false"></button>
+          <button type="button" data-c="Greyston" data-hex="#6e6e72" data-ink="#f5f2ea" style="background:#6e6e72" aria-label="Greyston (grey)" aria-pressed="false"></button></div></div>
+        <div class="opt"><span>Size <b id="szLbl">Choose a size</b></span><div class="sz" role="group" aria-label="Size"><button type="button" aria-pressed="false">S</button><button type="button" aria-pressed="false">M</button><button type="button" aria-pressed="false">L</button><button type="button" aria-pressed="false">XL</button></div></div>
+        <div class="opt"><span>Quantity</span><div class="qty"><button type="button" id="qMinus" aria-label="Less">−</button><output id="qOut">1</output><button type="button" id="qPlus" aria-label="More">+</button></div></div>
+        <div class="buy-row"><a class="pill" id="buyTee" href="#" target="_blank" rel="noopener">Order · R599 <i>→</i></a><span class="fine" id="buyMsg" style="margin:0"></span></div>
+        <p class="fine">Orders are confirmed on WhatsApp, with delivery arranged anywhere in South Africa. 7-day returns on unworn items. <a href="../legal.html#refunds" style="text-decoration:underline;text-underline-offset:3px">Refund policy</a></p>
+      </div></div></div>
+    <div class="block"><h2>What you get</h2><div class="grid3"><article class="slab feature"><span class="num">01</span><h3>Minimal by design</h3><p>Clean cuts and quiet branding that go with anything.</p></article><article class="slab feature"><span class="num">02</span><h3>Three colourways</h3><p>Executive in black, Ivory in white and Greyston in grey.</p></article><article class="slab feature"><span class="num">03</span><h3>Limited drops</h3><p>Small runs, released in drops.</p></article></div></div>
+    <div class="block"><h2>How it works</h2><div class="steps"><div class="step"><b>Drop</b><span>We announce each drop on our socials.</span></div><div class="step"><b>Order</b><span>Pick your colour and size, then order.</span></div><div class="step"><b>Pay</b><span>Pay securely once we confirm your order.</span></div><div class="step"><b>Wear</b><span>Delivered to your door.</span></div></div></div>
   </section>
   <section class="view wrap" id="v-pricing" data-view="pricing" hidden>
-    <div class="block"><h2>Pricing</h2><p class="sub">Every package is quoted to fit you. Pick the one closest to what you need and we'll come back to you the same working day.</p><div class="grid3"><article class="slab price hot"><span class="tag">Ivory</span><h3>POV Tee</h3><p class="amt">Price on enquiry</p><ul><li>Signature POV tee</li><li>Ivory colourway</li><li>Sizes on request</li></ul><a class="arrow" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20a%20quote%20for%20POV%20Collection%3A%20POV%20Tee." target="_blank" rel="noopener">Get a quote <i>→</i></a></article><article class="slab price"><span class="tag">For dealer teams</span><h3>Team order</h3><p class="amt">Price on enquiry</p><ul><li>Kit for your whole sales floor</li><li>Bulk sizing</li><li>Delivered to your dealership</li></ul><a class="arrow" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20a%20quote%20for%20POV%20Collection%3A%20Team%20order." target="_blank" rel="noopener">Get a quote <i>→</i></a></article><article class="slab price"><span class="tag">Coming soon</span><h3>Next drop</h3><p class="amt">Price on enquiry</p><ul><li>Be first to hear about new pieces</li><li>Early access for the POV community</li></ul><a class="arrow" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20a%20quote%20for%20POV%20Collection%3A%20Next%20drop." target="_blank" rel="noopener">Get a quote <i>→</i></a></article></div></div>
+    <div class="block"><h2>Pricing</h2><p class="sub">One tee, one price. Delivery is confirmed with your order.</p><div class="grid3">
+      <article class="slab price hot"><span class="tag">Executive · black</span><h3>Frame Tee</h3><p class="amt">R599</p><ul><li>Sizes S, M, L, XL</li><li>Minimal POV branding</li><li>Delivered anywhere in SA</li></ul><a class="pill" href="#shop" data-pick="Executive">Order Executive <i>→</i></a></article>
+      <article class="slab price"><span class="tag">Ivory · white</span><h3>Frame Tee</h3><p class="amt">R599</p><ul><li>Sizes S, M, L, XL</li><li>Our signature colourway</li><li>Delivered anywhere in SA</li></ul><a class="pill" href="#shop" data-pick="Ivory">Order Ivory <i>→</i></a></article>
+      <article class="slab price"><span class="tag">Greyston · grey</span><h3>Frame Tee</h3><p class="amt">R599</p><ul><li>Sizes S, M, L, XL</li><li>Minimal POV branding</li><li>Delivered anywhere in SA</li></ul><a class="pill" href="#shop" data-pick="Greyston">Order Greyston <i>→</i></a></article>
+    </div><p class="fine" style="margin-top:18px">Ordering for a dealership team? WhatsApp us for team orders.</p></div>
   </section>
   <section class="view wrap" id="v-stories" data-view="stories" hidden>
     <div class="block"><p class="kicker">Clients</p><h2 style="margin-top:14px">Who we work with</h2><p class="sub">POV Collection is new. The first clients will be listed here.</p></div>
@@ -52,6 +94,25 @@
   if(!views0.includes((location.hash||'').slice(1)))scrollTo(0,0);
   addEventListener('pageshow',()=>{if(!views0.includes((location.hash||'').slice(1)))scrollTo(0,0)});
   addEventListener('hashchange',show);show();window.__ready=true;scrollTo(0,0);
+})();
+</script>
+<script>
+window.POV_SHOP_URL=window.POV_SHOP_URL||''; // Shopify product link goes here once the store is live
+(function(){
+  const body=document.getElementById('teeBody'),mark=document.getElementById('teeMark'),nm=document.getElementById('teeName'),cl=document.getElementById('colLbl'),sl=document.getElementById('szLbl'),q=document.getElementById('qOut'),buy=document.getElementById('buyTee'),msg=document.getElementById('buyMsg');
+  if(!body)return;let col='Executive',size='',n=1;
+  const sw=[...document.querySelectorAll('.sw button')],sz=[...document.querySelectorAll('.sz button')];
+  const setCol=c=>{const b=sw.find(x=>x.dataset.c===c);if(!b)return;col=c;sw.forEach(x=>x.setAttribute('aria-pressed',x===b));body.setAttribute('fill',b.dataset.hex);mark.setAttribute('fill',b.dataset.ink);nm.textContent=c;cl.textContent=c;upd()};
+  const upd=()=>{q.textContent=n;buy.innerHTML='Order · R'+(599*n).toLocaleString('en-ZA').replace(/,/g,' ')+' <i>→</i>';
+    if(window.POV_SHOP_URL){buy.href=window.POV_SHOP_URL;return}
+    const t='Hi POV, I\'d like to order the POV Frame Tee: '+n+' × '+col+', size '+(size||'?')+' (R'+599*n+').';buy.href='https://wa.me/27786880944?text='+encodeURIComponent(t)};
+  sw.forEach(b=>b.addEventListener('click',()=>setCol(b.dataset.c)));
+  sz.forEach(b=>b.addEventListener('click',()=>{size=b.textContent;sz.forEach(x=>x.setAttribute('aria-pressed',x===b));sl.textContent=size;msg.textContent='';upd()}));
+  document.getElementById('qMinus').addEventListener('click',()=>{n=Math.max(1,n-1);upd()});
+  document.getElementById('qPlus').addEventListener('click',()=>{n=Math.min(20,n+1);upd()});
+  buy.addEventListener('click',e=>{if(!size){e.preventDefault();msg.textContent='Choose a size first.';return}try{(window.dataLayer=window.dataLayer||[]).push({event:'cta_clicked',cta:'order_tee',colour:col,size:size,qty:n})}catch(_){}});
+  document.querySelectorAll('[data-pick]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();setCol(a.dataset.pick);location.hash='#overview';setTimeout(()=>{const el=document.getElementById('shop');scrollTo({top:el.getBoundingClientRect().top+scrollY-150,behavior:'smooth'})},250)}));
+  upd();
 })();
 </script>
 </body>
