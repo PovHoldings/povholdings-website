@@ -169,6 +169,45 @@ body{background:var(--bg)}
 .sbar span s{color:#77736b}
 .sbar .btn{height:48px;padding:0 22px;font-size:12px}
 footer{padding-bottom:120px}
+/* save chip, inline CTAs, client strip */
+.save{display:inline-block;font:800 10.5px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:#0b0b0d;background:var(--neon);padding:7px 10px;border-radius:6px;margin-left:6px}
+.icta{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-top:34px;padding:18px 18px 18px 26px;border-radius:999px;background:linear-gradient(90deg,rgba(255,140,26,.12),rgba(255,140,26,.02));box-shadow:0 0 0 1px rgba(255,140,26,.35)}
+.icta p{margin:0;font:700 15px/1.3 var(--sans)}.icta p span{color:var(--grey);font-weight:500}
+.icta .btn{height:52px;padding:0 26px;font-size:12px}
+@media (max-width:600px){.icta{border-radius:24px;padding:18px}.icta .btn{width:100%}}
+.clients{overflow:hidden;white-space:nowrap;padding:18px 0;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.clients div{display:inline-flex;gap:46px;padding-right:46px;animation:tick 40s linear infinite;font:700 13px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#8d8980}
+@keyframes tick{to{transform:translateX(-50%)}}
+.clients-l{text-align:center;font:700 10px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:#5f5c56;margin:26px 0 0}
+/* checkout drawer */
+.co{position:fixed;inset:0;z-index:80;display:flex;justify-content:flex-end;background:rgba(0,0,0,.6);opacity:0;pointer-events:none;transition:opacity .35s}
+.co.on{opacity:1;pointer-events:auto}
+.co-p{width:min(460px,100%);height:100%;overflow-y:auto;background:linear-gradient(180deg,#141417,#0b0b0d);box-shadow:-1px 0 0 rgba(255,140,26,.45),-40px 0 120px rgba(0,0,0,.7);padding:26px clamp(20px,4vw,34px) 34px;transform:translateX(100%);transition:transform .45s var(--ease)}
+.co.on .co-p{transform:none}
+@media (max-width:560px){.co{align-items:flex-end}.co-p{height:auto;max-height:92vh;border-radius:26px 26px 0 0;transform:translateY(100%)}}
+.co-h{display:flex;justify-content:space-between;align-items:center}
+.co-h b{font:800 11px/1 var(--sans);letter-spacing:.28em;text-transform:uppercase;color:var(--neon)}
+.co-x{width:40px;height:40px;border-radius:50%;border:0;background:#1d1d21;color:#fff;font-size:22px;cursor:pointer}
+.co-sum{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;margin-top:22px;padding:16px;border-radius:18px;background:#18181c;box-shadow:0 0 0 1px var(--hair)}
+.co-sum .ic{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;background:radial-gradient(circle,rgba(255,140,26,.25),rgba(255,140,26,.05));font:600 20px/1 var(--serif);color:#fff;box-shadow:0 0 0 1px rgba(255,140,26,.45)}
+.co-sum strong{display:block;font:700 15px/1.2 var(--sans)}.co-sum small{color:var(--grey);font-size:12.5px}
+.co-sum .pr{text-align:right}.co-sum .pr s{display:block;color:#6f6b64;font-size:12px}.co-sum .pr b{font:600 24px/1 var(--serif)}
+.co-inc{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:8px;font-size:13.5px;color:#c9c5bb}
+.co-inc li::before{content:"✓";color:var(--neon);font-weight:800;margin-right:9px}
+.co form{margin-top:22px;display:grid;gap:12px}
+.co label{display:grid;gap:6px;font:700 10.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--grey)}
+.co input[type=text],.co input[type=email],.co input[type=tel]{height:52px;border-radius:14px;border:0;background:#1b1b1f;color:#fff;padding:0 16px;font:500 16px var(--sans);box-shadow:0 0 0 1px var(--hair);outline:none;transition:box-shadow .2s;letter-spacing:0;text-transform:none}
+.co input:focus{box-shadow:0 0 0 1px var(--neon),0 0 18px -6px rgba(255,140,26,.6)}
+.co input.bad{box-shadow:0 0 0 1px #f2706a}
+.co .agree{display:flex;gap:10px;align-items:flex-start;font:500 12.5px/1.45 var(--sans);letter-spacing:0;text-transform:none;color:#a9a59c}
+.co .agree input{margin-top:2px;width:18px;height:18px;accent-color:#ff8c1a;flex:none}
+.co .agree a{color:inherit;text-decoration:underline}
+.co .tot2{display:flex;justify-content:space-between;align-items:baseline;padding-top:12px;border-top:1px solid var(--hair);margin-top:4px}
+.co .tot2 span{color:var(--grey);font-size:13px}.co .tot2 b{font:600 30px/1 var(--serif)}
+.co .btn{width:100%;height:58px;margin-top:4px}
+.co .err{color:#f2a08a;font-size:13px;min-height:1em;margin:0}
+.co .sec-n{display:flex;justify-content:center;gap:14px;color:#6f6b64;font:700 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;margin-top:10px}
+
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
@@ -179,7 +218,7 @@ footer{padding-bottom:120px}
 <header class="nv"><div class="w">
   <a class="logo" href="../index.html" aria-label="POV Holdings home"><b>POV<i>✦</i></b><span>Growth</span></a>
   <nav aria-label="Page"><a href="#inside">What's inside</a><a href="#robert">Robert</a><a href="#offer">The offer</a><a href="#faq">FAQ</a></nav>
-  <a class="btn buy" href="#offer" data-go="offer">Enrol · R1 999</a>
+  <a class="btn buy" href="#checkout" data-buy>Enrol · R1 999</a>
 </div></header>
 <main>
   <section class="hero2"><div class="w hgrid">
@@ -188,8 +227,8 @@ footer{padding-bottom:120px}
       <h1>Your phone<br>is a <em>business.</em></h1>
       <p class="sub">The exact playbook behind POV: how to shoot content people pay for, win and keep clients, grow on social media and scale it into a real business. Built from 100+ dealerships, all 9 provinces and over 1.8 million pictures.</p>
       <div class="offer">
-        <a class="btn buy" href="#offer" data-go="offer">Get instant access <i>→</i></a>
-        <div class="pricebox"><s>R2 999</s><b>R1 999</b><span>once-off</span></div>
+        <a class="btn buy" href="#checkout" data-buy>Get instant access <i>→</i></a>
+        <div class="pricebox"><s>R2 999</s><b>R1 999</b><span>once-off</span><em class="save">Save R1 000</em></div>
       </div>
       <ul class="trust"><li>Instant access</li><li>Lifetime access</li><li>Learn on your phone</li><li>Secure checkout</li></ul>
     </div>
@@ -202,6 +241,7 @@ footer{padding-bottom:120px}
     <div><b id="pics">1.8M+</b><span>Pictures taken</span></div>
     <div><b>120+</b><span>Salespeople coached</span></div>
   </div></div>
+  <div class="w"><p class="clients-l">The playbook behind POV's work for</p><div class="clients" aria-label="POV clients"><div><span>Hatfield Motor Group</span><span>McCarthy Group</span><span>Fouché Motors Sandton</span><span>Ferrari Johannesburg</span><span>GAC &amp; JMC South Africa</span><span>Audi Centre Hatfield</span><span>Hatfield VW Bryanston</span><span>Hatfield VW Pretoria</span><span>Jetour Menlyn</span><span>Hatfield Motor Group</span><span>McCarthy Group</span><span>Fouché Motors Sandton</span><span>Ferrari Johannesburg</span><span>GAC &amp; JMC South Africa</span><span>Audi Centre Hatfield</span><span>Hatfield VW Bryanston</span><span>Hatfield VW Pretoria</span><span>Jetour Menlyn</span></div></div></div>
 
   <section class="sec reveal"><div class="w center">
     <p class="lbl">Is this for you?</p>
@@ -236,6 +276,7 @@ footer{padding-bottom:120px}
       <details class="mod"><summary><span class="n">05</span><h3>Meta ads<small>Run ads that bring in leads and sales.</small></h3><span class="pl">+</span></summary><ul><li>Setting up campaigns the right way</li><li>Ads for yourself and for your clients</li><li>Reading the numbers that matter</li></ul></details>
       <details class="mod"><summary><span class="n">06</span><h3>Scaling a content &amp; camera business<small>From side income to a team.</small></h3><span class="pl">+</span></summary><ul><li>Systems that let you take on more clients</li><li>Hiring and training your first shooters</li><li>How POV grew to a team of 15 and 100+ clients a month</li></ul></details>
     </div>
+    <div class="icta"><p>All 6 modules, instantly. <span>Lifetime access, every future update.</span></p><a class="btn buy" href="#checkout" data-buy>Get instant access · R1 999 <i>→</i></a></div>
   </div></section>
 
   <section class="sec reveal" style="padding-top:0"><div class="center w"><p class="lbl">The proof</p><h2>Content like this pays <span class="it">every week.</span></h2><p class="sub">Real reels POV made for South African dealerships. This is the standard the course teaches you to hit.</p></div>
@@ -257,6 +298,7 @@ footer{padding-bottom:120px}
         <div><b>9/9</b>Provinces</div>
         <div><b>6</b>POV divisions</div>
       </div>
+      <div class="icta"><p>Learn the blueprint behind POV. <span>R1 999 once-off.</span></p><a class="btn buy" href="#checkout" data-buy>Get instant access · R1 999 <i>→</i></a></div>
     </div>
   </div></section>
 
@@ -275,7 +317,7 @@ footer{padding-bottom:120px}
         <p class="was">Total value <s>R2 999</s></p>
         <p class="now"><small>R</small>1 999</p>
         <p>Once-off. No subscription. Yours for life.</p>
-        <a class="btn buy" id="buyBtn" href="#" target="_blank" rel="noopener">Get the POV Package <i>→</i></a>
+        <a class="btn buy" id="buyBtn" href="#checkout" data-buy>Get instant access <i>→</i></a>
         <div class="payicons"><span>Secure checkout</span><span>·</span><span>Instant access</span></div>
       </div>
     </div>
@@ -307,9 +349,26 @@ footer{padding-bottom:120px}
     </div>
   </div></section>
 
-  <section class="final reveal"><div class="w"><p class="lbl">See it differently</p><h2>Your phone is <em>already</em><br>in your hand.</h2><p class="sub" style="margin:22px auto 34px;color:#bdb9b0">R1 999 once-off. Instant, lifetime access.</p><a class="btn buy" href="#offer" data-go="offer">Get the POV Package <i>→</i></a></div></section>
+  <section class="final reveal"><div class="w"><p class="lbl">See it differently</p><h2>Your phone is <em>already</em><br>in your hand.</h2><p class="sub" style="margin:22px auto 34px;color:#bdb9b0">R1 999 once-off. Instant, lifetime access.</p><a class="btn buy" href="#checkout" data-buy>Get instant access <i>→</i></a></div></section>
 </main>
-<div class="sbar" id="sbar" aria-hidden="true"><div><b>The POV Package</b><span><s>R2 999</s> R1 999 once-off</span></div><a class="btn buy" href="#offer" data-go="offer" tabindex="-1">Enrol now</a></div>
+<div class="sbar" id="sbar" aria-hidden="true"><div><b>The POV Package</b><span><s>R2 999</s> R1 999 once-off</span></div><a class="btn buy" href="#checkout" data-buy tabindex="-1">Enrol now</a></div>
+<div class="co" id="co" role="dialog" aria-modal="true" aria-labelledby="coT" aria-hidden="true">
+  <div class="co-p">
+    <div class="co-h"><b id="coT">Secure checkout</b><button class="co-x" type="button" id="coX" aria-label="Close">×</button></div>
+    <div class="co-sum"><span class="ic">POV</span><div><strong>The POV Package</strong><small>6 modules · lifetime access</small></div><div class="pr"><s>R2 999</s><b>R1 999</b></div></div>
+    <ul class="co-inc"><li>Instant access on your phone</li><li>All 6 modules + every future update</li><li>Objection-handling scripts and Meta ads module</li></ul>
+    <form id="coF" novalidate>
+      <label>Full name<input type="text" id="coN" autocomplete="name" required></label>
+      <label>Email (for your access details)<input type="email" id="coE" autocomplete="email" inputmode="email" required></label>
+      <label>WhatsApp number<input type="tel" id="coP" autocomplete="tel" inputmode="tel" placeholder="082 123 4567" required></label>
+      <label class="agree"><input type="checkbox" id="coA"> <span>I agree to the <a href="../legal.html#terms" target="_blank">Terms</a> and <a href="../legal.html#privacy" target="_blank">Privacy policy</a>, and understand access starts straight away (7-day refund only if unopened).</span></label>
+      <div class="tot2"><span>Total today</span><b>R1 999</b></div>
+      <p class="err" id="coErr" aria-live="polite"></p>
+      <button class="btn" type="submit" id="coGo">Pay R1 999 securely <i>→</i></button>
+      <div class="sec-n"><span>🔒 Secure</span><span>·</span><span>Instant access</span><span>·</span><span>Once-off</span></div>
+    </form>
+  </div>
+</div>
 <footer><div class="wrap"><span>© 2026 POV Holdings · POV Growth</span><nav class="flegal" aria-label="Legal"><a href="../legal.html#terms">Terms</a><a href="../legal.html#privacy">Privacy</a><a href="../legal.html#refunds">Refunds</a><a href="../legal.html#company">Company info</a></nav></div></footer>
 <script>
 (function(){
@@ -321,10 +380,28 @@ footer{padding-bottom:120px}
   let consent=null;try{consent=localStorage.getItem('pov_consent')}catch(_){}
   const fbq=(...a)=>{try{if(window.fbq)window.fbq(...a)}catch(_){}};
   if(window.POV_PIXEL_ID&&consent==='all'){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');window.fbq('init',window.POV_PIXEL_ID);window.fbq('track','PageView');window.fbq('track','ViewContent',{content_name:'POV Package',value:1999,currency:'ZAR'})}
-  // checkout: Shopify when live, WhatsApp until then
+  // checkout drawer: name, email, WhatsApp, then Shopify checkout (or WhatsApp until the store is live)
   const url=window.POV_PACKAGE_URL,ref=attr.utm_campaign?' [ad: '+attr.utm_campaign+']':'';
-  const buy=$('buyBtn');buy.href=url||'https://wa.me/27786880944?text='+encodeURIComponent("Hi POV, I'd like to buy the POV Package (R1 999 once-off)."+ref);
-  buy.addEventListener('click',()=>{dl('cta_clicked',{cta:'buy_pov_package',channel:url?'shopify':'whatsapp',value:1999});fbq('track','InitiateCheckout',{content_name:'POV Package',value:1999,currency:'ZAR'})});
+  const co=$('co'),coF=$('coF');let lastF=null;
+  $('coGo').innerHTML=url?'Pay R1 999 securely <i>→</i>':'Complete my order <i>→</i>';
+  const openCo=src=>{lastF=document.activeElement;co.classList.add('on');co.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';setTimeout(()=>$('coN').focus({preventScroll:true}),350);
+    dl('cta_clicked',{cta:'open_checkout',place:src||'page'});fbq('track','AddToCart',{content_name:'POV Package',value:1999,currency:'ZAR'})};
+  const closeCo=()=>{co.classList.remove('on');co.setAttribute('aria-hidden','true');document.body.style.overflow='';if(lastF&&lastF.focus)lastF.focus({preventScroll:true})};
+  document.querySelectorAll('[data-buy]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();openCo(a.closest('section,header,.sbar')?.className||'')}));
+  $('coX').addEventListener('click',closeCo);co.addEventListener('click',e=>{if(e.target===co)closeCo()});addEventListener('keydown',e=>{if(e.key==='Escape'&&co.classList.contains('on'))closeCo()});
+  try{const d=JSON.parse(localStorage.getItem('pov_co')||'{}');if(d.n)$('coN').value=d.n;if(d.e)$('coE').value=d.e;if(d.p)$('coP').value=d.p}catch(_){}
+  coF.addEventListener('submit',e=>{e.preventDefault();const N=$('coN'),E=$('coE'),P=$('coP');let bad=null;
+    [N,E,P].forEach(i=>i.classList.remove('bad'));
+    if(N.value.trim().length<2)bad=N;else if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(E.value.trim()))bad=E;else if(P.value.replace(/\D/g,'').length<9)bad=P;
+    if(bad){bad.classList.add('bad');bad.focus();$('coErr').textContent=bad===N?'Please enter your name.':bad===E?'Please enter a valid email.':'Please enter your WhatsApp number.';return}
+    if(!$('coA').checked){$('coErr').textContent='Please tick the box to continue.';return}
+    $('coErr').textContent='';const n=N.value.trim(),em=E.value.trim(),ph=P.value.trim();
+    try{localStorage.setItem('pov_co',JSON.stringify({n,e:em,p:ph}))}catch(_){}
+    dl('begin_checkout',{value:1999,currency:'ZAR',channel:url?'shopify':'whatsapp'});fbq('track','InitiateCheckout',{content_name:'POV Package',value:1999,currency:'ZAR'});
+    if(url){const u=new URL(url,location.href);u.searchParams.set('checkout[email]',em);u.searchParams.set('checkout[shipping_address][first_name]',n.split(' ')[0]);u.searchParams.set('checkout[shipping_address][last_name]',n.split(' ').slice(1).join(' '));u.searchParams.set('checkout[shipping_address][phone]',ph);location.href=u.toString();return}
+    const t="Hi POV, I'd like to buy the POV Package (R1 999 once-off).\nName: "+n+"\nEmail: "+em+"\nWhatsApp: "+ph+ref;
+    window.open('https://wa.me/27786880944?text='+encodeURIComponent(t),'_blank','noopener');
+    $('coErr').textContent='';$('coGo').innerHTML='Opened WhatsApp. Send the message to finish ✓'});
   const go=id=>{const el=$(id);scrollTo({top:el.getBoundingClientRect().top+scrollY-80,behavior:'smooth'})};
   document.querySelectorAll('[data-go]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();go(a.dataset.go);dl('cta_clicked',{cta:'enrol_scroll'})}));
   // live picture counter (same as home page)
