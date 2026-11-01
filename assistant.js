@@ -4,6 +4,15 @@
   const inDiv=/\/divisions\//.test(location.pathname);
   const R=inDiv?'../':'';                 // path to site root
   const page=(location.pathname.split('/').pop()||'index.html').replace('.html','');
+
+  // remember where you are, so an outside reload (e.g. a site update) brings you back here instead of the home page
+  try{
+    if(page!=='index')sessionStorage.setItem('pov_last',JSON.stringify({u:location.href.split('#')[0]+(location.hash||''),t:Date.now()}));
+    else sessionStorage.removeItem('pov_last');
+    addEventListener('hashchange',()=>{if(page!=='index')sessionStorage.setItem('pov_last',JSON.stringify({u:location.href,t:Date.now()}))});
+    document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('a[href]');if(!a)return;const h=a.getAttribute('href')||'';
+      if(/(^|\/)index\.html(#.*)?$/.test(h)){sessionStorage.setItem('pov_home','1');sessionStorage.removeItem('pov_last')}},true);
+  }catch(_){}
   const WA='https://wa.me/27786880944?text=';
   const L=(href,t)=>'<a href="'+R+href+'">'+t+'</a>';
   const W=(t,msg)=>'<a href="'+WA+encodeURIComponent(msg||'Hi POV, I have a question.')+'" target="_blank" rel="noopener">'+t+'</a>';
