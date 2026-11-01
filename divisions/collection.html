@@ -8,7 +8,7 @@
 <meta name="description" content="The Frame Tee by POV. Heavyweight, oversized, embroidered. R599 in Executive, Ivory and Greyston. See it differently.">
 <meta property="og:title" content="The Frame Tee · POV Collection">
 <meta property="og:description" content="Heavyweight. Embroidered. Oversized. R599. See it differently.">
-<meta property="og:image" content="../work/collection/executive-front.jpg?v=2">
+<meta property="og:image" content="../work/collection/banner-executive.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Manrope:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="pov.css">
@@ -48,10 +48,15 @@ body{padding-bottom:0}
 .tile figcaption,.tile .cap{position:absolute;left:0;right:0;bottom:0;padding:44px 16px 16px;background:linear-gradient(transparent,rgba(0,0,0,.82));text-align:left;color:#fff}
 .tile .cap b{display:block;font:900 clamp(20px,2.6vw,32px)/1 var(--display);text-transform:uppercase;letter-spacing:.02em}
 .tile .cap span{font-size:13px;color:#d6d2c8}
-@media (max-width:640px){.tile{border-radius:16px}.tile .cap{padding:30px 8px 10px;text-align:center}.tile .cap b{font-size:clamp(13px,4vw,18px);letter-spacing:.04em}.tile .cap span{display:none}.lp-photo{aspect-ratio:4/4.4}}
+@media (max-width:640px){.tile{border-radius:16px}.tile .cap{padding:30px 8px 10px;text-align:center}.tile .cap b{font-size:clamp(13px,4vw,18px);letter-spacing:.04em}.tile .cap span{display:none}#buyPhoto{aspect-ratio:4/4.4}}
 .sec{padding-block:clamp(48px,7vw,96px)}
 .sec h2{font-size:clamp(34px,4.4vw,56px)}
 .sec .sub{margin-top:12px}
+.look{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.look button{padding:0;border:0;border-radius:22px;overflow:hidden;cursor:pointer;background:#1c1c20;box-shadow:0 0 0 1px var(--hair);transition:transform .5s var(--ease),box-shadow .4s}
+.look button:hover{transform:translateY(-6px);box-shadow:0 0 0 1px var(--neon),0 30px 60px -30px rgba(255,140,26,.45)}
+.look img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+@media (max-width:760px){.look{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:78%;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(-1*var(--gl));padding-inline:var(--gl);scrollbar-width:none}.look::-webkit-scrollbar{display:none}.look button{scroll-snap-align:start}}
 /* buy box */
 .buy{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(22px,4vw,56px);align-items:start}
 @media (max-width:860px){.buy{grid-template-columns:1fr}}
@@ -123,7 +128,7 @@ footer{padding-bottom:110px}
 <header><div class="nav"><a class="back" href="../index.html">← POV Holdings</a><span class="brandname"><span>POV</span> Collection</span><a class="arrow" href="#buy">Shop now <i>→</i></a></div></header>
 <main>
   <section class="lp-hero"><div class="lp-wrap lp-grid">
-    <div class="lp-photo" id="heroPhoto"><span class="lp-tag" id="heroTag">Executive</span><img id="heroImg" src="../work/collection/executive-front.jpg?v=2" alt="The POV Frame Tee in Executive black, worn by a model" fetchpriority="high"><button class="lp-flip" type="button" id="flip">See the back ↻</button></div>
+    <div class="lp-photo" id="heroPhoto"><span class="lp-tag" id="heroTag" hidden>Executive</span><img id="heroImg" src="../work/collection/banner-executive.jpg" alt="POV Frame Tee in Executive black: Point of view. Oversized fit, embroidered detail." fetchpriority="high"></div>
     <div>
       <p class="eyebrow">POV Collection · New drop</p>
       <h1 class="lp-h1">The Frame<span>Tee</span></h1>
@@ -137,15 +142,24 @@ footer{padding-bottom:110px}
   <section class="sec" style="padding-top:0"><div class="lp-wrap">
     <p class="eyebrow">Three colourways</p><h2 style="margin-top:12px">Pick your shade.</h2>
     <div class="tiles" style="margin-top:24px">
-      <button class="tile" type="button" data-c="Executive" aria-pressed="true"><img src="../work/collection/executive-front.jpg?v=2" alt="Frame Tee in Executive" loading="lazy"><div class="cap"><b>Executive</b><span>Deep black</span></div></button>
-      <button class="tile" type="button" data-c="Ivory" aria-pressed="false"><img src="../work/collection/ivory-front.jpg?v=2" alt="Frame Tee in Ivory" loading="lazy"><div class="cap"><b>Ivory</b><span>Clean white</span></div></button>
-      <button class="tile" type="button" data-c="Greyston" aria-pressed="false"><img src="../work/collection/greyston-front.jpg?v=2" alt="Frame Tee in Greyston" loading="lazy"><div class="cap"><b>Greyston</b><span>Washed grey</span></div></button>
+      <button class="tile" type="button" data-c="Executive" aria-pressed="true"><img src="../work/collection/executive-front.jpg?v=4" alt="Frame Tee in Executive" loading="lazy"><div class="cap"><b>Executive</b><span>Deep black</span></div></button>
+      <button class="tile" type="button" data-c="Ivory" aria-pressed="false"><img src="../work/collection/ivory-front.jpg?v=4" alt="Frame Tee in Ivory" loading="lazy"><div class="cap"><b>Ivory</b><span>Clean white</span></div></button>
+      <button class="tile" type="button" data-c="Greyston" aria-pressed="false"><img src="../work/collection/greyston-front.jpg?v=4" alt="Frame Tee in Greyston" loading="lazy"><div class="cap"><b>Greyston</b><span>Washed grey</span></div></button>
+    </div>
+  </div></section>
+
+  <section class="sec" style="padding-top:0"><div class="lp-wrap">
+    <p class="eyebrow">Lookbook</p><h2 style="margin-top:12px">Oversized fit. Embroidered detail.</h2>
+    <div class="look" style="margin-top:24px">
+      <button type="button" data-c="Executive"><img src="../work/collection/banner-executive-sm.jpg" alt="Executive lookbook: Point of view." loading="lazy"></button>
+      <button type="button" data-c="Greyston"><img src="../work/collection/banner-greyston-sm.jpg" alt="Greyston lookbook: See it differently." loading="lazy"></button>
+      <button type="button" data-c="Ivory"><img src="../work/collection/banner-ivory-sm.jpg" alt="Ivory lookbook: See it differently." loading="lazy"></button>
     </div>
   </div></section>
 
   <section class="sec" id="buy" style="padding-top:clamp(24px,4vw,48px)"><div class="lp-wrap buy">
     <div>
-      <div class="lp-photo" id="buyPhoto"><span class="lp-tag" id="buyTag">Executive</span><img id="teeImg" src="../work/collection/executive-front.jpg?v=2" alt="Frame Tee in Executive, front"></div>
+      <div class="lp-photo" id="buyPhoto"><span class="lp-tag" id="buyTag">Executive</span><img id="teeImg" src="../work/collection/executive-front.jpg?v=4" alt="Frame Tee in Executive, front"></div>
       <div class="thumbs" id="thumbs" aria-label="Photos"></div>
     </div>
     <div class="panel">
@@ -188,7 +202,7 @@ footer{padding-bottom:110px}
     <details><summary>Team orders?</summary><p>Ordering for a dealership or team? WhatsApp us and we'll sort sizes and quantities for everyone.</p></details>
   </div></section>
 </main>
-<div class="sbar" id="sbar" aria-hidden="true"><img id="sbImg" src="../work/collection/executive-front.jpg?v=2" alt=""><div><b>The Frame Tee · R599</b><span id="sbSub">Executive · choose your size</span></div><a class="pill solid" href="#buy" data-go="buy" tabindex="-1">Order <i>→</i></a></div>
+<div class="sbar" id="sbar" aria-hidden="true"><img id="sbImg" src="../work/collection/executive-front.jpg?v=4" alt=""><div><b>The Frame Tee · R599</b><span id="sbSub">Executive · choose your size</span></div><a class="pill solid" href="#buy" data-go="buy" tabindex="-1">Order <i>→</i></a></div>
 <footer><div class="wrap"><span>© 2026 POV Holdings · POV Collection</span><nav class="flegal" aria-label="Legal"><a href="../legal.html#terms">Terms</a><a href="../legal.html#privacy">Privacy</a><a href="../legal.html#refunds">Refunds</a><a href="../legal.html#company">Company info</a></nav></div></footer>
 <script>
 window.POV_SHOP_URL=window.POV_SHOP_URL||'';   // Shopify product link, once the store is live
@@ -199,7 +213,7 @@ window.POV_PIXEL_ID=window.POV_PIXEL_ID||'';   // Meta Pixel ID for ad tracking
   const $=id=>document.getElementById(id),K={Executive:'executive',Ivory:'ivory',Greyston:'greyston'};
   const shots=['front','back','d1','d2','d3','d4'],alts=['Front','Back','Neck label','Embroidered POV mark','"See it differently." patch','Fabric'];
   let col='Executive',size='',n=1,shot='front',heroBack=false;
-  const src=(c,s)=>'../work/collection/'+K[c]+'-'+s+'.jpg?v=2';
+  const src=(c,s)=>'../work/collection/'+K[c]+'-'+s+'.jpg?v=4';
   // attribution from the ad link
   let attr={};try{const q=new URLSearchParams(location.search);['utm_source','utm_medium','utm_campaign','utm_content','fbclid'].forEach(k=>{if(q.get(k))attr[k]=q.get(k)});if(Object.keys(attr).length)sessionStorage.setItem('pov_attr',JSON.stringify(attr));else attr=JSON.parse(sessionStorage.getItem('pov_attr')||'{}')}catch(_){}
   // consent-gated Meta Pixel
@@ -215,7 +229,7 @@ window.POV_PIXEL_ID=window.POV_PIXEL_ID||'';   // Meta Pixel ID for ad tracking
     det.innerHTML=['d2','d3','d1','d4'].map((s,i)=>'<figure><img src="'+src(col,s)+'" alt="'+['Embroidered POV mark','See it differently patch','Neck label','Fabric'][i]+'" loading="lazy"><figcaption>'+['Embroidery','The patch','Label','Fabric'][i]+'</figcaption></figure>').join('')};
   const setCol=c=>{col=c;sw.forEach(b=>b.setAttribute('aria-pressed',b.dataset.c===c));tiles.forEach(b=>b.setAttribute('aria-pressed',b.dataset.c===c));
     $('colLbl').textContent=c;$('heroTag').textContent=c;$('buyTag').textContent=c;
-    swap($('heroImg'),src(c,heroBack?'back':'front'));swap($('teeImg'),src(c,shot));$('sbImg').src=src(c,'front');renderThumbs();upd();dl('select_colour',{colour:c})};
+    swap($('heroImg'),'../work/collection/banner-'+K[c]+'.jpg');swap($('teeImg'),src(c,shot));$('sbImg').src=src(c,'front');renderThumbs();upd();dl('select_colour',{colour:c})};
   const upd=()=>{$('qOut').textContent=n;const tot='R'+(599*n).toLocaleString('en-ZA').replace(/[,\s ]/g,' ');$('tot').textContent=tot;$('each').textContent=n>1?n+' × R599':'per shirt';
     $('buyTee').innerHTML='Order now · '+tot+' <i>→</i>';$('sbSub').textContent=col+(size?' · size '+size:' · choose your size');
     if(window.POV_SHOP_URL){$('buyTee').href=window.POV_SHOP_URL;return}
@@ -223,17 +237,17 @@ window.POV_PIXEL_ID=window.POV_PIXEL_ID||'';   // Meta Pixel ID for ad tracking
     const t='Hi POV, I\'d like to order the Frame Tee: '+n+' × '+col+', size '+(size||'?')+' ('+tot+').'+ref;$('buyTee').href='https://wa.me/27786880944?text='+encodeURIComponent(t)};
   sw.forEach(b=>b.addEventListener('click',()=>setCol(b.dataset.c)));
   tiles.forEach(b=>b.addEventListener('click',()=>{setCol(b.dataset.c);go('buy')}));
+  document.querySelectorAll('.look button').forEach(b=>b.addEventListener('click',()=>{setCol(b.dataset.c);go('buy')}));
   szb.forEach(b=>b.addEventListener('click',()=>{size=b.textContent;szb.forEach(x=>x.setAttribute('aria-pressed',x===b));$('szLbl').textContent=size;$('buyMsg').textContent='';upd()}));
   $('qMinus').addEventListener('click',()=>{n=Math.max(1,n-1);upd()});$('qPlus').addEventListener('click',()=>{n=Math.min(20,n+1);upd()});
   $('buyTee').addEventListener('click',e=>{if(!size){e.preventDefault();$('buyMsg').textContent='Pick your size first.';const z=$('sz');z.classList.remove('shake');void z.offsetWidth;z.classList.add('shake');return}
     dl('cta_clicked',{cta:'order_tee',colour:col,size,qty:n,value:599*n});fbq('track','InitiateCheckout',{content_name:'Frame Tee',value:599*n,currency:'ZAR',num_items:n})});
-  $('flip').addEventListener('click',()=>{heroBack=!heroBack;swap($('heroImg'),src(col,heroBack?'back':'front'));$('flip').textContent=heroBack?'See the front ↻':'See the back ↻'});
   const go=id=>{const el=$(id);scrollTo({top:el.getBoundingClientRect().top+scrollY-90,behavior:'smooth'})};
   document.querySelectorAll('[data-go]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();go(a.dataset.go)}));
   document.querySelectorAll('[data-cta="whatsapp"]').forEach(a=>a.addEventListener('click',()=>{dl('cta_clicked',{cta:'whatsapp',place:'collection'});fbq('track','Contact')}));
   // sticky buy bar: shows after the hero, hides while the order panel is on screen
   const bar=$('sbar');let heroOut=false,buyIn=false;const sync=()=>{const on=heroOut&&!buyIn;bar.classList.toggle('on',on);bar.setAttribute('aria-hidden',!on)};
-  new IntersectionObserver(es=>{heroOut=!es[0].isIntersecting;sync()}).observe(document.querySelector('.lp-cta'));
+  new IntersectionObserver(es=>{heroOut=!es[0].isIntersecting&&es[0].boundingClientRect.top<0;sync()}).observe(document.querySelector('.lp-cta'));
   new IntersectionObserver(es=>{buyIn=es[0].isIntersecting;sync()},{threshold:.25}).observe(document.querySelector('.panel'));
   renderThumbs();upd();
 })();
