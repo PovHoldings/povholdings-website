@@ -65,7 +65,7 @@
 
   <section class="view wrap" id="v-overview" data-view="overview">
     <div class="block" id="shop"><div class="shop">
-      <div><div class="tee-stage" id="teeStage"><span class="tee-badge" id="teeName">Executive</span><img class="on" id="teeImg" src="../work/collection/executive-front.jpg" alt="POV Frame Tee in Executive, front"></div>
+      <div><div class="tee-stage" id="teeStage"><span class="tee-badge" id="teeName">Executive</span><img class="on" id="teeImg" src="../work/collection/executive-front.jpg?v=2" alt="POV Frame Tee in Executive, front"></div>
         <div class="thumbs" id="thumbs" aria-label="Photos"></div></div>
       <div>
         <p class="kicker">POV Collection · Point of view</p><h2 style="margin-top:12px">The Frame Tee</h2><p class="motto">See it differently.</p>
@@ -88,9 +88,9 @@
   </section>
   <section class="view wrap" id="v-pricing" data-view="pricing" hidden>
     <div class="block"><h2>Pricing</h2><p class="sub">One tee, one price. Delivery is confirmed with your order.</p><div class="grid3">
-      <article class="slab price hot"><img src="../work/collection/executive-front.jpg" alt="POV Frame Tee in Executive" loading="lazy" style="width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 18%;border-radius:16px;display:block"><span class="tag">Executive · black</span><h3>Frame Tee</h3><p class="amt">R599</p><ul><li>Sizes S, M, L, XL</li><li>Minimal POV branding</li><li>Delivered anywhere in SA</li></ul><a class="pill" href="#shop" data-pick="Executive">Order Executive <i>→</i></a></article>
-      <article class="slab price"><img src="../work/collection/ivory-front.jpg" alt="POV Frame Tee in Ivory" loading="lazy" style="width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 18%;border-radius:16px;display:block"><span class="tag">Ivory · white</span><h3>Frame Tee</h3><p class="amt">R599</p><ul><li>Sizes S, M, L, XL</li><li>Our signature colourway</li><li>Delivered anywhere in SA</li></ul><a class="pill" href="#shop" data-pick="Ivory">Order Ivory <i>→</i></a></article>
-      <article class="slab price"><img src="../work/collection/greyston-front.jpg" alt="POV Frame Tee in Greyston" loading="lazy" style="width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 18%;border-radius:16px;display:block"><span class="tag">Greyston · grey</span><h3>Frame Tee</h3><p class="amt">R599</p><ul><li>Sizes S, M, L, XL</li><li>Minimal POV branding</li><li>Delivered anywhere in SA</li></ul><a class="pill" href="#shop" data-pick="Greyston">Order Greyston <i>→</i></a></article>
+      <article class="slab price hot"><img src="../work/collection/executive-front.jpg?v=2" alt="POV Frame Tee in Executive" loading="lazy" style="width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 18%;border-radius:16px;display:block"><span class="tag">Executive · black</span><h3>Frame Tee</h3><p class="amt">R599</p><ul><li>Sizes S, M, L, XL</li><li>Minimal POV branding</li><li>Delivered anywhere in SA</li></ul><a class="pill" href="#shop" data-pick="Executive">Order Executive <i>→</i></a></article>
+      <article class="slab price"><img src="../work/collection/ivory-front.jpg?v=2" alt="POV Frame Tee in Ivory" loading="lazy" style="width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 18%;border-radius:16px;display:block"><span class="tag">Ivory · white</span><h3>Frame Tee</h3><p class="amt">R599</p><ul><li>Sizes S, M, L, XL</li><li>Our signature colourway</li><li>Delivered anywhere in SA</li></ul><a class="pill" href="#shop" data-pick="Ivory">Order Ivory <i>→</i></a></article>
+      <article class="slab price"><img src="../work/collection/greyston-front.jpg?v=2" alt="POV Frame Tee in Greyston" loading="lazy" style="width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 18%;border-radius:16px;display:block"><span class="tag">Greyston · grey</span><h3>Frame Tee</h3><p class="amt">R599</p><ul><li>Sizes S, M, L, XL</li><li>Minimal POV branding</li><li>Delivered anywhere in SA</li></ul><a class="pill" href="#shop" data-pick="Greyston">Order Greyston <i>→</i></a></article>
     </div><p class="fine" style="margin-top:18px">Ordering for a dealership team? WhatsApp us for team orders.</p></div>
   </section>
   <section class="view wrap" id="v-stories" data-view="stories" hidden>
@@ -126,9 +126,9 @@ window.POV_SHOP_URL=window.POV_SHOP_URL||''; // Shopify product link goes here o
   const shots=['front','back','d1','d2','d3','d4'],alts=['front','back','neck label','embroidered POV mark','"See it differently." patch','fabric'];
   const th=document.getElementById('thumbs'),img=document.getElementById('teeImg');let shot='front';
   const key=()=>(sw.find(x=>x.dataset.c===col)||sw[0]).dataset.k;
-  const show=sh=>{shot=sh;const src='../work/collection/'+key()+'-'+sh+'.jpg';const pre=new Image();pre.onload=()=>{img.style.opacity=0;setTimeout(()=>{img.src=src;img.alt='POV Frame Tee in '+col+', '+alts[shots.indexOf(sh)];img.style.opacity=1},180)};pre.src=src;
+  const show=sh=>{shot=sh;const src='../work/collection/'+key()+'-'+sh+'.jpg?v=2';const pre=new Image();pre.onload=()=>{img.style.opacity=0;setTimeout(()=>{img.src=src;img.alt='POV Frame Tee in '+col+', '+alts[shots.indexOf(sh)];img.style.opacity=1},180)};pre.src=src;
     [...th.children].forEach(b=>b.setAttribute('aria-pressed',b.dataset.s===sh))};
-  const thumbs=()=>{th.innerHTML=shots.map((sh,i)=>'<button type="button" data-s="'+sh+'" aria-label="'+alts[i]+'" aria-pressed="'+(sh===shot)+'"><img src="../work/collection/'+key()+'-'+sh+'.jpg" alt="" loading="lazy"></button>').join('');
+  const thumbs=()=>{th.innerHTML=shots.map((sh,i)=>'<button type="button" data-s="'+sh+'" aria-label="'+alts[i]+'" aria-pressed="'+(sh===shot)+'"><img src="../work/collection/'+key()+'-'+sh+'.jpg?v=2" alt="" loading="lazy"></button>').join('');
     [...th.children].forEach(b=>b.addEventListener('click',()=>show(b.dataset.s)))};
 
   const setCol=c=>{const b=sw.find(x=>x.dataset.c===c);if(!b)return;col=c;sw.forEach(x=>x.setAttribute('aria-pressed',x===b));nm.textContent=c;thumbs();show(shot);cl.textContent=c;upd()};
