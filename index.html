@@ -878,8 +878,12 @@ h2.sweep{box-shadow:none!important}
 .scrollcue:hover .ms{box-shadow:inset 0 0 0 1.5px #ff8c1a}
 @keyframes msDot{0%{transform:translateY(0);opacity:0}20%{opacity:1}70%{transform:translateY(13px);opacity:0}100%{opacity:0}}
 @keyframes msGlow{0%,100%{filter:drop-shadow(0 0 0 rgba(255,140,26,0))}50%{filter:drop-shadow(0 0 8px rgba(255,140,26,.55))}}
-@media (max-width:860px){.scrollcue{left:50%!important;transform:translateX(-50%);bottom:clamp(96px,13vh,120px)!important;gap:8px}.scrollcue em{writing-mode:horizontal-tb;font-size:9.5px}}
+@media (max-width:860px){.scrollcue{left:max(26px,env(safe-area-inset-left))!important;bottom:calc(96px + env(safe-area-inset-bottom))!important;gap:8px}.scrollcue .ms{width:20px;height:32px}.scrollcue em{display:none}}
 @media (prefers-reduced-motion:reduce){.scrollcue .ms b{animation:none;opacity:1}.scrollcue .ms{animation:none}}
+
+.eco-core{perspective:900px}
+.eco-core span,.eco-core small{white-space:nowrap}
+.eco-core .cl{display:inline-block;font-style:normal;will-change:transform,opacity,filter;transform-style:preserve-3d}
 </style>
 </head>
 <body>
@@ -1379,6 +1383,11 @@ h2.sweep{box-shadow:none!important}
   const letters=[...h1.querySelectorAll('.lt')].map((el,i)=>({el,rx:(Math.random()*2-1),ry:(Math.random()*.6+.4),rz:(Math.random()*2-1)}));
   line.querySelectorAll('.ln').forEach(ln=>{ln.innerHTML=ln.textContent.split(' ').map(w=>w==='ecosystem'?'<span class="rw eco-word">'+w.split('').map((c,i)=>'<em style="--d:'+i+'">'+c+'</em>').join('')+'</span>':'<span class="rw">'+w+'</span>').join(' ')});
   const rws=[...line.querySelectorAll('.rw')];
+  // POV HOLDINGS shatters into letters as you scroll
+  const coreEl=document.getElementById('ecoCore');
+  if(coreEl){[...coreEl.children].forEach(n=>{n.innerHTML=n.textContent.split('').map(c=>'<i class="cl">'+c+'</i>').join('')})}
+  const coreLs=coreEl?[...coreEl.querySelectorAll('.cl')].map((el,i,a)=>{const side=(i/(a.length-1||1))*2-1;return {el,dx:side*.7+(Math.random()*2-1)*.5,dy:-(Math.random()*.7+.3),dz:Math.random()*.8+.4,r:(Math.random()*2-1)}}):[];
+  let lastC=-1;
   let target=0,cur=0,mx=0,my=0,tx=0,ty=0,flipDone=false,killed=false,lastQ=-1,lastP=-1,lastT=9;
   setTimeout(()=>{flipDone=true},2200);
   const read=()=>{const r=intro.getBoundingClientRect(),total=intro.offsetHeight-innerHeight;target=clamp(-r.top/total)};
@@ -1388,6 +1397,8 @@ h2.sweep{box-shadow:none!important}
     if(killed&&q!==lastQ){lastQ=q;letters.forEach(L=>{
       L.el.style.transform=q?'translate3d('+(L.rx*qe*160).toFixed(1)+'px,'+(-L.ry*qe*220).toFixed(1)+'px,'+(L.ry*qe*600).toFixed(1)+'px) rotateX('+(L.rz*qe*80).toFixed(1)+'deg) rotateZ('+(L.rx*qe*20).toFixed(1)+'deg)':'';
       L.el.style.opacity=(1-q*1.15).toFixed(3)})}
+    const cq=seg(p,.01,.26),ce=cq*cq*(3-2*cq);
+    if(cq!==lastC){lastC=cq;coreLs.forEach(L=>{L.el.style.transform=cq?'translate3d('+(L.dx*ce*260).toFixed(1)+'px,'+(L.dy*ce*240).toFixed(1)+'px,'+(L.dz*ce*500).toFixed(1)+'px) rotateX('+(L.r*ce*70).toFixed(1)+'deg) rotateZ('+(L.r*ce*28).toFixed(1)+'deg)':'';L.el.style.opacity=(1-cq*1.1).toFixed(3);L.el.style.filter=cq>.05?'blur('+(ce*6).toFixed(1)+'px)':''})}
     foot.style.opacity=(1-seg(p,0,.14)).toFixed(3);foot.style.transform='translateY('+(seg(p,0,.14)*30).toFixed(1)+'px)';
     cue.style.opacity=(1-seg(p,0,.06)).toFixed(3);
     // dolly zoom: the car holds its size while the studio behind it stretches away
