@@ -838,6 +838,36 @@ h2.sweep{box-shadow:none!important}
 .door:hover .dimg5{transform:translateX(-52%) scale(1.04)}
 .door:has(.dimg2){background:#0b0b0d}
 @media (max-width:900px){.door .dimg3{top:-19%!important}.door .dimg2{top:-29%!important}.door .dimg4{top:-32%!important}.door .dimg5{top:-19.5%!important}.door .dc{top:40%}}
+
+/* quote form v2: luxury type + custom dropdowns */
+#contact .quote{background:radial-gradient(90% 60% at 100% 0%,rgba(255,140,26,.10),transparent 60%),linear-gradient(160deg,#1b1b1e,#111113 70%)!important;box-shadow:0 0 0 1px rgba(255,140,26,.28),0 50px 100px -50px rgba(0,0,0,1)!important}
+#contact .quote::before{background:linear-gradient(90deg,transparent,rgba(255,140,26,.7),transparent)!important}
+#contact .quote-head .kicker{display:inline-flex;align-items:center;gap:12px;font:600 11px/1 Manrope,sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#ff9a3c}
+#contact .quote-head .kicker::before{content:"";width:28px;height:1px;background:currentColor}
+#contact .quote-head h2{font:500 clamp(44px,6vw,80px)/1 "Cormorant Garamond",Georgia,serif!important;letter-spacing:-.015em}
+#contact .quote-head h2 em{font-style:italic;color:#ff8c1a}
+#contact .quote-sub{font-size:16.5px}
+#contact .field label{font:600 11px/1 Manrope,sans-serif!important;letter-spacing:.18em;text-transform:uppercase;color:#9b978f;margin-bottom:8px}
+#contact .field input{height:56px;font:500 16.5px/1.2 Manrope,sans-serif!important;border-radius:16px!important;background:#141416!important;border:1px solid rgba(255,255,255,.1)!important;padding:0 18px!important}
+#contact .field input:hover{border-color:rgba(255,255,255,.22)!important}
+#contact .field input:focus{border-color:#ff8c1a!important;box-shadow:0 0 0 4px rgba(255,140,26,.12);background:#16161a!important}
+.csel{position:relative}
+.csel select{position:absolute!important;inset:0;opacity:0;pointer-events:none;height:1px!important}
+.csel-btn{width:100%;height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 18px;border-radius:16px;background:#141416;border:1px solid rgba(255,255,255,.1);color:#f5f2ea;font:500 16.5px/1.2 Manrope,sans-serif;text-align:left;cursor:pointer;transition:border-color .25s,box-shadow .25s}
+.csel-btn:hover{border-color:rgba(255,255,255,.22)}
+.csel-btn:focus-visible,.csel.open .csel-btn{outline:none;border-color:#ff8c1a;box-shadow:0 0 0 4px rgba(255,140,26,.12)}
+.csel-btn .chev{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:rgba(255,140,26,.12);box-shadow:0 0 0 1px rgba(255,140,26,.45);transition:transform .3s}
+.csel-btn .chev::before{content:"";width:7px;height:7px;border-right:1.6px solid #ff8c1a;border-bottom:1.6px solid #ff8c1a;transform:translateY(-2px) rotate(45deg)}
+.csel.open .chev{transform:rotate(180deg)}
+.csel-list{position:absolute;z-index:30;left:0;right:0;top:calc(100% + 8px);max-height:320px;overflow:auto;padding:8px;border-radius:18px;background:rgba(22,22,25,.98);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 0 0 1px rgba(255,140,26,.35),0 30px 70px -20px rgba(0,0,0,.95);opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .2s,transform .2s}
+.csel.open .csel-list{opacity:1;transform:none;pointer-events:auto}
+.csel-g{padding:12px 12px 6px;font:600 10.5px/1 Manrope,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#ff9a3c}
+.csel-o{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 12px;border-radius:12px;font:500 15px/1.2 Manrope,sans-serif;color:#e8e4dc;cursor:pointer}
+.csel-o:hover,.csel-o.act{background:rgba(255,255,255,.06);color:#fff}
+.csel-o[aria-selected="true"]{color:#fff}
+.csel-o[aria-selected="true"]::after{content:"\2713";color:#ff8c1a;font-weight:700}
+#contact .qsend .pill{background:#ff8c1a!important;color:#0d0d0f!important;border-color:#ff8c1a!important;height:56px;padding:0 28px;font-weight:700}
+#contact .qsend .pill:hover{background:#ffa246!important}
 </style>
 </head>
 <body>
@@ -920,7 +950,7 @@ h2.sweep{box-shadow:none!important}
           <span class="dn">03</span>
           <div class="dc"><small>The POV Collection</small><b>I'm here for <em>the brand</em></b><p>The Frame Tee. Now R599, was R749.99.</p>
             <nav class="dl" aria-label="Collection ranges"><a href="divisions/collection.html#buy">Executive</a><a href="divisions/collection.html#buy">Ivory</a><a href="divisions/collection.html#buy">Greyston</a></nav>
-            <a class="dgo" href="divisions/collection.html" data-cta="door" data-place="shop">Shop the drop <i>→</i></a></div>
+            <a class="dgo" href="divisions/collection.html" data-cta="door" data-place="shop">Shop POV <i>→</i></a></div>
         </div>
         <div class="door dmeta" data-href="divisions/meta.html">
           <img class="dimg5" src="work/porsche-gt3rs-street.jpg" alt="Black Porsche 911 GT3 RS on a tree-lined street" loading="lazy">
@@ -1010,7 +1040,7 @@ h2.sweep{box-shadow:none!important}
       <div class="quote rv">
         <div class="quote-head">
           <p class="kicker">Get a quote</p>
-          <h2>Tell us what you need.</h2>
+          <h2>Tell us what <em>you need.</em></h2>
           <p class="quote-sub">Four quick details. We reply the same working day on WhatsApp.</p>
         </div>
         <form id="lead" novalidate>
@@ -1124,6 +1154,38 @@ h2.sweep{box-shadow:none!important}
     new IntersectionObserver(es=>es.forEach(e=>{on=e.isIntersecting;vs.forEach(v=>on?go(v):v.pause())}),{threshold:.2}).observe(document.getElementById('paths'));
     const kick=()=>{if(on)vs.forEach(v=>{if(v.paused)go(v)})};['touchstart','click'].forEach(ev=>addEventListener(ev,kick,{passive:true}));
   })();
+
+  // custom dropdowns for the quote form (native select kept in sync)
+  (function(){
+    document.querySelectorAll('#contact select').forEach((sel,si)=>{
+      const wrap=document.createElement('div');wrap.className='csel';sel.parentNode.insertBefore(wrap,sel);wrap.appendChild(sel);sel.tabIndex=-1;sel.setAttribute('aria-hidden','true');
+      const btn=document.createElement('button');btn.type='button';btn.className='csel-btn';btn.setAttribute('aria-haspopup','listbox');btn.setAttribute('aria-expanded','false');
+      const lbl=document.querySelector('label[for="'+sel.id+'"]');if(lbl){lbl.id=sel.id+'-l';btn.setAttribute('aria-labelledby',lbl.id+' '+sel.id+'-v')}
+      btn.innerHTML='<span id="'+sel.id+'-v"></span><span class="chev" aria-hidden="true"></span>';
+      const list=document.createElement('div');list.className='csel-list';list.setAttribute('role','listbox');list.id=sel.id+'-list';btn.setAttribute('aria-controls',list.id);
+      const opts=[];
+      [...sel.children].forEach(ch=>{
+        const add=o=>{const d=document.createElement('div');d.className='csel-o';d.setAttribute('role','option');d.textContent=o.textContent;d.dataset.v=o.value;d.id=sel.id+'-o'+opts.length;list.appendChild(d);opts.push(d)};
+        if(ch.tagName==='OPTGROUP'){const g=document.createElement('div');g.className='csel-g';g.textContent=ch.label;list.appendChild(g);[...ch.children].forEach(add)}else add(ch)});
+      wrap.append(btn,list);
+      let act=-1;
+      const sync=()=>{const o=sel.options[sel.selectedIndex];btn.firstChild.textContent=o?o.textContent:'';opts.forEach(d=>d.setAttribute('aria-selected',d.dataset.v===sel.value?'true':'false'))};
+      const setAct=i=>{act=Math.max(0,Math.min(opts.length-1,i));opts.forEach((d,k)=>d.classList.toggle('act',k===act));btn.setAttribute('aria-activedescendant',opts[act].id);opts[act].scrollIntoView({block:'nearest'})};
+      const open=()=>{document.querySelectorAll('.csel.open').forEach(c=>c!==wrap&&c.classList.remove('open'));wrap.classList.add('open');btn.setAttribute('aria-expanded','true');setAct(Math.max(0,opts.findIndex(d=>d.dataset.v===sel.value)))};
+      const close=()=>{wrap.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.removeAttribute('aria-activedescendant')};
+      const choose=i=>{sel.value=opts[i].dataset.v;sel.dispatchEvent(new Event('change',{bubbles:true}));close();btn.focus()};
+      btn.addEventListener('click',()=>wrap.classList.contains('open')?close():open());
+      btn.addEventListener('keydown',e=>{const isO=wrap.classList.contains('open');
+        if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();if(!isO)open();else setAct(act+(e.key==='ArrowDown'?1:-1))}
+        else if((e.key==='Enter'||e.key===' ')&&isO){e.preventDefault();choose(act)}
+        else if(e.key==='Escape'&&isO){e.preventDefault();close()}
+        else if(e.key==='Tab'&&isO)close()});
+      opts.forEach((d,i)=>{d.addEventListener('mousedown',e=>e.preventDefault());d.addEventListener('click',()=>choose(i));d.addEventListener('mouseenter',()=>setAct(i))});
+      sel.addEventListener('change',sync);
+      document.addEventListener('click',e=>{if(!wrap.contains(e.target))close()});
+      sync();
+    });
+  })();
   // POV reels: play only what's on screen, tap a reel for sound
   (function(){
     const tr=document.getElementById('vrTrack');if(!tr)return;const cards=[...tr.querySelectorAll('.vr')];
@@ -1156,7 +1218,7 @@ h2.sweep{box-shadow:none!important}
 
   document.querySelectorAll('[data-cta]').forEach(el=>el.addEventListener('click',()=>{
     track('cta_clicked',{channel:el.dataset.cta,placement:el.dataset.place});
-    if(el.dataset.pkg)document.getElementById('f-pkg').value=el.dataset.pkg;
+    if(el.dataset.pkg){const fp=document.getElementById('f-pkg');fp.value=el.dataset.pkg;fp.dispatchEvent(new Event('change'))}
   }));
 
   // header goes solid on scroll
