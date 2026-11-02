@@ -797,6 +797,11 @@ h2.sweep{box-shadow:none!important}
 .door .dimg2{position:absolute;left:0;top:-33%;width:100%;height:133%;object-fit:cover;object-position:56% 50%;z-index:-2;filter:brightness(.88) contrast(1.05);transition:filter .8s,transform 1.6s cubic-bezier(.2,.7,.2,1)}
 .door:hover .dimg2{filter:brightness(.98) contrast(1.05);transform:scale(1.04)}
 @media (max-width:900px){.door .dimg2{top:-50%;height:150%;object-position:58% 50%}}
+
+.door .dimg3{position:absolute;top:-24%;left:50%;height:84%;width:auto;max-width:none;transform:translateX(-50%);z-index:-2;filter:brightness(.92);-webkit-mask-image:linear-gradient(180deg,#000 80%,transparent);mask-image:linear-gradient(180deg,#000 80%,transparent);transition:filter .8s,transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.door:hover .dimg3{filter:brightness(1.04);transform:translateX(-50%) scale(1.04)}
+.door:has(.dimg3){background:#0b0b0d}
+@media (max-width:900px){.door .dimg3{top:-27%}}
 </style>
 </head>
 <body>
@@ -861,7 +866,7 @@ h2.sweep{box-shadow:none!important}
       <div class="phead rv"><p class="pk">Start here</p><h2 class="ph2">Where are you <em>headed?</em></h2><p class="psub">Six divisions, four lanes. Pick yours and we'll take you straight there.</p></div>
       <div class="doors rv">
         <div class="door" data-href="divisions/dealers.html">
-          <img class="dimg" src="work/ferrari-dealer.jpg" alt="Two black Ferraris in a dark showroom" loading="lazy">
+          <img class="dimg3" src="work/porsche-gt3rs-rear.jpg" alt="Black Porsche 911 GT3 RS from the rear, Fouché" loading="lazy">
           <span class="dn">01</span>
           <div class="dc"><small>Dealer principals · GSMs · Marketing</small><b>I run a <em>dealership</em></b><p>How your cars look, how they get seen and how your team sells them.</p>
             <nav class="dl" aria-label="Dealership divisions"><a href="divisions/media.html">Media</a><a href="divisions/meta.html">Meta</a><a href="divisions/performance.html">Performance</a><a href="divisions/program.html">Program</a></nav>
