@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="claude:viewport-fit-sides" content="cover">
 <title>POV Performance</title>
-<meta name="description" content="Dealership sales coaching that builds the best version of every salesperson. POV Performance, in partnership with MiLife.">
+<meta name="description" content="POV Performance: personalised automotive sales training with measurable results, supported by the MiLife development platform.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Manrope:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="pov.css">
@@ -16,47 +16,101 @@
 .faqm details{border-top:1px solid var(--hair);padding:16px 0}.faqm summary{cursor:pointer;font-weight:600;list-style:none}.faqm summary::-webkit-details-marker{display:none}.faqm summary::after{content:"+";float:right;color:var(--gold)}.faqm details[open] summary::after{content:"–"}.faqm p{color:#cfcbc2;margin:10px 0 0;max-width:70ch}
 a.partner{text-decoration:none}a.partner i{font-style:normal;color:var(--gold)}
 .fine{color:var(--grey);font-size:13px;margin-top:12px}
+.intro .sub{max-width:70ch}
+.pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:24px}@media (max-width:860px){.pillars{grid-template-columns:1fr}}
+.pillars article{position:relative;border-radius:22px;padding:28px 24px;background:linear-gradient(160deg,#202024,#151517);box-shadow:0 0 0 1px rgba(167,123,224,.25)}
+.pillars .ic{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:rgba(255,140,26,.12);box-shadow:0 0 0 1px rgba(255,140,26,.5)}
+.pillars svg{width:22px;height:22px;stroke:#ff8c1a;fill:none;stroke-width:1.7;stroke-linecap:round}
+.pillars .n{position:absolute;right:22px;top:22px;font:900 34px/1 var(--display);color:rgba(167,123,224,.35)}
+.pillars h3{margin-top:18px}.pillars p{color:#cfcbc2;margin:10px 0 0;font-size:15px}
+.skills{grid-template-columns:repeat(2,minmax(0,1fr))}@media (max-width:640px){.skills{grid-template-columns:1fr}}
+.ml{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,56px);align-items:center}@media (max-width:900px){.ml{grid-template-columns:1fr}}
+.mlf{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:22px}@media (max-width:520px){.mlf{grid-template-columns:1fr}}
+.mlf div{padding:14px 16px;border-radius:14px;background:#141416;box-shadow:0 0 0 1px var(--hair)}
+.mlf b{display:block;font-size:14.5px}.mlf span{display:block;color:var(--grey);font-size:13px;margin-top:3px}
+.dev{position:relative}
+.scr{border-radius:22px;padding:16px;background:linear-gradient(160deg,#17171b,#0e0e11);box-shadow:0 0 0 8px #1c1c20,0 0 0 9px rgba(255,255,255,.08),0 40px 90px -30px rgba(0,0,0,1),0 0 90px -30px rgba(167,123,224,.45);display:grid;gap:10px}
+.scr .tb{display:flex;justify-content:space-between;align-items:center;padding:4px 4px 8px;border-bottom:1px solid var(--hair)}
+.scr .tb b{font:900 20px/1 var(--display);color:#c7a6f2;letter-spacing:.02em}.scr .tb span{font-size:12px;color:var(--grey)}
+.scr .card{border-radius:14px;padding:12px;background:#1c1c21;box-shadow:0 0 0 1px var(--hair)}
+.scr small{display:block;font-size:11px;color:var(--grey);letter-spacing:.08em;text-transform:uppercase}
+.row1{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.row1 b{display:block;font:800 22px/1.2 var(--sans);margin-top:4px}
+.row1 i{display:block;height:4px;border-radius:4px;margin-top:8px;background:linear-gradient(90deg,#ff8c1a var(--w),rgba(255,255,255,.08) var(--w))}
+.row2{display:grid;grid-template-columns:.9fr 1.1fr;gap:10px}
+.prof .bars{display:flex;align-items:flex-end;gap:10px;height:84px;margin-top:10px}
+.prof .bars span{flex:1;height:var(--h);border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,#c7a6f2,#7c48c4)}
+.prof .lb{display:flex;gap:10px;margin-top:6px}.prof .lb em{flex:1;text-align:center;font-style:normal;font-size:11px;color:var(--grey)}
+.list p{display:flex;justify-content:space-between;gap:8px;margin:9px 0 0;font-size:12.5px;color:#cfcbc2}.list p b{color:#ff9a3c}
+.ill{position:absolute;right:6px;bottom:-26px;margin:0;font-size:11px;color:#6f6b64}
+.eq{text-align:center}.eq div{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px 18px}
+.eq b{font:900 clamp(26px,4vw,48px)/1 var(--display);text-transform:uppercase;letter-spacing:.01em}.eq i{font-style:normal;color:#ff8c1a;font:900 clamp(26px,4vw,48px)/1 var(--display)}
+.eq p{color:var(--grey);margin:16px 0 0;font-size:17px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}.chips span{padding:12px 18px;border-radius:999px;background:#18181b;box-shadow:0 0 0 1px rgba(167,123,224,.35);font-weight:600;font-size:14.5px}
+.fit3{display:grid;gap:10px}.fit3 div{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px;border-radius:14px;background:#141416;box-shadow:0 0 0 1px var(--hair)}
+.fit3 small{color:var(--grey);font-size:13px}.fit3 b{font:900 22px/1 var(--display);text-transform:uppercase}
+.fit3 div:nth-child(2) b{color:#c7a6f2}.fit3 div:nth-child(3) b{color:#ff9a3c}
 </style>
 </head>
 <body>
 <header><div class="nav"><a class="back" href="../index.html">← POV Holdings</a><span class="brandname"><span>POV</span> Performance</span><a class="arrow" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20to%20find%20out%20more%20about%20POV%20Performance." target="_blank" rel="noopener">Get in touch <i>→</i></a></div></header>
 <main>
   <section class="hero"><div class="wrap">
-    <p class="kicker">Dealership sales coaching</p>
+    <p class="kicker">Personalised training. Measurable results.</p>
     <h1><span>POV</span>Performance</h1>
-    <p class="lede">A consistent, repeatable sales process on your floor, and a better version of every salesperson behind it. Not just better closers.</p>
-    <a class="partner" href="https://milifelearn.online/" target="_blank" rel="noopener">In partnership with <b>MiLife</b> <i>→</i></a>
-    <div class="hero-row"><a class="pill" href="#pricing">See pricing <i>→</i></a><a class="arrow" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20to%20find%20out%20more%20about%20POV%20Performance." target="_blank" rel="noopener">WhatsApp us <i>→</i></a></div>
+    <p class="lede">Don't just manage your sales team. <b style="color:var(--ink)">Develop the people behind the numbers.</b></p>
+    <a class="partner" href="#milife">Powered by <b>MiLife</b> <i>→</i></a>
+    <div class="hero-row"><a class="pill" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20to%20book%20an%20introductory%20meeting%20for%20POV%20Performance." target="_blank" rel="noopener">Book an introductory meeting <i>→</i></a><a class="arrow" href="#pricing">See programmes <i>→</i></a></div>
     <div class="vid" id="video"><div class="vid-ph"><span class="vid-play" aria-hidden="true"></span><b>Robert on POV Performance</b><span>Video coming soon</span></div></div>
   </div></section>
-  <div class="tabs-wrap"><div class="wrap"><nav class="tabs" aria-label="POV Performance pages"><a href="#overview">Overview</a><a href="#pricing">Pricing</a><a href="#stories">Clients &amp; stories</a></nav></div></div>
+  <div class="tabs-wrap"><div class="wrap"><nav class="tabs" aria-label="POV Performance pages"><a href="#overview">Overview</a><a href="#pricing">Programmes</a><a href="#stories">Clients &amp; stories</a></nav></div></div>
 
   <section class="view wrap" id="v-overview" data-view="overview">
-    <div class="block"><p class="kicker">Powered by MiLife</p><h2 style="margin-top:14px">Coaching on the floor. Learning in their pocket.</h2>
-      <div class="kpis"><div class="kpi"><b>50+</b><span>courses on the MiLife platform</span></div><div class="kpi"><b>85%</b><span>course completion rate</span></div><div class="kpi"><b>275</b><span>learners enrolled</span></div><div class="kpi"><b>45</b><span>job placements</span></div></div>
-      <p class="fine">MiLife platform figures, as published on milifelearn.online.</p></div>
-    <div class="block"><h2>What we coach</h2><div class="grid3">
-      <article class="slab feature"><span class="num">01</span><h3>Consistent dealership sales</h3><p>A repeatable process from greeting and needs discovery through to closing and follow-up, so performance is the same across the whole floor.</p></article>
-      <article class="slab feature"><span class="num">02</span><h3>Influence &amp; persuasion</h3><p>Presenting with confidence, handling push-back and explaining a deal clearly.</p></article>
-      <article class="slab feature"><span class="num">03</span><h3>Emotional intelligence</h3><p>Self-awareness, empathy and the people skills that build trust with buyers and teammates.</p></article>
-      <article class="slab feature"><span class="num">04</span><h3>High-performance teams</h3><p>Trust, collaboration and the habits that keep a sales team delivering month after month.</p></article>
-      <article class="slab feature"><span class="num">05</span><h3>Customer service</h3><p>The essentials of a buying experience people come back for and talk about.</p></article>
-      <article class="slab feature"><span class="num">06</span><h3>Confidence &amp; mindset</h3><p>Corporate confidence and a growth mindset, so every salesperson becomes the best version of themselves.</p></article></div></div>
-    <div class="block"><div class="slab cc"><div><p class="kicker">The partnership</p><h2 style="margin-top:14px">POV brings the floor. MiLife brings the platform.</h2></div><div><p style="color:#cfcbc2;margin:0">MiLife is a South African learning and opportunity platform, built <b style="color:var(--ink)">"for the people, by the people"</b>. Short, practical courses with certificates recognised by employers, progress tracking and career support, all on the phone. POV coaches your team in person; MiLife keeps the learning going between visits.</p><p style="margin-top:16px"><a class="arrow" href="https://milifelearn.online/" target="_blank" rel="noopener">Visit MiLife <i>→</i></a></p></div></div></div>
-    <div class="block"><h2>How it works</h2><div class="steps"><div class="step"><b>Floor visit</b><span>We meet your sales team and managers and see how the floor runs.</span></div><div class="step"><b>Style profile</b><span>Each salesperson takes MiLife's free 3-minute personality profile.</span></div><div class="step"><b>Coach &amp; learn</b><span>On-floor coaching from POV, with MiLife courses in between.</span></div><div class="step"><b>Track &amp; certify</b><span>Progress is tracked and completed courses earn certificates.</span></div></div></div>
-    <div class="block"><h2>Need salespeople?</h2><p class="sub">Through the MiLife Bridge, dealerships can load a job spec and MiLife shortlists and refers candidates from its learner community.</p>
-      <ul class="incl"><li>Register your dealership on the MiLife portal</li><li>Load your job specification: role, skills, experience, location</li><li>Approved roles go live to MiLife learners</li><li>Learners apply with their CVs</li><li>MiLife shortlists, matches and refers candidates to you</li><li>Every candidate has trained on the platform</li></ul></div>
+    <div class="block intro"><p class="kicker">Built on people</p><h2 style="margin-top:14px">Great dealerships aren't built on stock and systems alone.</h2>
+      <p class="sub">Dealerships invest heavily in leads, stock and sales processes. That investment only pays off when the people behind it are equipped, developed and supported. POV Performance bridges that gap.</p></div>
+    <div class="block"><p class="kicker">Our approach</p><h2 style="margin-top:14px">Understand. Develop. Measure.</h2>
+      <div class="pillars">
+        <article><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></span><span class="n">01</span><h3>Understand the individual</h3><p>Personality and style profiling shows how each salesperson communicates, handles customers and responds under pressure. No generic training.</p></article>
+        <article><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><span class="n">02</span><h3>Develop the professional</h3><p>Practical automotive sales training, built for the dealership floor and applied the same day.</p></article>
+        <article><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span><span class="n">03</span><h3>Measure through MiLife</h3><p>Daily activity tracking and weekly reporting keep development going long after the session ends.</p></article>
+      </div></div>
+    <div class="block"><p class="kicker">What we develop</p><h2 style="margin-top:14px">Skills your team uses on every deal.</h2>
+      <ul class="incl skills"><li>Professional sales techniques</li><li>Customer engagement and relationships</li><li>Understanding buying behaviour</li><li>Communication and negotiation</li><li>Handling objections</li><li>Closing techniques</li><li>Sales discipline and daily activities</li><li>Personal accountability and performance</li></ul></div>
+    <div class="block" id="milife"><div class="slab ml">
+      <div><p class="kicker">Introducing MiLife</p><h2 style="margin-top:14px">Development that doesn't stop when training ends.</h2>
+        <p style="color:#cfcbc2;margin:14px 0 0">MiLife is the online platform behind every POV Performance programme. It turns training into an ongoing process, with visibility for managers and ownership for salespeople.</p>
+        <div class="mlf">
+          <div><b>Personality &amp; style profiles</b><span>Strengths and development areas</span></div>
+          <div><b>Online learning</b><span>Structured modules, always on</span></div>
+          <div><b>Daily activity tracking</b><span>The habits that sell cars</span></div>
+          <div><b>Performance development</b><span>Where extra guidance is needed</span></div>
+          <div><b>Sales support tools</b><span>Call, email &amp; WhatsApp templates</span></div>
+          <div><b>Management reporting</b><span>Weekly insights per salesperson</span></div>
+        </div></div>
+      <div class="dev" aria-label="Illustration of the MiLife dashboard"><div class="scr">
+        <div class="tb"><b>MiLife</b><span>Weekly report</span></div>
+        <div class="row1"><div class="card"><small>Calls</small><b>124</b><i style="--w:78%"></i></div><div class="card"><small>WhatsApps</small><b>211</b><i style="--w:92%"></i></div><div class="card"><small>Test drives</small><b>18</b><i style="--w:56%"></i></div></div>
+        <div class="row2"><div class="card prof"><small>Style profile</small><div class="bars"><span style="--h:82%"></span><span style="--h:46%"></span><span style="--h:64%"></span><span style="--h:38%"></span></div><div class="lb"><em>D</em><em>I</em><em>S</em><em>C</em></div></div>
+          <div class="card list"><small>Team progress</small><p><span>Module 4 · Objections</span><b>86%</b></p><p><span>Daily activity goal</span><b>92%</b></p><p><span>Follow-ups logged</span><b>74%</b></p></div></div>
+      </div><p class="ill">Illustration</p></div>
+    </div></div>
+    <div class="block eq"><div><b>Understanding</b><i>+</i><b>Development</b><i>+</i><b>Measurement</b></div><p>We don't believe in training for the sake of training.</p></div>
+    <div class="block"><p class="kicker">Who we work with</p><h2 style="margin-top:14px">Built for every seat on the floor.</h2>
+      <div class="chips"><span>Automotive dealerships</span><span>Dealer principals</span><span>General sales managers</span><span>New sales executives</span><span>Experienced sales executives</span><span>Sales management teams</span></div></div>
+    <div class="block"><div class="slab cc"><div><p class="kicker">How it fits</p><h2 style="margin-top:14px">A development process, not a course.</h2></div>
+      <div class="fit3"><div><small>Parent brand</small><b>POV</b></div><div><small>Sales training &amp; development</small><b>POV Performance</b></div><div><small>Technology platform</small><b>MiLife</b></div></div></div></div>
     <div class="block faqm"><h2>Good to know</h2>
-      <details><summary>Who is it for?</summary><p>Dealership sales teams of any size, from new salespeople to sales managers. Hatfield VW Pretoria was our first floor, with a team of 35.</p></details>
-      <details><summary>Does it take salespeople off the floor?</summary><p>As little as possible. Coaching happens on site around your trading hours, and the MiLife courses are short and run on a phone.</p></details>
-      <details><summary>Do salespeople get certificates?</summary><p>Yes. Completed MiLife courses come with certificates recognised by employers.</p></details>
+      <details><summary>Is this a once-off training day?</summary><p>No. Training is followed by ongoing development on MiLife, with weekly reporting for management.</p></details>
+      <details><summary>Does it take salespeople off the floor?</summary><p>As little as possible. Sessions are planned around your trading hours, and MiLife runs on a phone.</p></details>
+      <details><summary>What do managers see?</summary><p>Weekly insights into each salesperson's activity, development and progress.</p></details>
+      <details><summary>How do we start?</summary><p>With an introductory meeting at your dealership. We'll show you the approach and MiLife, then quote for your team.</p></details>
     </div>
   </section>
   <section class="view wrap" id="v-pricing" data-view="pricing" hidden>
-    <div class="block"><h2>Pricing</h2><p class="sub">Every dealership is quoted on team size and goals. Tell us about your floor and we'll come back to you the same working day.</p><div class="grid3">
-      <article class="slab price hot"><span class="tag">Most popular</span><h3>Floor coaching</h3><p class="amt">Quoted per dealership</p><ul><li>Regular on-floor coaching sessions</li><li>Consistent sales process for the team</li><li>MiLife courses between visits</li><li>Personality profile for each salesperson</li><li>Progress reports for managers</li></ul><a class="pill" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20to%20find%20out%20more%20about%20POV%20Performance." target="_blank" rel="noopener">Get a quote <i>→</i></a></article>
-      <article class="slab price"><span class="tag">Once-off</span><h3>Team workshop</h3><p class="amt">Quoted per session</p><ul><li>A half or full day with your team</li><li>Sales process, influence and service</li><li>Built around your brand and stock</li><li>Follow-up MiLife course access</li></ul><a class="pill" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20to%20find%20out%20more%20about%20POV%20Performance." target="_blank" rel="noopener">Get a quote <i>→</i></a></article>
-      <article class="slab price"><span class="tag">Hiring</span><h3>MiLife Bridge</h3><p class="amt">Ask us</p><ul><li>Load your sales vacancies</li><li>Candidates trained on MiLife</li><li>Shortlisted and referred to you</li><li>Pair with floor coaching for new hires</li></ul><a class="pill" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20to%20find%20out%20more%20about%20POV%20Performance." target="_blank" rel="noopener">Find out more <i>→</i></a></article>
+    <div class="block"><h2>Programmes</h2><p class="sub">Every programme is built around your dealership and quoted after an introductory meeting.</p><div class="grid3">
+      <article class="slab price hot"><span class="tag">Most popular</span><h3>Sales team programme</h3><p class="amt">Quoted per dealership</p><ul><li>Personality &amp; style profile for everyone</li><li>On-floor sales training</li><li>MiLife learning and activity tracking</li><li>Weekly management reports</li></ul><a class="pill" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20to%20book%20an%20introductory%20meeting%20for%20POV%20Performance." target="_blank" rel="noopener">Book a meeting <i>→</i></a></article>
+      <article class="slab price"><span class="tag">New talent</span><h3>New sales executives</h3><p class="amt">Quoted per intake</p><ul><li>Profiling from day one</li><li>Core sales skills and discipline</li><li>MiLife templates for calls, email &amp; WhatsApp</li><li>Progress tracked for managers</li></ul><a class="pill" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20to%20book%20an%20introductory%20meeting%20for%20POV%20Performance." target="_blank" rel="noopener">Book a meeting <i>→</i></a></article>
+      <article class="slab price"><span class="tag">Leadership</span><h3>Sales management</h3><p class="amt">Quoted per team</p><ul><li>For dealer principals and GSMs</li><li>Reading team data on MiLife</li><li>Coaching your people to perform</li><li>Accountability systems</li></ul><a class="pill" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20to%20book%20an%20introductory%20meeting%20for%20POV%20Performance." target="_blank" rel="noopener">Book a meeting <i>→</i></a></article>
     </div></div>
   </section>
   <section class="view wrap" id="v-stories" data-view="stories" hidden>
@@ -64,7 +118,7 @@ a.partner{text-decoration:none}a.partner i{font-style:normal;color:var(--gold)}
     <div class="block"><p class="kicker">Stories</p><h2 style="margin-top:14px">Stories</h2><div class="grid2"><article class="slab story"><div class="meta"><span>Hatfield VW Pretoria</span><span>Sales team of 35</span></div><h3>Our first floor</h3><p>POV Performance started with Hatfield VW Pretoria and a sales team of 35. The aim from day one: help every salesperson become the best version of themselves, not just the best at sales.</p></article><div class="slot"><b>Your story here</b><p>Results from our next client will be shared here.</p></div></div></div>
   </section>
 
-  <section class="cta wrap"><div class="slab"><div><p class="kicker">POV Performance</p><h2 style="margin-top:12px">Let's talk.</h2></div><div class="row"><a class="pill" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20to%20find%20out%20more%20about%20POV%20Performance." target="_blank" rel="noopener">WhatsApp 078 688 0944 <i>→</i></a><a class="pill" href="mailto:info@povholdings.co.za">info@povholdings.co.za <i>→</i></a><a class="arrow" href="../index.html">Send an enquiry <i>→</i></a></div></div></section>
+  <section class="cta wrap"><div class="slab"><div><p class="kicker">POV Performance</p><h2 style="margin-top:12px">Let's develop your sales team.</h2></div><div class="row"><a class="pill" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20to%20find%20out%20more%20about%20POV%20Performance." target="_blank" rel="noopener">WhatsApp 078 688 0944 <i>→</i></a><a class="pill" href="mailto:info@povholdings.co.za">info@povholdings.co.za <i>→</i></a><a class="arrow" href="../index.html">Send an enquiry <i>→</i></a></div></div></section>
   <section class="wrap" style="padding-block:clamp(56px,8vw,90px) 0"><p class="kicker">The POV group</p><div class="others"><a href="media.html"><b>POV</b> Media</a><a href="collection.html"><b>POV</b> Collection</a><a href="program.html"><b>POV</b> Program</a><a href="growth.html"><b>POV</b> Growth</a><a href="meta.html"><b>POV</b> Meta</a></div></section>
 </main>
 <footer><div class="wrap"><span>© 2026 POV Holdings · POV Performance · Point of View Holdings (Pty) Ltd · Reg. 2024/130036/07</span><nav class="flegal" aria-label="Legal"><a href="../legal.html#terms">Terms</a><a href="../legal.html#privacy">Privacy</a><a href="../legal.html#refunds">Refunds</a><a href="../legal.html#company">Company info</a></nav></div></footer>
