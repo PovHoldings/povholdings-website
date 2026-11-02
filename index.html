@@ -713,27 +713,41 @@ h2.sweep{box-shadow:none!important}
 </script>
 <style id="doors-css">
 .head h2.sweep{font:500 clamp(42px,5.4vw,74px)/1.02 "Cormorant Garamond",Georgia,serif;letter-spacing:-.012em}
-.door b{letter-spacing:-.005em}
 .rev-top.none .rev-score,.rev-top.none .rev-bars{display:none}.rev-top.none{justify-content:flex-start}
 .alrt{z-index:2147483000!important}
-.door img.top{object-position:center 18%}
-.paths{padding-top:clamp(40px,6vw,80px)}
-.doors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:28px}
-@media (max-width:900px){.doors{grid-template-columns:1fr}}
-.door{position:relative;display:flex;align-items:flex-end;min-height:440px;border-radius:26px;overflow:hidden;color:#fff;text-decoration:none;isolation:isolate;box-shadow:0 0 0 1px rgba(255,255,255,.08),0 40px 80px -40px rgba(0,0,0,1);transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .4s}
-@media (max-width:900px){.door{min-height:300px}}
-.door img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transform:scale(1.04);transition:transform 1.2s cubic-bezier(.2,.7,.2,1),filter .6s;filter:saturate(.85) brightness(.8)}
-.door::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(13,13,15,.05) 20%,rgba(13,13,15,.55) 55%,rgba(13,13,15,.96))}
-.door:hover{transform:translateY(-6px);box-shadow:0 0 0 1px #ff8c1a,0 0 40px -8px rgba(255,140,26,.55),0 40px 80px -40px rgba(0,0,0,1)}
-.door:hover img{transform:scale(1.1);filter:saturate(1) brightness(.9)}
-.door>div{padding:28px}
-.door .dn{position:absolute;top:22px;right:24px;font:900 44px/1 'Big Shoulders Display',sans-serif;color:rgba(255,255,255,.22)}
-.door small{display:block;font:600 11px/1.3 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#ffb066}
-.door b{display:block;font:900 clamp(34px,3.4vw,46px)/.95 'Big Shoulders Display',sans-serif;text-transform:uppercase;margin-top:12px}
-.door p{margin:12px 0 0;color:rgba(255,255,255,.78);font-size:15px;line-height:1.5;max-width:34ch}
-.door em{display:inline-flex;gap:8px;align-items:center;margin-top:20px;padding:12px 18px;border-radius:999px;background:#0d0d0f;box-shadow:0 0 0 1px #ff8c1a,0 0 16px -4px rgba(255,140,26,.6);font:700 13.5px/1 Manrope,sans-serif;font-style:normal;transition:background .3s,color .3s}
-.door:hover em{background:#ff8c1a;color:#0d0d0f}
-.door em i{font-style:normal}
+.paths{padding-top:clamp(56px,8vw,110px)}
+.phead{text-align:center;max-width:760px;margin:0 auto}
+.pk{display:inline-flex;align-items:center;gap:14px;font:600 11px/1 Manrope,sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#ff9a3c;margin:0}
+.pk::before,.pk::after{content:"";width:30px;height:1px;background:currentColor;opacity:.7}
+.ph2{font:500 clamp(46px,6.6vw,96px)/.98 "Cormorant Garamond",Georgia,serif;letter-spacing:-.018em;margin:18px 0 0;color:#f5f2ea}
+.ph2 em{font-style:italic;color:#ff8c1a}
+.psub{color:#9b978f;font-size:clamp(16px,1.6vw,18px);margin:16px auto 0;max-width:46ch}
+.doors{display:flex;gap:14px;margin-top:clamp(32px,4vw,52px);height:clamp(520px,62vh,640px)}
+.door{position:relative;flex:1 1 0;min-width:0;display:flex;align-items:flex-end;border-radius:26px;overflow:hidden;color:#fff;cursor:pointer;isolation:isolate;
+  box-shadow:0 0 0 1px rgba(255,255,255,.09),0 40px 80px -40px rgba(0,0,0,1);transition:flex-grow .9s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
+.doors:hover .door{flex-grow:.82}.doors .door:hover{flex-grow:1.5;box-shadow:0 0 0 1px #ff8c1a,0 0 50px -12px rgba(255,140,26,.55),0 40px 80px -40px rgba(0,0,0,1)}
+.door .dv,.dfade img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;filter:saturate(.9) brightness(.78);transition:filter .8s,transform 1.6s cubic-bezier(.2,.7,.2,1);transform:scale(1.03)}
+.door:hover .dv,.door:hover .dfade img{filter:saturate(1.05) brightness(.9);transform:scale(1.07)}
+.dfade{position:absolute;inset:0;z-index:-2}
+.dfade img{object-position:center 16%;opacity:0;animation:dfade 12s infinite}
+.dfade img:nth-child(2){animation-delay:4s}.dfade img:nth-child(3){animation-delay:8s}
+@keyframes dfade{0%{opacity:0}6%,33%{opacity:1}40%,100%{opacity:0}}
+.door::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,10,12,.35) 0%,rgba(10,10,12,0) 22%,rgba(10,10,12,.25) 45%,rgba(10,10,12,.93) 82%)}
+.door .dn{position:absolute;top:24px;left:26px;font:500 italic 22px/1 "Cormorant Garamond",Georgia,serif;color:rgba(255,255,255,.75);letter-spacing:.04em}
+.door .dn::after{content:"";display:inline-block;width:34px;height:1px;background:rgba(255,255,255,.5);vertical-align:middle;margin-left:12px}
+.dc{padding:clamp(22px,2.4vw,32px);width:100%}
+.dc small{display:block;font:600 10.5px/1.4 Manrope,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#ffb066}
+.dc b{display:block;font:500 clamp(36px,3.4vw,52px)/.98 "Cormorant Garamond",Georgia,serif;letter-spacing:-.015em;margin-top:12px;font-weight:500}
+.dc b em{font-style:italic;color:#ff8c1a}
+.dc p{margin:12px 0 0;color:rgba(255,255,255,.78);font-size:15px;line-height:1.5;max-width:36ch}
+.dl{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.dl a{padding:8px 12px;border-radius:999px;background:rgba(13,13,15,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:0 0 0 1px rgba(255,255,255,.2);font:600 12px/1 Manrope,sans-serif;color:#fff;text-decoration:none;transition:all .25s}
+.dl a:hover{background:#ff8c1a;color:#0d0d0f;box-shadow:0 0 0 1px #ff8c1a}
+.dgo{display:inline-flex;gap:8px;align-items:center;margin-top:18px;padding:13px 20px;border-radius:999px;background:#0d0d0f;color:#fff;text-decoration:none;box-shadow:0 0 0 1px #ff8c1a,0 0 18px -4px rgba(255,140,26,.6);font:700 14px/1 Manrope,sans-serif;transition:background .3s,color .3s}
+.dgo i{font-style:normal;transition:transform .3s}
+.door:hover .dgo{background:#ff8c1a;color:#0d0d0f}.door:hover .dgo i{transform:translateX(4px)}
+@media (max-width:900px){.doors{flex-direction:column;height:auto}.door{flex:none;min-height:470px}.doors:hover .door,.doors .door:hover{flex-grow:0}}
+@media (prefers-reduced-motion:reduce){.dfade img{animation:none}.dfade img:first-child{opacity:1}}
 </style>
 </head>
 <body>
@@ -795,11 +809,29 @@ h2.sweep{box-shadow:none!important}
 
   <section id="paths" class="paths">
     <div class="wrap">
-      <div class="head rv"><h2 class="sweep">Where are you headed?</h2><p>Pick your lane. We'll take you straight there.</p></div>
+      <div class="phead rv"><p class="pk">Start here</p><h2 class="ph2">Where are you <em>headed?</em></h2><p class="psub">Six divisions, three lanes. Pick yours and we'll take you straight there.</p></div>
       <div class="doors rv">
-        <a class="door" href="divisions/dealers.html" data-cta="door" data-place="dealers"><img src="work/audi-sq5-01.jpg" alt="" loading="lazy"><span class="dn">01</span><div><small>Dealer principals · GSMs · Marketing</small><b>I run a dealership</b><p>Stock imagery, Meta ads, sales training and content for your team.</p><em>For dealerships <i>→</i></em></div></a>
-        <a class="door" href="divisions/sales.html" data-cta="door" data-place="sales"><img src="work/vw-golf-gti-01c.jpg?v=3" alt="" loading="lazy"><span class="dn">02</span><div><small>Sales executives · New &amp; experienced</small><b>I sell cars</b><p>Build your name, get more leads and earn more from your phone.</p><em>For salespeople <i>→</i></em></div></a>
-        <a class="door" href="divisions/collection.html" data-cta="door" data-place="shop"><img class="top" src="work/collection/executive-front.jpg?v=4" alt="" loading="lazy"><span class="dn">03</span><div><small>The POV Collection</small><b>I'm here for the brand</b><p>The Frame Tee. Executive, Ivory and Greyston. Now R599.</p><em>Shop the drop <i>→</i></em></div></a>
+        <div class="door" data-href="divisions/dealers.html">
+          <video class="dv" muted playsinline loop preload="none" poster="vid/reels/fouche-motors-rolls-royce-2.jpg" data-src="vid/reels/fouche-motors-rolls-royce-2.mp4"></video>
+          <span class="dn">01</span>
+          <div class="dc"><small>Dealer principals · GSMs · Marketing</small><b>I run a <em>dealership</em></b><p>How your cars look, how they get seen and how your team sells them.</p>
+            <nav class="dl" aria-label="Dealership divisions"><a href="divisions/media.html">Media</a><a href="divisions/meta.html">Meta</a><a href="divisions/performance.html">Performance</a><a href="divisions/program.html">Program</a></nav>
+            <a class="dgo" href="divisions/dealers.html" data-cta="door" data-place="dealers">For dealerships <i>→</i></a></div>
+        </div>
+        <div class="door" data-href="divisions/sales.html">
+          <video class="dv" muted playsinline loop preload="none" poster="vid/reels/jetour-menlyn-jetour-t2-aspire-2.jpg" data-src="vid/reels/jetour-menlyn-jetour-t2-aspire-2.mp4"></video>
+          <span class="dn">02</span>
+          <div class="dc"><small>Sales executives · New &amp; experienced</small><b>I <em>sell</em> cars</b><p>Build your name, bring in your own leads and earn more from your phone.</p>
+            <nav class="dl" aria-label="Salesperson divisions"><a href="divisions/program.html">Program</a><a href="divisions/growth.html">Growth · R1 999</a><a href="divisions/performance.html">Performance</a></nav>
+            <a class="dgo" href="divisions/sales.html" data-cta="door" data-place="sales">For salespeople <i>→</i></a></div>
+        </div>
+        <div class="door" data-href="divisions/collection.html">
+          <div class="dfade" aria-hidden="true"><img src="work/collection/executive-front.jpg?v=4" alt=""><img src="work/collection/ivory-front.jpg?v=4" alt=""><img src="work/collection/greyston-front.jpg?v=4" alt=""></div>
+          <span class="dn">03</span>
+          <div class="dc"><small>The POV Collection</small><b>I'm here for <em>the brand</em></b><p>The Frame Tee. Now R599, was R749.99. Sizes S to XL.</p>
+            <nav class="dl" aria-label="Collection ranges"><a href="divisions/collection.html#buy">Executive</a><a href="divisions/collection.html#buy">Ivory</a><a href="divisions/collection.html#buy">Greyston</a></nav>
+            <a class="dgo" href="divisions/collection.html" data-cta="door" data-place="shop">Shop the drop <i>→</i></a></div>
+        </div>
       </div>
     </div>
   </section>
@@ -981,6 +1013,18 @@ h2.sweep{box-shadow:none!important}
     });
   })();
 
+
+  // Where are you headed: whole panel clickable, videos play in view
+  (function(){
+    const ds=[...document.querySelectorAll('#paths .door')];if(!ds.length)return;
+    ds.forEach(d=>d.addEventListener('click',e=>{if(e.target.closest('a'))return;location.href=d.dataset.href}));
+    const vs=[...document.querySelectorAll('#paths video.dv')];
+    vs.forEach(v=>{v.muted=true;v.defaultMuted=true;v.playsInline=true});
+    const go=v=>{if(!v.getAttribute('src')){v.src=v.dataset.src;v.load()}v.muted=true;const p=v.play();if(p&&p.catch)p.catch(()=>{})};
+    let on=false;
+    new IntersectionObserver(es=>es.forEach(e=>{on=e.isIntersecting;vs.forEach(v=>on?go(v):v.pause())}),{threshold:.2}).observe(document.getElementById('paths'));
+    const kick=()=>{if(on)vs.forEach(v=>{if(v.paused)go(v)})};['touchstart','click'].forEach(ev=>addEventListener(ev,kick,{passive:true}));
+  })();
   // POV reels: play only what's on screen, tap a reel for sound
   (function(){
     const tr=document.getElementById('vrTrack');if(!tr)return;const cards=[...tr.querySelectorAll('.vr')];
