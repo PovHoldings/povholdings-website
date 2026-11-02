@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>POV for Salespeople</title>
+<meta name="description" content="Tools built for car salespeople: daily content plans, the POV Package course and the POV Collection.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="pov.css">
+<style>
+.hero h1 span{color:#ff8c1a}
+.mq{overflow:hidden;margin-top:clamp(28px,4vw,44px);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.mq div{display:flex;gap:44px;width:max-content;animation:mq 46s linear infinite}
+.mq span{font:900 22px/1 var(--display);text-transform:uppercase;letter-spacing:.04em;color:rgba(245,242,234,.42);white-space:nowrap}
+.mq span::before{content:"\2726";color:#ff8c1a;margin-right:44px;font-size:14px;vertical-align:middle}
+@keyframes mq{to{transform:translateX(-50%)}}
+.kp{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}@media (max-width:760px){.kp{grid-template-columns:1fr 1fr}}
+.kp div{padding:22px;border-radius:20px;background:linear-gradient(160deg,#202024,#151517);box-shadow:0 0 0 1px rgba(255,140,26,.22)}
+.kp b{display:block;font:900 clamp(30px,3.4vw,46px)/1 var(--display);color:#fff;white-space:nowrap}.kp span{display:block;color:var(--grey);font-size:13.5px;margin-top:8px}
+.stack{margin-top:28px;display:grid;gap:12px}
+.srow{display:grid;grid-template-columns:90px 1.1fr 1.4fr auto;gap:22px;align-items:center;padding:24px 26px;border-radius:22px;background:linear-gradient(160deg,#1e1e22,#141416);box-shadow:0 0 0 1px var(--hair);text-decoration:none;color:inherit;transition:box-shadow .35s,transform .35s}
+.srow:hover{box-shadow:0 0 0 1px #ff8c1a,0 0 36px -10px rgba(255,140,26,.5);transform:translateX(4px)}
+.srow .no{font:900 54px/1 var(--display);color:rgba(255,140,26,.35)}
+.srow h3{font:900 clamp(26px,2.6vw,34px)/1 var(--display);text-transform:uppercase}.srow h3 small{display:block;font:600 11px/1 var(--sans);letter-spacing:.18em;color:#ff8c1a;margin-bottom:10px}
+.srow p{margin:0;color:#cfcbc2;font-size:15px}
+.srow em{font-style:normal;white-space:nowrap;padding:11px 16px;border-radius:999px;background:#0d0d0f;box-shadow:0 0 0 1px #ff8c1a;font:700 13px/1 var(--sans);transition:all .3s}
+.srow:hover em{background:#ff8c1a;color:#0d0d0f}
+@media (max-width:860px){.srow{grid-template-columns:56px 1fr;gap:10px 16px}.srow .no{font-size:40px;grid-row:span 2}.srow p{grid-column:2}.srow em{grid-column:2;justify-self:start;margin-top:6px}}
+.why{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:24px}@media (max-width:700px){.why{grid-template-columns:1fr}}
+.why div{padding:20px 22px;border-radius:18px;background:#18181b;box-shadow:0 0 0 1px var(--hair)}.why b{display:block;font-size:16px}.why span{display:block;color:var(--grey);font-size:14px;margin-top:4px}
+.bk{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,4vw,56px);align-items:start}@media (max-width:900px){.bk{grid-template-columns:1fr}}
+.bk form{display:grid;gap:14px;background:none;padding:0;box-shadow:none}
+.bk label{display:grid;gap:7px;font:600 12px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
+.bk input,.bk select{height:50px;border-radius:14px;border:1px solid var(--hair);background:#141416;color:var(--ink);padding:0 16px;font:500 16px var(--sans);outline:none;width:100%;box-sizing:border-box;color-scheme:dark}
+.bk input:focus,.bk select:focus{border-color:#ff8c1a}
+.bk .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media (max-width:520px){.bk .two{grid-template-columns:1fr}}
+.chipset{display:flex;flex-wrap:wrap;gap:8px}
+.chipset button{border:0;cursor:pointer;padding:11px 15px;border-radius:999px;background:#141416;color:#cfcbc2;font:600 13.5px/1 var(--sans);box-shadow:0 0 0 1px var(--hair);transition:all .2s}
+.chipset button.on{background:rgba(255,140,26,.14);color:#fff;box-shadow:0 0 0 1px #ff8c1a}
+.chipset button.on::before{content:"\2713\00a0";color:#ff8c1a}
+.go{height:54px;border:0;border-radius:999px;background:#ff8c1a;color:#0d0d0f;font:800 15.5px/1 var(--sans);cursor:pointer;box-shadow:0 0 30px -6px rgba(255,140,26,.6);transition:transform .2s}.go:hover{transform:translateY(-2px)}
+.bkmsg{min-height:1.2em;margin:0;font-size:14px;color:#f2a08a}
+.bkalt{font-size:14px;color:var(--grey);margin:0}.bkalt a{color:#ff8c1a}
+.faqm details{border-bottom:1px solid var(--hair);padding:18px 0}.faqm summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-weight:600;font-size:16.5px}.faqm summary::after{content:"+";color:#ff8c1a;font-size:22px;line-height:1}.faqm details[open] summary::after{content:"\2013"}.faqm summary::-webkit-details-marker{display:none}.faqm p{color:#cfcbc2;margin:10px 0 0}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.mq div{animation:none}}
+
+.pick{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.pick button{border:0;cursor:pointer;padding:15px 20px;border-radius:999px;background:#141416;color:#fff;font:700 15px/1 var(--sans);box-shadow:0 0 0 1px var(--hair);transition:all .25s}
+.pick button:hover{box-shadow:0 0 0 1px #ff8c1a}
+.pick button.on{background:#ff8c1a;color:#0d0d0f;box-shadow:0 0 30px -6px rgba(255,140,26,.6)}
+.lanes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:28px}@media (max-width:900px){.lanes{grid-template-columns:1fr}}
+.lane{position:relative;display:flex;flex-direction:column;border-radius:24px;overflow:hidden;background:linear-gradient(160deg,#1f1f23,#141416);box-shadow:0 0 0 1px var(--hair);text-decoration:none;color:inherit;transition:box-shadow .4s,transform .4s,opacity .4s}
+.lane img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:brightness(.85)}
+.lane img.top{object-position:center 15%}
+.lane>div{padding:22px 24px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
+.lane small{font:600 11px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:#ff8c1a}
+.lane h3{font:900 32px/1 var(--display);text-transform:uppercase}
+.lane p{margin:0;color:#cfcbc2;font-size:15px}
+.lane .pr{font-weight:700;color:#fff}.lane .pr s{color:var(--grey);font-weight:500;margin-right:6px}
+.lane em{margin-top:auto;align-self:flex-start;font-style:normal;padding:12px 18px;border-radius:999px;background:#0d0d0f;box-shadow:0 0 0 1px #ff8c1a;font:700 13.5px/1 var(--sans);transition:all .3s}
+.lane:hover{box-shadow:0 0 0 1px #ff8c1a,0 0 40px -10px rgba(255,140,26,.5);transform:translateY(-4px)}.lane:hover em{background:#ff8c1a;color:#0d0d0f}
+.lanes.f .lane{opacity:.38}.lanes.f .lane.hit{opacity:1;box-shadow:0 0 0 2px #ff8c1a,0 0 50px -10px rgba(255,140,26,.6)}
+.lane .rec{position:absolute;top:14px;left:14px;z-index:1;padding:8px 12px;border-radius:999px;background:#ff8c1a;color:#0d0d0f;font:800 11px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;display:none}.lane.hit .rec{display:block}
+.mgr{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<header><div class="nav"><a class="back" href="../index.html">← POV Holdings</a><span class="brandname"><span>POV</span> for Salespeople</span><a class="arrow" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27m%20a%20car%20salesperson%20and%20I%27d%20like%20to%20know%20more." target="_blank" rel="noopener">Get in touch <i>→</i></a></div></header>
+<main>
+  <section class="hero"><div class="wrap">
+    <p class="kicker">For car salespeople</p>
+    <h1><span>Sell more.</span>Be known.</h1>
+    <p class="lede">Your phone is your second showroom. Build your name, bring in your own leads and earn more, with tools POV built for people on the floor.</p>
+    <div class="hero-row"><a class="pill" href="#pick">Find my lane <i>→</i></a><a class="arrow" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27m%20a%20car%20salesperson%20and%20I%27d%20like%20to%20know%20more." target="_blank" rel="noopener">WhatsApp us <i>→</i></a></div>
+  </div></section>
+
+  <section class="wrap" id="pick" style="padding-block:clamp(24px,4vw,48px) 0;scroll-margin-top:90px">
+    <div class="rv"><p class="kicker">Ten-second check</p><h2 style="margin-top:14px">What do you want most right now?</h2>
+      <div class="pick" role="group" aria-label="Pick one"><button type="button" data-l="program">More leads from my socials</button><button type="button" data-l="growth">An income from my phone</button><button type="button" data-l="collection">To look the part</button></div></div>
+    <div class="lanes rv" id="lanes">
+      <a class="lane" data-l="program" href="program.html"><span class="rec">Your lane</span><img src="../vid/reels/audi-rs3-the-sportiest-in-its-class-2.jpg" alt="" loading="lazy"><div><small>POV Program</small><h3>Post every day</h3><p>A daily content plan made for South African showrooms. Know what to post, shoot it on your phone, bring in your own leads.</p><p class="pr">Ask your dealership, or join on your own</p><em>See POV Program →</em></div></a>
+      <a class="lane" data-l="growth" href="growth.html"><span class="rec">Your lane</span><img src="../vid/reels/fouche-motors-rolls-royce-2.jpg" alt="" loading="lazy"><div><small>POV Growth</small><h3>The POV Package</h3><p>The step-by-step course on turning your phone into a business. Six modules, at your own pace.</p><p class="pr"><s>R2 999</s>R1 999 once-off</p><em>See the course →</em></div></a>
+      <a class="lane" data-l="collection" href="collection.html"><span class="rec">Your lane</span><img class="top" src="../work/collection/executive-front.jpg?v=4" alt="" loading="lazy"><div><small>POV Collection</small><h3>The Frame Tee</h3><p>Executive, Ivory and Greyston. Clean, minimal and made for the floor. Sizes S to XL.</p><p class="pr"><s>R749.99</s>R599</p><em>Shop the drop →</em></div></a>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-block:clamp(56px,8vw,100px) 0">
+    <div class="rv"><p class="kicker">From the floor</p><h2 style="margin-top:14px">Robert started out selling cars.</h2><p class="sub">Seventeen business models later, he built POV. Everything here is what he wished he'd had as a salesperson: a reason to post, a way to stand out and a plan to earn more.</p></div>
+    <div class="vid rv" data-reels="hatfield-vw-pretoria-alechia-car-surprise-2|Hatfield VW Pretoria · Handover,audi-s3-respect-is-earned|Audi · S3,omoda-jaecoo-waterfall-what-you-need|Omoda &amp; Jaecoo Waterfall"></div>
+  </section>
+
+  <section class="wrap" style="padding-block:clamp(56px,8vw,100px) 0">
+    <div class="slab mgr rv"><div><p class="kicker">Want training for the whole team?</p><h2 style="margin-top:12px">Send this to your manager.</h2><p class="sub">POV Performance trains whole sales teams, with progress tracked on MiLife.</p></div>
+      <div class="row" style="display:flex;gap:18px;flex-wrap:wrap;align-items:center"><a class="pill" href="https://wa.me/?text=Hi%20boss%2C%20have%20a%20look%20at%20POV%20Performance.%20Personalised%20sales%20training%20for%20our%20team%2C%20with%20progress%20tracked%20on%20MiLife%3A%20https%3A//povholdings.co.za/divisions/performance.html" target="_blank" rel="noopener">Share on WhatsApp <i>→</i></a><a class="arrow" href="performance.html">See POV Performance <i>→</i></a></div></div>
+  </section>
+
+  <section class="wrap faqm" style="padding-block:clamp(56px,8vw,100px) 0">
+    <h2 class="rv">Good to know</h2>
+    <details><summary>Do I need my dealership's permission?</summary><p>Not for the course or the Collection. For POV Program on your own social media, check your dealership's social media policy.</p></details>
+    <details><summary>Do I need fancy gear?</summary><p>No. Everything is built to run from your phone.</p></details>
+    <details><summary>How do I pay for the course?</summary><p>Tap Enrol on the <a href="growth.html" style="color:#ff8c1a">POV Package</a> page. It takes about a minute.</p></details>
+  </section>
+
+  <section class="wrap" style="padding-block:clamp(56px,8vw,90px) 0"><p class="kicker">The POV group</p><div class="others"><a href="program.html"><b>POV</b> Program</a><a href="growth.html"><b>POV</b> Growth</a><a href="collection.html"><b>POV</b> Collection</a><a href="performance.html"><b>POV</b> Performance</a><a href="dealers.html"><b>For</b> Dealerships</a></div></section>
+</main>
+<footer><div class="wrap"><span>© 2026 POV Holdings · For Salespeople · Point of View Holdings (Pty) Ltd · Reg. 2024/130036/07</span><nav class="flegal" aria-label="Legal"><a href="../legal.html#terms">Terms</a><a href="../legal.html#privacy">Privacy</a><a href="../legal.html#refunds">Refunds</a><a href="../legal.html#company">Company info</a></nav></div></footer>
+<nav class="mbar" aria-label="Quick contact"><a class="solid" href="#pick">Find my lane</a><a href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27m%20a%20car%20salesperson%20and%20I%27d%20like%20to%20know%20more." target="_blank" rel="noopener">WhatsApp</a><a href="../index.html">Home</a></nav>
+<script>
+(function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+document.querySelectorAll('.chipset button').forEach(function(b){b.addEventListener('click',function(){b.classList.toggle('on');b.setAttribute('aria-pressed',b.classList.contains('on'))})});
+try{var a=JSON.parse(sessionStorage.getItem('pov_attr')||'null');window.__adtag=a&&a.utm_campaign?' [ad: '+a.utm_campaign+']':''}catch(_){window.__adtag=''}
+})();
+</script>
+<script>
+(function(){
+  var lanes=document.getElementById('lanes'),bs=[].slice.call(document.querySelectorAll('.pick button'));
+  bs.forEach(function(b){b.addEventListener('click',function(){var on=!b.classList.contains('on');bs.forEach(function(x){x.classList.remove('on')});lanes.classList.toggle('f',on);
+    [].forEach.call(lanes.children,function(l){l.classList.toggle('hit',on&&l.dataset.l===b.dataset.l)});
+    if(on){b.classList.add('on');var hit=lanes.querySelector('.hit');if(innerWidth<900&&hit)hit.scrollIntoView({behavior:'smooth',block:'center'})}})});
+})();
+</script>
+<script src="trio.js" defer></script>
+<script src="../assistant.js" defer></script>
+</body>
+</html>

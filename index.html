@@ -686,6 +686,24 @@ h2.sweep{box-shadow:none!important}
 .pill.solid:hover,.pill.solid:not(.intro .pill):hover,.intro .pill.solid:hover,.mbar .pill.solid:hover{background:var(--neon);color:#0d0d0f;border-color:var(--neon);box-shadow:0 0 0 1px var(--neon),0 0 28px 0 rgba(255,140,26,.7)}
 .quote{background:radial-gradient(90% 70% at 100% 0%,rgba(255,140,26,.10),transparent 60%),linear-gradient(160deg,#121214,#0d0d0f 60%,#0a0a0b);box-shadow:0 0 0 1px rgba(255,140,26,.75),0 0 40px -8px rgba(255,140,26,.45),inset 0 1px 0 rgba(255,255,255,.06),0 50px 100px -40px rgba(0,0,0,1)}
 .quote .field input:focus,.quote .field select:focus{border-color:var(--neon);background:rgba(255,140,26,.06)}
+
+/* alerts popup v2: slide-in card, not a blocking modal */
+.alrt{inset:auto 24px 24px auto!important;padding:0!important;background:none!important;display:block!important;width:min(400px,calc(100vw - 32px));animation:none!important}
+.alrt[hidden]{display:none!important}
+.alrt-card{max-width:none!important;padding:26px 24px 20px!important;border-radius:22px!important;background:linear-gradient(160deg,#202024,#121214)!important;box-shadow:0 0 0 1px rgba(255,140,26,.55),0 0 50px -14px rgba(255,140,26,.5),0 30px 80px rgba(0,0,0,.75)!important;animation:alrtUp .6s cubic-bezier(.2,.8,.2,1)!important}
+.alrt-card::before{background:linear-gradient(90deg,#ff8c1a,#ffb066)!important}
+.alrt-card h3{font-size:28px!important;margin:8px 0 8px!important}
+.alrt-p{font-size:14.5px!important;margin:0 0 14px!important}
+.alrt .kicker{color:#ff8c1a!important}
+.alrt-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.alrt-chips button{border:0;cursor:pointer;padding:9px 13px;border-radius:999px;background:#151517;color:#cfcbc2;font:600 12.5px/1 Manrope,sans-serif;box-shadow:0 0 0 1px rgba(255,255,255,.14);transition:all .2s}
+.alrt-chips button.on{background:rgba(255,140,26,.14);color:#fff;box-shadow:0 0 0 1px #ff8c1a}
+.alrt-chips button.on::before{content:"\2713\00a0";color:#ff8c1a}
+#subBtn{background:#ff8c1a!important;color:#0d0d0f!important;box-shadow:none!important}
+#subEmail:focus{border-color:#ff8c1a!important}
+.alrt-later{border:0;background:none;padding:0;color:var(--grey);font:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+@keyframes alrtUp{from{opacity:0;transform:translateY(30px) scale(.98)}to{opacity:1;transform:none}}
+@media (max-width:640px){.alrt{inset:auto 10px calc(78px + env(safe-area-inset-bottom)) 10px!important;width:auto}.alrt-card h3{font-size:24px!important}}
 </style>
 
 <script>
@@ -693,11 +711,33 @@ h2.sweep{box-shadow:none!important}
 (function(){try{if('scrollRestoration' in history)history.scrollRestoration='manual';if(location.hash){history.replaceState(null,'',location.pathname+location.search)}}catch(_){}
   scrollTo(0,0);addEventListener('load',()=>scrollTo(0,0));addEventListener('pageshow',()=>scrollTo(0,0));})();
 </script>
+<style id="doors-css">
+.rev-top.none .rev-score,.rev-top.none .rev-bars{display:none}.rev-top.none{justify-content:flex-start}
+.alrt{z-index:2147483000!important}
+.door img.top{object-position:center 18%}
+.paths{padding-top:clamp(40px,6vw,80px)}
+.doors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:28px}
+@media (max-width:900px){.doors{grid-template-columns:1fr}}
+.door{position:relative;display:flex;align-items:flex-end;min-height:440px;border-radius:26px;overflow:hidden;color:#fff;text-decoration:none;isolation:isolate;box-shadow:0 0 0 1px rgba(255,255,255,.08),0 40px 80px -40px rgba(0,0,0,1);transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .4s}
+@media (max-width:900px){.door{min-height:300px}}
+.door img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transform:scale(1.04);transition:transform 1.2s cubic-bezier(.2,.7,.2,1),filter .6s;filter:saturate(.85) brightness(.8)}
+.door::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(13,13,15,.05) 20%,rgba(13,13,15,.55) 55%,rgba(13,13,15,.96))}
+.door:hover{transform:translateY(-6px);box-shadow:0 0 0 1px #ff8c1a,0 0 40px -8px rgba(255,140,26,.55),0 40px 80px -40px rgba(0,0,0,1)}
+.door:hover img{transform:scale(1.1);filter:saturate(1) brightness(.9)}
+.door>div{padding:28px}
+.door .dn{position:absolute;top:22px;right:24px;font:900 44px/1 'Big Shoulders Display',sans-serif;color:rgba(255,255,255,.22)}
+.door small{display:block;font:600 11px/1.3 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#ffb066}
+.door b{display:block;font:900 clamp(34px,3.4vw,46px)/.95 'Big Shoulders Display',sans-serif;text-transform:uppercase;margin-top:12px}
+.door p{margin:12px 0 0;color:rgba(255,255,255,.78);font-size:15px;line-height:1.5;max-width:34ch}
+.door em{display:inline-flex;gap:8px;align-items:center;margin-top:20px;padding:12px 18px;border-radius:999px;background:#0d0d0f;box-shadow:0 0 0 1px #ff8c1a,0 0 16px -4px rgba(255,140,26,.6);font:700 13.5px/1 Manrope,sans-serif;font-style:normal;transition:background .3s,color .3s}
+.door:hover em{background:#ff8c1a;color:#0d0d0f}
+.door em i{font-style:normal}
+</style>
 </head>
 <body>
 <header id="hdr">
   <div class="wrap nav">
-    <nav class="links" aria-label="Main"><a href="#divisions">Divisions</a><a href="divisions/media.html#album">Album</a><a href="#reels">Reels</a><a href="divisions/media.html#stock">Stock</a><a href="divisions/media.html#pricing">Packages</a><a href="divisions/media.html#services">Services</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></nav>
+    <nav class="links" aria-label="Main"><a href="divisions/dealers.html">Dealerships</a><a href="divisions/sales.html">Salespeople</a><a href="divisions/collection.html">Shop</a><a href="#divisions">Divisions</a><a href="#reels">Reels</a><a href="divisions/media.html#album">Album</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></nav>
     <a class="arrow" href="#contact" data-cta="quote" data-place="header">Get a quote <i>→</i></a>
   </div>
 </header>
@@ -750,6 +790,17 @@ h2.sweep{box-shadow:none!important}
     </div></div>
   </section>
 
+
+  <section id="paths" class="paths">
+    <div class="wrap">
+      <div class="head rv"><h2 class="sweep">Where are you headed?</h2><p>Pick your lane. We'll take you straight there.</p></div>
+      <div class="doors rv">
+        <a class="door" href="divisions/dealers.html" data-cta="door" data-place="dealers"><img src="work/audi-sq5-01.jpg" alt="" loading="lazy"><span class="dn">01</span><div><small>Dealer principals · GSMs · Marketing</small><b>I run a dealership</b><p>Stock imagery, Meta ads, sales training and content for your team.</p><em>For dealerships <i>→</i></em></div></a>
+        <a class="door" href="divisions/sales.html" data-cta="door" data-place="sales"><img src="vid/reels/audi-rs3-the-sportiest-in-its-class-2.jpg" alt="" loading="lazy"><span class="dn">02</span><div><small>Sales executives · New &amp; experienced</small><b>I sell cars</b><p>Build your name, get more leads and earn more from your phone.</p><em>For salespeople <i>→</i></em></div></a>
+        <a class="door" href="divisions/collection.html" data-cta="door" data-place="shop"><img class="top" src="work/collection/executive-front.jpg?v=4" alt="" loading="lazy"><span class="dn">03</span><div><small>The POV Collection</small><b>I'm here for the brand</b><p>The Frame Tee. Executive, Ivory and Greyston. Now R599.</p><em>Shop the drop <i>→</i></em></div></a>
+      </div>
+    </div>
+  </section>
   <section id="reels" class="vreels-sec">
     <div class="wrap"><div class="head rv"><h2 class="sweep">POV reels</h2><p>Videos we've made for dealerships. Tap for sound.</p></div></div>
     <div class="vreels"><div class="vr-track" id="vrTrack"><figure class="vr" data-src="vid/reels/fouche-motors-rolls-royce-2.mp4"><video muted playsinline loop preload="none" poster="vid/reels/fouche-motors-rolls-royce-2.jpg"></video><button class="vr-snd" type="button" aria-label="Sound on"></button><figcaption><b>Fouche Motors</b>Rolls-Royce</figcaption></figure><figure class="vr" data-src="vid/reels/jetour-menlyn-jetour-t2-aspire-2.mp4"><video muted playsinline loop preload="none" poster="vid/reels/jetour-menlyn-jetour-t2-aspire-2.jpg"></video><button class="vr-snd" type="button" aria-label="Sound on"></button><figcaption><b>Jetour Menlyn</b>Jetour T2 Aspire</figcaption></figure><figure class="vr" data-src="vid/reels/audi-centurion-audi-q5.mp4"><video muted playsinline loop preload="none" poster="vid/reels/audi-centurion-audi-q5.jpg"></video><button class="vr-snd" type="button" aria-label="Sound on"></button><figcaption><b>Audi Centurion</b>Audi Q5</figcaption></figure><figure class="vr" data-src="vid/reels/0513-2.mp4"><video muted playsinline loop preload="none" poster="vid/reels/0513-2.jpg"></video><button class="vr-snd" type="button" aria-label="Sound on"></button><figcaption><b>Private client</b>Porsche 911 GT3 RS</figcaption></figure><figure class="vr" data-src="vid/reels/hatfield-vw-pretoria-alechia-car-surprise-2.mp4"><video muted playsinline loop preload="none" poster="vid/reels/hatfield-vw-pretoria-alechia-car-surprise-2.jpg"></video><button class="vr-snd" type="button" aria-label="Sound on"></button><figcaption><b>Hatfield VW Pretoria</b>Alechia’s car surprise</figcaption></figure><figure class="vr" data-src="vid/reels/audi-rs3-the-sportiest-in-its-class-2.mp4"><video muted playsinline loop preload="none" poster="vid/reels/audi-rs3-the-sportiest-in-its-class-2.jpg"></video><button class="vr-snd" type="button" aria-label="Sound on"></button><figcaption><b>Audi</b>RS3 · The sportiest in its class</figcaption></figure><figure class="vr" data-src="vid/reels/byd-menlyn-byd-sealion-8.mp4"><video muted playsinline loop preload="none" poster="vid/reels/byd-menlyn-byd-sealion-8.jpg"></video><button class="vr-snd" type="button" aria-label="Sound on"></button><figcaption><b>BYD Menlyn</b>BYD Sealion 8</figcaption></figure><figure class="vr" data-src="vid/reels/omoda-jaecoo-waterfall-what-you-need.mp4"><video muted playsinline loop preload="none" poster="vid/reels/omoda-jaecoo-waterfall-what-you-need.jpg"></video><button class="vr-snd" type="button" aria-label="Sound on"></button><figcaption><b>Omoda &amp; Jaecoo Waterfall</b>What you need</figcaption></figure><figure class="vr" data-src="vid/reels/vw-hatfield-pretoria-how-often-do-i-need-to-service-my-vw.mp4"><video muted playsinline loop preload="none" poster="vid/reels/vw-hatfield-pretoria-how-often-do-i-need-to-service-my-vw.jpg"></video><button class="vr-snd" type="button" aria-label="Sound on"></button><figcaption><b>Hatfield VW Pretoria</b>How often should I service my VW?</figcaption></figure><figure class="vr" data-src="vid/reels/chery-silver-lakes-francois-van-coke-kaartjie-kompetisie.mp4"><video muted playsinline loop preload="none" poster="vid/reels/chery-silver-lakes-francois-van-coke-kaartjie-kompetisie.jpg"></video><button class="vr-snd" type="button" aria-label="Sound on"></button><figcaption><b>Chery Silver Lakes</b>Francois van Coke ticket competition</figcaption></figure><figure class="vr" data-src="vid/reels/vw-wonderboom-sondela-bakkie-suv-fest-vertical.mp4"><video muted playsinline loop preload="none" poster="vid/reels/vw-wonderboom-sondela-bakkie-suv-fest-vertical.jpg"></video><button class="vr-snd" type="button" aria-label="Sound on"></button><figcaption><b>VW Wonderboom</b>Sondela Bakkie &amp; SUV Fest</figcaption></figure><figure class="vr" data-src="vid/reels/audi-s3-respect-is-earned.mp4"><video muted playsinline loop preload="none" poster="vid/reels/audi-s3-respect-is-earned.jpg"></video><button class="vr-snd" type="button" aria-label="Sound on"></button><figcaption><b>Audi</b>S3 · Respect is earned</figcaption></figure><figure class="vr" data-src="vid/reels/audi-a5-sedan-premium-category-winner-2027.mp4"><video muted playsinline loop preload="none" poster="vid/reels/audi-a5-sedan-premium-category-winner-2027.jpg"></video><button class="vr-snd" type="button" aria-label="Sound on"></button><figcaption><b>Audi</b>A5 Sedan · Premium category winner</figcaption></figure></div>
@@ -762,7 +813,7 @@ h2.sweep{box-shadow:none!important}
       <div class="carousel rv" id="hub" aria-label="POV divisions">
         <div class="car-track" id="carTrack">
           <article class="dcard" data-slug="media" id="pov-media"><span class="hub-tag">Photography, video &amp; content</span><h3><span>POV</span> Media</h3><p>Stock imagery, video and content for dealerships. Shot on your floor, edited on site and live the same day.</p><ul><li>Launch, Impact and Daily packages</li><li>Stock, video, content and events</li><li>Same-day stock imagery</li></ul><a class="pill solid div-go" href="divisions/media.html">Explore POV Media <i>→</i></a></article>
-          <article class="dcard" data-slug="performance" id="pov-performance"><span class="hub-tag">Sales coaching</span><h3><span>POV</span> Performance</h3><p class="partner">In partnership with <b>MiLife</b></p><p>Dealership sales coaching that builds the best version of every salesperson, not just better closers.</p><ul><li>On-floor coaching for sales teams</li><li>Built for dealership departments</li><li>Now running at Hatfield VW Pretoria</li></ul><a class="pill solid div-go" href="divisions/performance.html">Explore POV Performance <i>→</i></a></article>
+          <article class="dcard" data-slug="performance" id="pov-performance"><span class="hub-tag">Sales training &amp; development</span><h3><span>POV</span> Performance</h3><p class="partner">Powered by <b>MiLife</b></p><p>Personalised training. Measurable results. Develop the people behind the numbers.</p><ul><li>Personality &amp; style profiling</li><li>8 core sales skills, on the floor</li><li>Weekly reporting on MiLife</li></ul><a class="pill solid div-go" href="divisions/performance.html">Explore POV Performance <i>→</i></a></article>
           <article class="dcard" data-slug="collection" id="pov-collection"><span class="hub-tag">Clothing range</span><h3><span>POV</span> Collection</h3><p>The POV clothing range. Clean, minimal pieces for the people behind the camera and on the floor.</p><ul><li>The Frame Tee, now R599 (was R749.99)</li><li>Executive, Ivory &amp; Greyston ranges</li><li>Sizes S to XL</li></ul><a class="pill solid div-go" href="divisions/collection.html">Explore POV Collection <i>→</i></a></article>
           <article class="dcard" data-slug="program" id="pov-program"><span class="hub-tag">Dealership content system</span><h3><span>POV</span> Program</h3><p>A content system for dealership salespeople. Plan, shoot and post every day without running out of ideas.</p><ul><li>Daily content plans per salesperson</li><li>Built for SA dealerships</li><li>Run from your phone</li></ul><a class="pill solid div-go" href="divisions/program.html">Explore POV Program <i>→</i></a></article>
           <article class="dcard" data-slug="growth" id="pov-growth"><span class="hub-tag">Camera &amp; client skills</span><h3><span>POV</span> Growth</h3><p>A practical guideline to sharpen your camera and client skills, earn more from your content and put it to work in your life.</p><ul><li>The POV Package: Robert&#39;s full course</li><li>Phone, camera, social media &amp; Meta ads</li><li>R1 999 once-off</li></ul><a class="pill solid div-go" href="divisions/growth.html">Explore POV Growth <i>→</i></a></article>
@@ -782,7 +833,7 @@ h2.sweep{box-shadow:none!important}
   <section id="reviews">
     <div class="wrap">
       <div class="head rv"><h2 class="sweep">Client reviews</h2><p>What dealerships and clients say about working with POV.</p></div>
-      <div class="rev-top rv">
+      <div class="rev-top rv none">
         <div class="rev-score"><b id="revAvg">0.0</b><div><div class="stars big" id="revStars" aria-hidden="true"></div><span id="revCount">No reviews yet</span></div></div>
         <div class="rev-bars" id="revBars"></div>
         <button class="pill solid" type="button" id="revOpen">Write a review <i>→</i></button>
@@ -805,7 +856,7 @@ h2.sweep{box-shadow:none!important}
         <p class="rev-msg" id="revMsg" aria-live="polite"></p>
         <div class="rev-actions"><button class="pill solid" type="submit" id="revSubmit">Post review <i>→</i></button><button class="arrow" type="button" id="revCancel">Cancel</button></div>
       </form>
-      <div class="rev-list" id="revList"><p class="rev-empty" id="revEmpty">Reviews from POV clients will appear here. Be the first to leave one.</p></div>
+      <div class="rev-list" id="revList"><p class="rev-empty" id="revEmpty">Worked with POV? Tell other dealerships how it went.</p></div>
     </div>
   </section>
 
@@ -858,18 +909,19 @@ h2.sweep{box-shadow:none!important}
 <footer>
   <div class="wrap fwrap"><span>© 2026 Point of View Holdings (Pty) Ltd · Reg. 2024/130036/07</span><nav class="flegal" aria-label="Legal"><a href="legal.html#terms">Terms</a><a href="legal.html#privacy">Privacy</a><a href="legal.html#cookies">Cookies</a><a href="legal.html#refunds">Refunds</a><a href="legal.html#company">Company info</a><button type="button" id="subOpen">Get updates</button><button type="button" id="ckOpen">Cookie settings</button></nav></div>
 </footer>
-<div class="alrt" id="sub" role="dialog" aria-modal="true" aria-labelledby="subH" hidden>
+<div class="alrt" id="sub" role="dialog" aria-modal="false" aria-labelledby="subH" hidden>
   <div class="alrt-card">
     <button class="alrt-x" type="button" id="subX" aria-label="Close">×</button>
     <p class="kicker">POV alerts</p>
     <h3 id="subH">Be first to know.</h3>
-    <p class="alrt-p">New packages, launches, POV Growth drops and updates from every division, straight to your inbox.</p>
+    <p class="alrt-p">Pick what you care about. Only the news that matters to you, straight to your inbox.</p>
+    <div class="alrt-chips" role="group" aria-label="I want updates on"><button type="button" class="on" aria-pressed="true" data-i="dealership">Dealership services</button><button type="button" aria-pressed="false" data-i="sales">Salesperson tips &amp; course</button><button type="button" aria-pressed="false" data-i="drops">Collection drops</button></div>
     <form id="subForm" novalidate>
       <input id="subEmail" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" aria-label="Email address" maxlength="120">
       <button class="pill solid" type="submit" id="subBtn">Notify me <i>→</i></button>
     </form>
     <p class="alrt-msg" id="subMsg" aria-live="polite"></p>
-    <p class="alrt-fine">Unsubscribe any time. See our <a href="legal.html#privacy">Privacy policy</a>.</p>
+    <p class="alrt-fine"><button type="button" class="alrt-later" id="subLater">Not now</button> · Unsubscribe any time. See our <a href="legal.html#privacy">Privacy policy</a>.</p>
   </div>
 </div>
 <div class="ck" id="ck" role="dialog" aria-label="Cookie choice" hidden>
@@ -905,8 +957,9 @@ h2.sweep{box-shadow:none!important}
     let last=null;const open=()=>{last=document.activeElement;box.hidden=false;setTimeout(()=>inp.focus({preventScroll:true}),350)};
     const close=()=>{box.hidden=true;if(get('pov_sub')!=='yes')put('pov_sub_later',String(Date.now()));if(last&&last.focus)last.focus({preventScroll:true})};
     const later=+get('pov_sub_later')||0;
-    if(get('pov_sub')!=='yes'&&Date.now()-later>7*864e5)setTimeout(open,4000);
-    document.getElementById('subX').addEventListener('click',close);
+    if(get('pov_sub')!=='yes'&&Date.now()-later>7*864e5){let fired=false;const sc=()=>{const r=document.getElementById('reviews');if(r&&r.getBoundingClientRect().top<innerHeight)fire()};const fire=()=>{if(fired)return;const ckb=document.getElementById('ck');if(ckb&&!ckb.hidden){setTimeout(fire,4000);return}fired=true;removeEventListener('scroll',sc);open()};setTimeout(fire,35000);addEventListener('scroll',sc,{passive:true})}
+    document.getElementById('subX').addEventListener('click',close);document.getElementById('subLater').addEventListener('click',close);
+    box.querySelectorAll('.alrt-chips button').forEach(b=>b.addEventListener('click',()=>{b.classList.toggle('on');b.setAttribute('aria-pressed',b.classList.contains('on'))}));
     box.addEventListener('click',e=>{if(e.target===box)close()});
     addEventListener('keydown',e=>{if(e.key==='Escape'&&!box.hidden)close()});
     document.getElementById('subOpen').addEventListener('click',open);
@@ -918,11 +971,11 @@ h2.sweep{box-shadow:none!important}
       let ok=false;
       try{const [db,user]=await Promise.all([claude.use('db'),claude.use('user')]);
         const id=db&&user?await user.id():null;
-        if(id){await db.doc('subscribers/'+id).set({email:em,source:'site-popup',consent:true,page:location.pathname,attr:attr,createdAt:Date.now()});ok=true}
+        if(id){await db.doc('subscribers/'+id).set({email:em,interests:[...box.querySelectorAll('.alrt-chips .on')].map(b=>b.dataset.i),source:'site-popup',consent:true,page:location.pathname,attr:attr,createdAt:Date.now()});ok=true}
       }catch(_){}
       btn.disabled=false;
       if(ok){put('pov_sub','yes');track('newsletter_signup',{place:'popup'});f.hidden=true;msg.textContent="You're in. POV will email you new updates and alerts.";setTimeout(()=>{box.hidden=true},2600)}
-      else{msg.className='alrt-msg err';msg.innerHTML='Couldn\'t save just now. <a href="mailto:info@povholdings.co.za?subject=Subscribe%20to%20POV%20updates&body='+encodeURIComponent(em)+'" style="color:inherit;text-decoration:underline">Email us to subscribe</a>.'}
+      else{msg.className='alrt-msg';msg.innerHTML='Almost there. <a href="mailto:info@povholdings.co.za?subject=Subscribe%20me%20to%20POV%20updates&body='+encodeURIComponent(em+' | '+[...box.querySelectorAll('.alrt-chips .on')].map(b=>b.textContent).join(', '))+'" style="color:#ff8c1a;text-decoration:underline">Tap to confirm by email</a>.'}
     });
   })();
 
@@ -1271,7 +1324,7 @@ h2.sweep{box-shadow:none!important}
     picks.forEach(b=>{b.addEventListener('click',()=>{rating=+b.dataset.v;paint(rating)});b.addEventListener('mouseenter',()=>paint(+b.dataset.v));b.addEventListener('mouseleave',()=>paint(rating))});
     const stars=n=>Array.from({length:5},(_,i)=>'<i class="'+(i<Math.round(n)?'on':'')+'">★</i>').join('');
     const fmtDate=t=>{try{return new Date(t).toLocaleDateString('en-ZA',{day:'numeric',month:'short',year:'numeric'})}catch(_){return''}};
-    const summary=()=>{const n=rows.length,avg=n?rows.reduce((a,r)=>a+r.rating,0)/n:0;
+    const summary=()=>{const n=rows.length,avg=n?rows.reduce((a,r)=>a+r.rating,0)/n:0;document.querySelector('.rev-top').classList.toggle('none',!n);
       document.getElementById('revAvg').textContent=n?avg.toFixed(1):'0.0';document.getElementById('revStars').innerHTML=stars(avg);
       document.getElementById('revCount').textContent=n?n+(n===1?' review':' reviews'):'No reviews yet';
       document.getElementById('revBars').innerHTML=[5,4,3,2,1].map(k=>{const c=rows.filter(r=>r.rating===k).length;return '<div><span>'+k+'★</span><span class="bar"><i style="width:'+(n?c/n*100:0)+'%"></i></span><span>'+c+'</span></div>'}).join('')};
@@ -1291,12 +1344,12 @@ h2.sweep{box-shadow:none!important}
     try{[db,user]=await Promise.all([claude.use('db'),claude.use('user')])}catch(_){}
     if(!db||!user){openBtn.addEventListener('click',()=>{msg.textContent='Sign in to claude.ai to leave a review, or send yours to info@povholdings.co.za.'});return}
     owner=await user.isOwner().catch(()=>false);me=await user.id().catch(()=>null);
-    const to=setTimeout(()=>{empty.textContent='Reviews could not load right now. Refresh to try again.'},10000);
+    const to=setTimeout(()=>{empty.textContent='Worked with POV? Tell other dealerships how it went.'},10000);
     db.collection('reviews').orderBy('createdAt','desc').limit(60).onSnapshot(snap=>{clearTimeout(to);
       rows=snap.docs.map(d=>Object.assign({id:d.id},d.data())).filter(r=>r.rating>=1&&r.rating<=5);render();
       const mine=rows.find(r=>r.id===me);if(mine){openBtn.innerHTML='Edit your review <i>→</i>';document.getElementById('rv-name').value=mine.name||'';document.getElementById('rv-co').value=mine.company||'';
         document.getElementById('rv-title').value=mine.title||'';document.getElementById('rv-text').value=mine.text||'';document.getElementById('rv-div').value=mine.division||'POV Media';rating=mine.rating;paint(rating)}
-    },err=>{clearTimeout(to);empty.textContent='Reviews could not load right now. Refresh to try again.'});
+    },err=>{clearTimeout(to);empty.textContent='Worked with POV? Tell other dealerships how it went.'});
     form.addEventListener('submit',async e=>{e.preventDefault();
       const v=id=>document.getElementById(id).value.trim();
       if(!rating){msg.textContent='Tap the stars to choose a rating.';return}

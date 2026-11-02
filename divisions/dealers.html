@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>POV for Dealerships</title>
+<meta name="description" content="Stock imagery, Meta ads, sales training and salesperson content for South African dealerships. One partner, one point of view.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="pov.css">
+<style>
+.hero h1 span{color:#ff8c1a}
+.mq{overflow:hidden;margin-top:clamp(28px,4vw,44px);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.mq div{display:flex;gap:44px;width:max-content;animation:mq 46s linear infinite}
+.mq span{font:900 22px/1 var(--display);text-transform:uppercase;letter-spacing:.04em;color:rgba(245,242,234,.42);white-space:nowrap}
+.mq span::before{content:"\2726";color:#ff8c1a;margin-right:44px;font-size:14px;vertical-align:middle}
+@keyframes mq{to{transform:translateX(-50%)}}
+.kp{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}@media (max-width:760px){.kp{grid-template-columns:1fr 1fr}}
+.kp div{padding:22px;border-radius:20px;background:linear-gradient(160deg,#202024,#151517);box-shadow:0 0 0 1px rgba(255,140,26,.22)}
+.kp b{display:block;font:900 clamp(30px,3.4vw,46px)/1 var(--display);color:#fff;white-space:nowrap}.kp span{display:block;color:var(--grey);font-size:13.5px;margin-top:8px}
+.stack{margin-top:28px;display:grid;gap:12px}
+.srow{display:grid;grid-template-columns:90px 1.1fr 1.4fr auto;gap:22px;align-items:center;padding:24px 26px;border-radius:22px;background:linear-gradient(160deg,#1e1e22,#141416);box-shadow:0 0 0 1px var(--hair);text-decoration:none;color:inherit;transition:box-shadow .35s,transform .35s}
+.srow:hover{box-shadow:0 0 0 1px #ff8c1a,0 0 36px -10px rgba(255,140,26,.5);transform:translateX(4px)}
+.srow .no{font:900 54px/1 var(--display);color:rgba(255,140,26,.35)}
+.srow h3{font:900 clamp(26px,2.6vw,34px)/1 var(--display);text-transform:uppercase}.srow h3 small{display:block;font:600 11px/1 var(--sans);letter-spacing:.18em;color:#ff8c1a;margin-bottom:10px}
+.srow p{margin:0;color:#cfcbc2;font-size:15px}
+.srow em{font-style:normal;white-space:nowrap;padding:11px 16px;border-radius:999px;background:#0d0d0f;box-shadow:0 0 0 1px #ff8c1a;font:700 13px/1 var(--sans);transition:all .3s}
+.srow:hover em{background:#ff8c1a;color:#0d0d0f}
+@media (max-width:860px){.srow{grid-template-columns:56px 1fr;gap:10px 16px}.srow .no{font-size:40px;grid-row:span 2}.srow p{grid-column:2}.srow em{grid-column:2;justify-self:start;margin-top:6px}}
+.why{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:24px}@media (max-width:700px){.why{grid-template-columns:1fr}}
+.why div{padding:20px 22px;border-radius:18px;background:#18181b;box-shadow:0 0 0 1px var(--hair)}.why b{display:block;font-size:16px}.why span{display:block;color:var(--grey);font-size:14px;margin-top:4px}
+.bk{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,4vw,56px);align-items:start}@media (max-width:900px){.bk{grid-template-columns:1fr}}
+.bk form{display:grid;gap:14px;background:none;padding:0;box-shadow:none}
+.bk label{display:grid;gap:7px;font:600 12px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
+.bk input,.bk select{height:50px;border-radius:14px;border:1px solid var(--hair);background:#141416;color:var(--ink);padding:0 16px;font:500 16px var(--sans);outline:none;width:100%;box-sizing:border-box;color-scheme:dark}
+.bk input:focus,.bk select:focus{border-color:#ff8c1a}
+.bk .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media (max-width:520px){.bk .two{grid-template-columns:1fr}}
+.chipset{display:flex;flex-wrap:wrap;gap:8px}
+.chipset button{border:0;cursor:pointer;padding:11px 15px;border-radius:999px;background:#141416;color:#cfcbc2;font:600 13.5px/1 var(--sans);box-shadow:0 0 0 1px var(--hair);transition:all .2s}
+.chipset button.on{background:rgba(255,140,26,.14);color:#fff;box-shadow:0 0 0 1px #ff8c1a}
+.chipset button.on::before{content:"\2713\00a0";color:#ff8c1a}
+.go{height:54px;border:0;border-radius:999px;background:#ff8c1a;color:#0d0d0f;font:800 15.5px/1 var(--sans);cursor:pointer;box-shadow:0 0 30px -6px rgba(255,140,26,.6);transition:transform .2s}.go:hover{transform:translateY(-2px)}
+.bkmsg{min-height:1.2em;margin:0;font-size:14px;color:#f2a08a}
+.bkalt{font-size:14px;color:var(--grey);margin:0}.bkalt a{color:#ff8c1a}
+.faqm details{border-bottom:1px solid var(--hair);padding:18px 0}.faqm summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-weight:600;font-size:16.5px}.faqm summary::after{content:"+";color:#ff8c1a;font-size:22px;line-height:1}.faqm details[open] summary::after{content:"\2013"}.faqm summary::-webkit-details-marker{display:none}.faqm p{color:#cfcbc2;margin:10px 0 0}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.mq div{animation:none}}
+
+.cw{overflow:hidden;margin-top:16px;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.cw>div{display:flex;gap:14px;width:max-content;animation:mq 70s linear infinite}
+.cw:hover>div{animation-play-state:paused}
+.cw figure{position:relative;margin:0;width:clamp(170px,18vw,230px);aspect-ratio:4/5;border-radius:18px;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.08);transition:box-shadow .3s}
+.cw figure:hover{box-shadow:0 0 0 1px #ff8c1a,0 0 30px -8px rgba(255,140,26,.6)}
+.cw img{width:100%;height:100%;object-fit:cover;display:block}
+.cw figure::after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(10,10,12,.92))}
+.cw figcaption{position:absolute;left:14px;right:14px;bottom:13px;z-index:1;font-size:12.5px;color:rgba(255,255,255,.7);line-height:1.3}
+.cw figcaption b{display:block;font:900 18px/1.05 var(--display);text-transform:uppercase;color:#fff;margin-bottom:3px}
+@media (prefers-reduced-motion:reduce){.cw>div{animation:none}}
+</style>
+</head>
+<body>
+<header><div class="nav"><a class="back" href="../index.html">← POV Holdings</a><span class="brandname"><span>POV</span> for Dealerships</span><a class="arrow" href="#book">Book a visit <i>→</i></a></div></header>
+<main>
+  <section class="hero"><div class="wrap">
+    <p class="kicker">For dealer principals, GSMs &amp; marketing</p>
+    <h1><span>Built for</span>Dealerships</h1>
+    <p class="lede">One partner for how your cars look, how they get seen and how your team sells them.</p>
+    <div class="hero-row"><a class="pill" href="#book">Book a dealership visit <i>→</i></a><a class="arrow" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20to%20book%20a%20dealership%20visit." target="_blank" rel="noopener">WhatsApp us <i>→</i></a></div>
+    <p class="kicker" style="margin-top:clamp(32px,4vw,48px)">Shot for</p><div class="cw" aria-label="Dealerships we shoot for"><div><figure><img src="../vid/reels/fouche-motors-rolls-royce-2.jpg" alt="Rolls-Royce, Fouché Motors" loading="lazy"><figcaption><b>Fouché Motors</b>Rolls-Royce</figcaption></figure><figure><img src="../work/audi-sq5-01.jpg?v=3" alt="Audi SQ5, Audi Centre Hatfield" loading="lazy"><figcaption><b>Audi Centre Hatfield</b>Audi SQ5</figcaption></figure><figure><img src="../vid/reels/jetour-menlyn-jetour-t2-aspire-2.jpg" alt="Jetour T2, Jetour Menlyn" loading="lazy"><figcaption><b>Jetour Menlyn</b>Jetour T2</figcaption></figure><figure><img src="../work/vw-golf-gti-01c.jpg?v=3" alt="Golf GTI, Hatfield VW Bryanston" loading="lazy"><figcaption><b>Hatfield VW Bryanston</b>Golf GTI</figcaption></figure><figure><img src="../vid/reels/audi-centurion-audi-q5.jpg" alt="Audi Q5, Audi Centurion" loading="lazy"><figcaption><b>Audi Centurion</b>Audi Q5</figcaption></figure><figure><img src="../vid/reels/hatfield-vw-pretoria-alechia-car-surprise-2.jpg" alt="Handover, Hatfield VW Pretoria" loading="lazy"><figcaption><b>Hatfield VW Pretoria</b>Handover</figcaption></figure><figure><img src="../work/jetour-dashing-01.jpg?v=3" alt="Jetour Dashing, Jetour Menlyn" loading="lazy"><figcaption><b>Jetour Menlyn</b>Jetour Dashing</figcaption></figure><figure><img src="../vid/reels/byd-menlyn-byd-sealion-8.jpg" alt="Sealion 8, BYD Menlyn" loading="lazy"><figcaption><b>BYD Menlyn</b>Sealion 8</figcaption></figure><figure><img src="../vid/reels/omoda-jaecoo-waterfall-what-you-need.jpg" alt="Reel, Omoda &amp; Jaecoo Waterfall" loading="lazy"><figcaption><b>Omoda &amp; Jaecoo Waterfall</b>Reel</figcaption></figure><figure><img src="../vid/reels/chery-silver-lakes-francois-van-coke-kaartjie-kompetisie.jpg" alt="Competition, Chery Silver Lakes" loading="lazy"><figcaption><b>Chery Silver Lakes</b>Competition</figcaption></figure><figure><img src="../vid/reels/vw-wonderboom-sondela-bakkie-suv-fest-vertical.jpg" alt="Bakkie Fest, VW Wonderboom" loading="lazy"><figcaption><b>VW Wonderboom</b>Bakkie Fest</figcaption></figure><figure aria-hidden="true"><img src="../vid/reels/fouche-motors-rolls-royce-2.jpg" alt="" loading="lazy"><figcaption><b>Fouché Motors</b>Rolls-Royce</figcaption></figure><figure aria-hidden="true"><img src="../work/audi-sq5-01.jpg?v=3" alt="" loading="lazy"><figcaption><b>Audi Centre Hatfield</b>Audi SQ5</figcaption></figure><figure aria-hidden="true"><img src="../vid/reels/jetour-menlyn-jetour-t2-aspire-2.jpg" alt="" loading="lazy"><figcaption><b>Jetour Menlyn</b>Jetour T2</figcaption></figure><figure aria-hidden="true"><img src="../work/vw-golf-gti-01c.jpg?v=3" alt="" loading="lazy"><figcaption><b>Hatfield VW Bryanston</b>Golf GTI</figcaption></figure><figure aria-hidden="true"><img src="../vid/reels/audi-centurion-audi-q5.jpg" alt="" loading="lazy"><figcaption><b>Audi Centurion</b>Audi Q5</figcaption></figure><figure aria-hidden="true"><img src="../vid/reels/hatfield-vw-pretoria-alechia-car-surprise-2.jpg" alt="" loading="lazy"><figcaption><b>Hatfield VW Pretoria</b>Handover</figcaption></figure><figure aria-hidden="true"><img src="../work/jetour-dashing-01.jpg?v=3" alt="" loading="lazy"><figcaption><b>Jetour Menlyn</b>Jetour Dashing</figcaption></figure><figure aria-hidden="true"><img src="../vid/reels/byd-menlyn-byd-sealion-8.jpg" alt="" loading="lazy"><figcaption><b>BYD Menlyn</b>Sealion 8</figcaption></figure><figure aria-hidden="true"><img src="../vid/reels/omoda-jaecoo-waterfall-what-you-need.jpg" alt="" loading="lazy"><figcaption><b>Omoda &amp; Jaecoo Waterfall</b>Reel</figcaption></figure><figure aria-hidden="true"><img src="../vid/reels/chery-silver-lakes-francois-van-coke-kaartjie-kompetisie.jpg" alt="" loading="lazy"><figcaption><b>Chery Silver Lakes</b>Competition</figcaption></figure><figure aria-hidden="true"><img src="../vid/reels/vw-wonderboom-sondela-bakkie-suv-fest-vertical.jpg" alt="" loading="lazy"><figcaption><b>VW Wonderboom</b>Bakkie Fest</figcaption></figure></div></div>
+    <div class="kp rv"><div><b>100+</b><span>Dealerships served</span></div><div><b>9/9</b><span>Provinces worked in</span></div><div><b>Same day</b><span>Stock imagery live</span></div><div><b>120+</b><span>Salespeople coached</span></div></div>
+  </div></section>
+
+  <section class="wrap" style="padding-block:clamp(40px,6vw,80px) 0">
+    <div class="rv"><p class="kicker">The POV dealership stack</p><h2 style="margin-top:14px">Four problems. One partner.</h2><p class="sub">Start with one. Add the rest when you're ready.</p></div>
+    <div class="stack">
+      <a class="srow rv" href="media.html"><span class="no">01</span><h3><small>POV Media</small>Show the car</h3><p>Same-day stock imagery, walkaround video and reels, shot on your floor and uploaded for you.</p><em>Explore →</em></a>
+      <a class="srow rv" href="meta.html"><span class="no">02</span><h3><small>POV Meta</small>Get it seen</h3><p>Facebook &amp; Instagram ads judged on leads and sales, not likes. Run with ConversionCo.</p><em>Explore →</em></a>
+      <a class="srow rv" href="performance.html"><span class="no">03</span><h3><small>POV Performance</small>Develop the team</h3><p>Personalised sales training, with every salesperson's progress measured on MiLife.</p><em>Explore →</em></a>
+      <a class="srow rv" href="program.html"><span class="no">04</span><h3><small>POV Program</small>Keep them posting</h3><p>Daily content plans so every salesperson builds a following and brings in their own leads.</p><em>Explore →</em></a>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-block:clamp(56px,8vw,100px) 0">
+    <div class="rv"><p class="kicker">On the floor</p><h2 style="margin-top:14px">Work we've shot for dealerships.</h2></div>
+    <div class="vid rv" data-reels="fouche-motors-rolls-royce-2|Fouche Motors · Rolls-Royce,jetour-menlyn-jetour-t2-aspire-2|Jetour Menlyn · T2 Aspire,audi-centurion-audi-q5|Audi Centurion · Q5"></div>
+    <p class="sub" style="margin-top:16px"><a class="arrow" href="media.html#album">See the full album <i>→</i></a></p>
+  </section>
+
+  <section class="wrap" style="padding-block:clamp(56px,8vw,100px) 0">
+    <div class="rv"><p class="kicker">Why dealers choose POV</p><h2 style="margin-top:14px">We know the floor.</h2></div>
+    <div class="why rv">
+      <div><b>Built by someone who sold cars</b><span>Robert started in car sales. POV is built around how a showroom actually works.</span></div>
+      <div><b>Same-day turnaround</b><span>Stock shot in the morning is live on your site by close of business.</span></div>
+      <div><b>Nationwide</b><span>POV has worked in all nine provinces, with photographers in Gauteng, Durban and Cape Town.</span></div>
+      <div><b>Measured, not guessed</b><span>Ads judged on leads and sales. Training tracked weekly on MiLife.</span></div>
+    </div>
+  </section>
+
+  <section class="wrap" id="book" style="padding-block:clamp(56px,8vw,100px) 0;scroll-margin-top:90px">
+    <div class="slab bk rv">
+      <div><p class="kicker">Book a dealership visit</p><h2 style="margin-top:14px">We'll come to you.</h2><p class="sub">Pick a day and what you're interested in. We'll confirm the time on WhatsApp, usually within the same working day.</p>
+        <p class="bkalt" style="margin-top:22px">Prefer email? <a href="mailto:info@povholdings.co.za?subject=Dealership%20visit">info@povholdings.co.za</a></p></div>
+      <form id="bkf" novalidate>
+        <div class="two"><label>Dealership<input id="bDl" autocomplete="organization" placeholder="e.g. Hatfield VW Pretoria" maxlength="80"></label><label>Your name<input id="bNm" autocomplete="name" placeholder="Full name" maxlength="60"></label></div>
+        <div class="two"><label>Your role<select id="bRl"><option>Dealer principal</option><option>General sales manager</option><option>Sales manager</option><option>Marketing</option><option>Other</option></select></label><label>Preferred day<input id="bDt" type="date"></label></div>
+        <label>Interested in</label>
+        <div class="chipset" role="group" aria-label="Interested in"><button type="button" aria-pressed="false">Stock imagery &amp; video</button><button type="button" aria-pressed="false">Meta ads</button><button type="button" aria-pressed="false">Sales training</button><button type="button" aria-pressed="false">Salesperson content</button><button type="button" aria-pressed="false">Private shoot</button></div>
+        <div class="two"><label>Time<select id="bTm"><option>Morning</option><option>Afternoon</option></select></label><label>Province<select id="bPr"><option>Gauteng</option><option>KwaZulu-Natal</option><option>Western Cape</option><option>Eastern Cape</option><option>Free State</option><option>Limpopo</option><option>Mpumalanga</option><option>North West</option><option>Northern Cape</option></select></label></div>
+        <p class="bkmsg" id="bMsg" aria-live="polite"></p>
+        <button class="go" type="submit">Request my visit on WhatsApp →</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="wrap faqm" style="padding-block:clamp(56px,8vw,100px) 0">
+    <h2 class="rv">Good to know</h2>
+    <details><summary>Do we have to take everything?</summary><p>No. Most dealerships start with one division and add more later.</p></details>
+    <details><summary>Where do you work?</summary><p>Nationwide. POV has worked in all nine provinces.</p></details>
+    <details><summary>How is pricing done?</summary><p>Every package is quoted for your dealership after a visit. Applicable taxes are shown on your quote.</p></details>
+    <details><summary>Can you shoot a private car?</summary><p>Yes. See <a href="media.html#private" style="color:#ff8c1a">private shoots</a> on POV Media.</p></details>
+  </section>
+
+  <section class="wrap" style="padding-block:clamp(56px,8vw,90px) 0"><p class="kicker">The POV group</p><div class="others"><a href="media.html"><b>POV</b> Media</a><a href="meta.html"><b>POV</b> Meta</a><a href="performance.html"><b>POV</b> Performance</a><a href="program.html"><b>POV</b> Program</a><a href="sales.html"><b>For</b> Salespeople</a><a href="collection.html"><b>POV</b> Collection</a></div></section>
+</main>
+<footer><div class="wrap"><span>© 2026 POV Holdings · For Dealerships · Point of View Holdings (Pty) Ltd · Reg. 2024/130036/07</span><nav class="flegal" aria-label="Legal"><a href="../legal.html#terms">Terms</a><a href="../legal.html#privacy">Privacy</a><a href="../legal.html#refunds">Refunds</a><a href="../legal.html#company">Company info</a></nav></div></footer>
+<nav class="mbar" aria-label="Quick contact"><a class="solid" href="#book">Book a visit</a><a href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20to%20book%20a%20dealership%20visit." target="_blank" rel="noopener">WhatsApp</a><a href="../index.html">Home</a></nav>
+<script>
+(function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+document.querySelectorAll('.chipset button').forEach(function(b){b.addEventListener('click',function(){b.classList.toggle('on');b.setAttribute('aria-pressed',b.classList.contains('on'))})});
+try{var a=JSON.parse(sessionStorage.getItem('pov_attr')||'null');window.__adtag=a&&a.utm_campaign?' [ad: '+a.utm_campaign+']':''}catch(_){window.__adtag=''}
+})();
+</script>
+<script>
+(function(){
+  var d=document.getElementById('bDt'),t=new Date();t.setDate(t.getDate()+1);d.min=t.toISOString().slice(0,10);
+  document.getElementById('bkf').addEventListener('submit',function(e){e.preventDefault();
+    var g=function(i){return document.getElementById(i).value.trim()},m=document.getElementById('bMsg');
+    if(!g('bDl')||!g('bNm')){m.textContent='Please add your dealership and name.';return}
+    var picks=[].map.call(document.querySelectorAll('.chipset .on'),function(b){return b.textContent}).join(', ')||'Not sure yet';
+    var day=g('bDt')?new Date(g('bDt')+'T12:00').toLocaleDateString('en-ZA',{weekday:'long',day:'numeric',month:'long'}):'Flexible';
+    var txt='Hi POV, I\'d like to book a dealership visit.\n\nDealership: '+g('bDl')+'\nName: '+g('bNm')+' ('+g('bRl')+')\nProvince: '+g('bPr')+'\nPreferred: '+day+', '+g('bTm')+'\nInterested in: '+picks+(window.__adtag||'');
+    m.textContent='';window.open('https://wa.me/27786880944?text='+encodeURIComponent(txt),'_blank','noopener');
+    try{if(window.gtag)gtag('event','visit_request',{place:'dealers'});if(window.fbq)fbq('track','Lead')}catch(_){}
+  });
+})();
+</script>
+<script src="trio.js" defer></script>
+<script src="../assistant.js" defer></script>
+</body>
+</html>

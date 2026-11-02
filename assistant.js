@@ -58,6 +58,8 @@
   {k:['robert','founder','owner','ceo','who started','denny'],a:'POV was founded by <b>Robert Denny</b>. He tried 17 business models before POV, which now has a team of 15 serving 100+ clients a month, built on word of mouth.'},
   {k:['registration','registered','company number','cipc','reg number','legal name','pty','company details'],a:'POV Holdings trades as <b>Point of View Holdings (Pty) Ltd</b>, registration number <b>2024/130036/07</b>. '+L('legal.html#company','Company info')+'.'},
   {k:['privacy','data','popia','personal information','cookies','unsubscribe'],a:'We follow POPIA and never sell your data. '+L('legal.html#privacy','Privacy policy')+' \u00b7 '+L('legal.html#cookies','Cookies')+'.'},
+  {k:['book a visit','dealership visit','visit our dealership','come to our dealership','meeting','book a meeting','for dealerships','dealer principal'],p:['dealers'],a:'Book a dealership visit and we\'ll come to you: '+L('divisions/dealers.html#book','Book a visit')+'. Pick a day and what you\'re interested in, and we confirm on WhatsApp.'},
+  {k:['salesperson','i sell cars','car salesman','sales executive','for salespeople','which one is for me'],p:['sales'],a:'For salespeople: '+L('divisions/program.html','POV Program')+' for daily content and leads, the '+L('divisions/growth.html','POV Package')+' course (R1 999) to earn from your phone, and the '+L('divisions/collection.html','Frame Tee')+' (R599). '+L('divisions/sales.html#pick','Find your lane')+'.'},
   {k:['review','reviews','testimonial','feedback'],a:'Read or leave a review on the '+L('index.html#reviews','home page')+'.'},
   {k:['job','jobs','work for','vacancy','apply','photographer job','join the team'],a:'Want to work with POV? '+W('WhatsApp us','Hi POV, I\'d like to work with POV.')+' with a bit about yourself and your work.'},
   {k:['hello','hi','hey','howzit','good morning','good afternoon','sawubona','molo'],a:'Hi! Ask me anything about POV: packages, the POV Package course, the Frame Tee, delivery, coaching or ads.'},
@@ -70,6 +72,8 @@
     program:['What is POV Program?','How do I get a quote?'],
     growth:['What\'s inside the course?','Do I need a camera?','Can I get a refund?','How long is access?'],
     meta:['How much ad budget do I need?','Do you build websites?','What is POV Meta?'],
+    dealers:['How do I book a visit?','What do your packages cost?','Which areas do you cover?'],
+    sales:['Which one is for me?','What is the POV Package?','What is POV Program?'],
     legal:['How do refunds work?','How do you use my data?']};
 
   const norm=t=>(' '+t.toLowerCase().replace(/[\u2019']/g,"'").replace(/[^a-z0-9' ]+/g,' ').replace(/\s+/g,' ')+' ');
