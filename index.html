@@ -868,6 +868,18 @@ h2.sweep{box-shadow:none!important}
 .csel-o[aria-selected="true"]::after{content:"\2713";color:#ff8c1a;font-weight:700}
 #contact .qsend .pill{background:#ff8c1a!important;color:#0d0d0f!important;border-color:#ff8c1a!important;height:56px;padding:0 28px;font-weight:700}
 #contact .qsend .pill:hover{background:#ffa246!important}
+
+/* scroll cue v2 */
+.scrollcue{display:flex!important;flex-direction:column;align-items:center;gap:12px;width:auto!important;height:auto!important;background:none!important;overflow:visible!important;margin:0!important;border:0;padding:6px;cursor:pointer;
+  left:clamp(56px,5.2vw,84px)!important;bottom:clamp(34px,5vh,52px)!important;z-index:7!important;color:rgba(255,255,255,.82);transition:opacity .4s}
+.scrollcue .ms{position:relative;display:block;width:24px;height:38px;border-radius:14px;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.75);animation:msGlow 2.6s ease-in-out infinite}
+.scrollcue .ms b{position:absolute;left:50%;top:8px;width:3px;height:8px;margin-left:-1.5px;border-radius:2px;background:#ff8c1a;animation:msDot 1.9s cubic-bezier(.6,0,.3,1) infinite}
+.scrollcue em{font:600 10px/1 Manrope,sans-serif;font-style:normal;letter-spacing:.32em;text-transform:uppercase;writing-mode:vertical-rl;color:rgba(255,255,255,.7)}
+.scrollcue:hover .ms{box-shadow:inset 0 0 0 1.5px #ff8c1a}
+@keyframes msDot{0%{transform:translateY(0);opacity:0}20%{opacity:1}70%{transform:translateY(13px);opacity:0}100%{opacity:0}}
+@keyframes msGlow{0%,100%{filter:drop-shadow(0 0 0 rgba(255,140,26,0))}50%{filter:drop-shadow(0 0 8px rgba(255,140,26,.55))}}
+@media (max-width:860px){.scrollcue{left:50%!important;transform:translateX(-50%);bottom:clamp(96px,13vh,120px)!important;gap:8px}.scrollcue em{writing-mode:horizontal-tb;font-size:9.5px}}
+@media (prefers-reduced-motion:reduce){.scrollcue .ms b{animation:none;opacity:1}.scrollcue .ms{animation:none}}
 </style>
 </head>
 <body>
@@ -906,7 +918,7 @@ h2.sweep{box-shadow:none!important}
       </div>
       <div class="shade" id="shade"></div>
       <div class="reveal" aria-hidden="true"><canvas class="eco-cv" id="ecoCv"></canvas><p class="reveal-line" id="revealLine"><span class="ln">Welcome to the</span><span class="ln">POV ecosystem</span></p></div>
-      <div class="scrollcue" id="cue"><span></span></div>
+      <button type="button" class="scrollcue" id="cue" aria-label="Scroll down to explore"><i class="ms" aria-hidden="true"><b></b></i><em>Scroll to explore</em></button>
     </div>
   </section>
 
@@ -1404,7 +1416,7 @@ h2.sweep{box-shadow:none!important}
     requestAnimationFrame(loop)};
   if(reduce){intro.classList.add('static')}
   else{
-    if(matchMedia('(min-width:861px)').matches)cue.style.display='block';
+    cue.addEventListener('click',()=>scrollBy({top:innerHeight*.9,behavior:'smooth'}));
     read();addEventListener('scroll',read,{passive:true});addEventListener('resize',read);
     if(matchMedia('(hover:hover) and (pointer:fine)').matches){
       intro.addEventListener('mousemove',e=>{mx=e.clientX/innerWidth*2-1;my=e.clientY/innerHeight*2-1},{passive:true});
