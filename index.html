@@ -784,6 +784,10 @@ h2.sweep{box-shadow:none!important}
 .dmeta .dc p{display:none}
 .dmeta .dc{padding-top:18px}.dmeta .mstat .mf2{margin-top:2px}
 @media (max-width:900px){.dmeta .mstat{padding-top:56px}.dmeta .mstat b{font-size:30px}}
+
+.dcard.flash{box-shadow:none}
+#hub.picking .dcard{opacity:.45;transition:opacity .5s,transform .5s,box-shadow .5s}
+#hub.picking .dcard.sel{opacity:1;transform:translateY(-8px) scale(1.035);box-shadow:0 0 0 1.5px #ff8c1a,0 0 60px -12px rgba(255,140,26,.65),0 40px 70px -30px rgba(0,0,0,1)!important}
 </style>
 </head>
 <body>
@@ -1385,13 +1389,13 @@ h2.sweep{box-shadow:none!important}
 
   // ---- divisions carousel: drifts slowly and continuously; drag, swipe, trackpad or arrows ----
   (()=>{const car=document.getElementById('hub'),tr=document.getElementById('carTrack');if(!car)return;
-    let x=0,v=0,half=0,drift=reduce?0:-.32,hover=false,drag=false,lastX=0,lastT=0,glide=null,prev=0;
+    let hold=0,selT=0,x=0,v=0,half=0,drift=reduce?0:-.32,hover=false,drag=false,lastX=0,lastT=0,glide=null,prev=0;
     const cardW=()=>tr.children[0].offsetWidth+22;
     const measure=()=>{half=tr.scrollWidth/2};
     const wrap=()=>{if(half){while(x<=-half)x+=half;while(x>0)x-=half}};
     const loop=t=>{const dt=prev?Math.min(40,t-prev):16;prev=t;
       if(glide&&t>=glide.t0){const k=Math.min(1,(t-glide.t0)/1400),e=k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2;x=glide.from+(glide.to-glide.from)*e;if(k>=1)glide=null}
-      else if(!drag&&!glide){const target=drift;v+=(target-v)*.03;x+=v*dt/16}
+      else if(!drag&&!glide){const target=t<hold?0:drift;v+=(target-v)*.03;x+=v*dt/16}
       wrap();tr.style.transform='translate3d('+x.toFixed(2)+'px,0,0)';requestAnimationFrame(loop)};
     const step=d=>{glide={from:x,to:x-d*cardW(),t0:performance.now()};v=0};
     document.getElementById('hubPrev').addEventListener('click',()=>step(-1));
@@ -1402,8 +1406,22 @@ h2.sweep{box-shadow:none!important}
     const end=()=>{if(!drag)return;drag=false;car.classList.remove('drag');v=Math.max(-24,Math.min(24,v))};
     car.addEventListener('pointerup',end);car.addEventListener('pointercancel',end);
     car.addEventListener('wheel',e=>{if(Math.abs(e.deltaX)<=Math.abs(e.deltaY))return;e.preventDefault();glide=null;v=Math.max(-24,Math.min(24,-e.deltaX*.3))},{passive:false});
-    document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#pov-"]');if(!a)return;const c=tr.querySelector('.dcard[data-slug="'+a.getAttribute('href').slice(5)+'"]');if(!c)return;
-      let to=-(c.offsetLeft-(car.clientWidth-c.offsetWidth)/2);if(to>0)to-=half;glide={from:x,to,t0:performance.now()+600};c.classList.add('flash');setTimeout(()=>c.classList.remove('flash'),2800)},true);
+    const pick=(slug,smooth)=>{const c=tr.querySelector('.dcard[data-slug="'+slug+'"]');if(!c)return false;
+      measure();let to=-(c.offsetLeft-(car.clientWidth-c.offsetWidth)/2);while(to>0)to-=half;while(to<=-half)to+=half;
+      // nearest equivalent position so the glide is short
+      if(half){const alt=[to,to-half,to+half].filter(t=>t<=0);to=alt.reduce((a,b)=>Math.abs(b-x)<Math.abs(a-x)?b:a,to)}
+      const sec=document.getElementById('divisions');const r=car.getBoundingClientRect();
+      const y=r.top+scrollY-Math.max(90,(innerHeight-r.height)/2);
+      scrollTo({top:Math.max(0,y),behavior:smooth?'smooth':'auto'});
+      glide={from:x,to,t0:performance.now()+(smooth?450:0)};v=0;hold=performance.now()+6500;
+      tr.querySelectorAll('.dcard.sel').forEach(d=>d.classList.remove('sel'));car.classList.add('picking');
+      const twin=[...tr.querySelectorAll('.dcard[data-slug="'+slug+'"]')];twin.forEach(d=>d.classList.add('sel'));
+      clearTimeout(selT);selT=setTimeout(()=>{twin.forEach(d=>d.classList.remove('sel'));car.classList.remove('picking')},6500);
+      return true};
+    document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#pov-"]');if(!a)return;
+      if(pick(a.getAttribute('href').slice(5),true)){e.preventDefault();e.stopPropagation();try{history.replaceState(null,'',a.getAttribute('href'))}catch(_){}}},true);
+    car.addEventListener('pointerdown',()=>{hold=0;car.classList.remove('picking');tr.querySelectorAll('.dcard.sel').forEach(d=>d.classList.remove('sel'))});
+    if(/^#pov-/.test(location.hash))setTimeout(()=>pick(location.hash.slice(5),false),900);
     measure();addEventListener('resize',measure);document.fonts&&document.fonts.ready.then(measure);
     requestAnimationFrame(loop);})();
 
