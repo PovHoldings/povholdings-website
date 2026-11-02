@@ -748,6 +748,42 @@ h2.sweep{box-shadow:none!important}
 .door:hover .dgo{background:#ff8c1a;color:#0d0d0f}.door:hover .dgo i{transform:translateX(4px)}
 @media (max-width:900px){.doors{flex-direction:column;height:auto}.door{flex:none;min-height:470px}.doors:hover .door,.doors .door:hover{flex-grow:0}}
 @media (prefers-reduced-motion:reduce){.dfade img{animation:none}.dfade img:first-child{opacity:1}}
+
+/* v3: four lanes, deep bottom mask, fit-to-video sizing */
+.doors{height:auto!important;aspect-ratio:auto}
+@media (min-width:901px){.doors{height:615px!important}.doors:hover .door{flex-grow:1}.doors .door:hover{flex-grow:1.4;transform:translateY(-6px)}.door{transition:flex-grow .9s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1),box-shadow .5s}}
+.door::before{background:linear-gradient(0deg,rgba(8,8,10,.97) 0%,rgba(8,8,10,.9) 26%,rgba(8,8,10,.62) 42%,rgba(8,8,10,.22) 56%,rgba(8,8,10,0) 66%),linear-gradient(180deg,rgba(8,8,10,.45),rgba(8,8,10,0) 18%)!important}
+.door .dv,.dfade img{transform:none!important}
+.door:hover .dv,.door:hover .dfade img{transform:none!important}
+.dfade img{object-position:center top!important}
+.dc b{font-size:clamp(34px,2.9vw,46px)!important}
+.dc p{font-size:14.5px}
+.dmeta{background:radial-gradient(120% 70% at 50% 0%,rgba(255,140,26,.22),transparent 60%),radial-gradient(90% 60% at 100% 30%,rgba(65,105,225,.22),transparent 60%),linear-gradient(170deg,#1d1d21,#0f0f11)}
+.mstat{position:absolute;left:0;right:0;top:64px;padding:0 clamp(22px,2.4vw,32px);display:grid;gap:14px}
+.mstat .mk{font:600 10.5px/1.4 Manrope,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.mstat div{border-top:1px solid rgba(255,255,255,.12);padding-top:12px}
+.mstat b{display:block;font:900 clamp(34px,3vw,46px)/1 'Big Shoulders Display',sans-serif;color:#fff;letter-spacing:.01em}
+.mstat div:first-of-type b{color:#ff8c1a}
+.mstat small{display:block;color:rgba(255,255,255,.65);font-size:13px;margin-top:4px}
+.mstat .mf2{font-size:10.5px;color:rgba(255,255,255,.4);line-height:1.3}
+.dmeta::before{background:linear-gradient(0deg,rgba(8,8,10,.92) 0%,rgba(8,8,10,.6) 34%,rgba(8,8,10,0) 50%)!important}
+@media (max-width:900px){
+  .doors{flex-direction:row!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:calc(-1*var(--gl,16px));padding:4px var(--gl,16px) 10px;scrollbar-width:none}
+  .doors::-webkit-scrollbar{display:none}
+  .door{flex:0 0 82%!important;min-height:0!important;aspect-ratio:9/16;scroll-snap-align:center}
+  .mstat{top:56px;gap:10px}.mstat b{font-size:34px}
+}
+.dswipe{display:none;text-align:center;margin-top:12px;font:600 11px/1 Manrope,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#9b978f}
+@media (max-width:900px){.dswipe{display:block}}
+
+.dmeta{flex-direction:column;align-items:stretch;justify-content:space-between}
+.dmeta .mstat{position:static;padding:62px clamp(22px,2.4vw,32px) 0;gap:10px}
+.dmeta .mstat div{display:flex;align-items:baseline;gap:12px;padding-top:10px}
+.dmeta .mstat b{font-size:clamp(30px,2.6vw,40px);flex:none}
+.dmeta .mstat small{margin:0;font-size:12.5px;line-height:1.3}
+.dmeta .dc p{display:none}
+.dmeta .dc{padding-top:18px}.dmeta .mstat .mf2{margin-top:2px}
+@media (max-width:900px){.dmeta .mstat{padding-top:56px}.dmeta .mstat b{font-size:30px}}
 </style>
 </head>
 <body>
@@ -809,7 +845,7 @@ h2.sweep{box-shadow:none!important}
 
   <section id="paths" class="paths">
     <div class="wrap">
-      <div class="phead rv"><p class="pk">Start here</p><h2 class="ph2">Where are you <em>headed?</em></h2><p class="psub">Six divisions, three lanes. Pick yours and we'll take you straight there.</p></div>
+      <div class="phead rv"><p class="pk">Start here</p><h2 class="ph2">Where are you <em>headed?</em></h2><p class="psub">Six divisions, four lanes. Pick yours and we'll take you straight there.</p></div>
       <div class="doors rv">
         <div class="door" data-href="divisions/dealers.html">
           <video class="dv" muted playsinline loop preload="none" poster="vid/reels/fouche-motors-rolls-royce-2.jpg" data-src="vid/reels/fouche-motors-rolls-royce-2.mp4"></video>
@@ -819,7 +855,7 @@ h2.sweep{box-shadow:none!important}
             <a class="dgo" href="divisions/dealers.html" data-cta="door" data-place="dealers">For dealerships <i>→</i></a></div>
         </div>
         <div class="door" data-href="divisions/sales.html">
-          <video class="dv" muted playsinline loop preload="none" poster="vid/reels/jetour-menlyn-jetour-t2-aspire-2.jpg" data-src="vid/reels/jetour-menlyn-jetour-t2-aspire-2.mp4"></video>
+          <video class="dv" muted playsinline loop preload="none" poster="vid/reels/audi-centurion-audi-q5.jpg" data-src="vid/reels/audi-centurion-audi-q5.mp4"></video>
           <span class="dn">02</span>
           <div class="dc"><small>Sales executives · New &amp; experienced</small><b>I <em>sell</em> cars</b><p>Build your name, bring in your own leads and earn more from your phone.</p>
             <nav class="dl" aria-label="Salesperson divisions"><a href="divisions/program.html">Program</a><a href="divisions/growth.html">Growth · R1 999</a><a href="divisions/performance.html">Performance</a></nav>
@@ -832,7 +868,17 @@ h2.sweep{box-shadow:none!important}
             <nav class="dl" aria-label="Collection ranges"><a href="divisions/collection.html#buy">Executive</a><a href="divisions/collection.html#buy">Ivory</a><a href="divisions/collection.html#buy">Greyston</a></nav>
             <a class="dgo" href="divisions/collection.html" data-cta="door" data-place="shop">Shop the drop <i>→</i></a></div>
         </div>
+        <div class="door dmeta" data-href="divisions/meta.html">
+          <div class="mstat" aria-label="ConversionCo Shopify client results"><span class="mk">Shopify results · ConversionCo</span>
+            <div><b>R3.36m</b><small>store sales in 90 days</small></div><div><b>13.7×</b><small>return on Meta ad spend</small></div><div><b>443</b><small>store orders in 90 days</small></div>
+            <span class="mf2">ConversionCo client results, Aug–Oct 2026. Results vary.</span></div>
+          <span class="dn">04</span>
+          <div class="dc"><small>Online stores · Shopify brands</small><b>I sell <em>online</em></b><p>Meta ads judged on sales, with POV Meta and ConversionCo.</p>
+            <nav class="dl" aria-label="POV Meta"><a href="divisions/meta.html">Meta ads</a><a href="divisions/meta.html#pricing">Shopify stores</a><a href="divisions/meta.html#stories">Results</a></nav>
+            <a class="dgo" href="divisions/meta.html" data-cta="door" data-place="meta">See POV Meta <i>→</i></a></div>
+        </div>
       </div>
+      <p class="dswipe">Swipe for all four lanes →</p>
     </div>
   </section>
   <section id="reels" class="vreels-sec">
