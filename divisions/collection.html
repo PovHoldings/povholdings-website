@@ -46,7 +46,11 @@ body{background:var(--bg)}
   .wall-track::-webkit-scrollbar{display:none}
   .wall-track img{flex:0 0 100%;scroll-snap-align:center}
   .wall-cta{position:static;transform:none;margin:14px 16px 0;justify-content:space-between;padding-left:20px}
-  .wall-cta p{font-size:12px}
+  .wall-cta p{font-size:11px;letter-spacing:.06em;min-width:0}
+  .wall-cta{gap:10px;padding:8px 8px 8px 16px}
+  .wall-cta .pill{flex:none;padding:0 16px}
+  .wall-cta p s{display:none}
+  .wall-cta p{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .dots{display:flex;gap:6px;justify-content:center;position:absolute;left:0;right:0;top:calc(100vw*1.25 - 26px)}
   .dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.45);transition:background .3s,width .3s}
   .dots i.on{background:var(--neon);width:20px;border-radius:4px}
