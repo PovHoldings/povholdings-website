@@ -7,3 +7,10 @@
     io.observe(box);
   });
 })();
+(function(){
+  if(!document.body.classList.contains('lux'))return;
+  document.querySelectorAll('.view .block, .cta .slab, .mf p, .vid').forEach(function(el){if(!el.classList.contains('rv'))el.classList.add('rv')});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -6% 0px'});
+  var watch=function(){document.querySelectorAll('.rv:not(.in)').forEach(function(el){io.observe(el)})};watch();
+  addEventListener('hashchange',function(){setTimeout(function(){document.querySelectorAll('.view:not([hidden]) .rv').forEach(function(el){el.classList.add('in')})},60)});
+})();
