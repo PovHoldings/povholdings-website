@@ -712,6 +712,9 @@ h2.sweep{box-shadow:none!important}
   scrollTo(0,0);addEventListener('load',()=>scrollTo(0,0));addEventListener('pageshow',()=>scrollTo(0,0));})();
 </script>
 <style id="doors-css">
+section[id]{scroll-margin-top:84px}
+#reviews,#reels{contain:layout paint}
+.vr video,.door img,.dimg,.dimg2,.dimg3,.dimg4,.dimg5{backface-visibility:hidden}
 .head h2.sweep{font:500 clamp(42px,5.4vw,74px)/1.02 "Cormorant Garamond",Georgia,serif;letter-spacing:-.012em}
 .rev-top.none .rev-score,.rev-top.none .rev-bars{display:none}.rev-top.none{justify-content:flex-start}
 .alrt{z-index:2147483000!important}
@@ -741,7 +744,7 @@ h2.sweep{box-shadow:none!important}
 .dc b em{font-style:italic;color:#ff8c1a}
 .dc p{margin:12px 0 0;color:rgba(255,255,255,.78);font-size:15px;line-height:1.5;max-width:36ch}
 .dl{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
-.dl a{padding:8px 12px;border-radius:999px;background:rgba(13,13,15,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:0 0 0 1px rgba(255,255,255,.2);font:600 12px/1 Manrope,sans-serif;color:#fff;text-decoration:none;transition:all .25s}
+.dl a{padding:8px 12px;border-radius:999px;background:rgba(13,13,15,.72);box-shadow:0 0 0 1px rgba(255,255,255,.2);font:600 12px/1 Manrope,sans-serif;color:#fff;text-decoration:none;transition:all .25s}
 .dl a:hover{background:#ff8c1a;color:#0d0d0f;box-shadow:0 0 0 1px #ff8c1a}
 .dgo{display:inline-flex;gap:8px;align-items:center;margin-top:18px;padding:13px 20px;border-radius:999px;background:#0d0d0f;color:#fff;text-decoration:none;box-shadow:0 0 0 1px #ff8c1a,0 0 18px -4px rgba(255,140,26,.6);font:700 14px/1 Manrope,sans-serif;transition:background .3s,color .3s}
 .dgo i{font-style:normal;transition:transform .3s}
@@ -1195,8 +1198,11 @@ h2.sweep{box-shadow:none!important}
   (function(){
     const tr=document.getElementById('vrTrack');if(!tr)return;const cards=[...tr.querySelectorAll('.vr')];
     const load=c=>{const v=c.querySelector('video');if(!v.src){v.src=c.dataset.src}return v};
-    const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target.querySelector('video');
-      if(e.isIntersecting&&e.intersectionRatio>.6){load(e.target);const p=v.play();if(p)p.catch(()=>{})}else if(v.src){v.pause()}}),{threshold:[0,.6,1]});
+    // decode at most 3 reels at once: the left-most ones that are mostly in view
+    const vis=new Set();
+    const sync=()=>{const on=[...vis].sort((a,b)=>a.getBoundingClientRect().left-b.getBoundingClientRect().left).slice(0,innerWidth<700?2:3);
+      cards.forEach(c=>{const v=c.querySelector('video');if(on.includes(c)){load(c);if(v.paused){const p=v.play();if(p)p.catch(()=>{})}}else if(v.src&&!v.paused)v.pause()})};
+    const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&e.intersectionRatio>.6)vis.add(e.target);else vis.delete(e.target)});sync()},{threshold:[0,.6,1]});
     cards.forEach(c=>io.observe(c));
     const pre=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){cards.slice(0,4).forEach(c=>{const v=load(c);v.preload='metadata'});pre.disconnect()}}),{rootMargin:'400px'});pre.observe(tr);
     cards.forEach(c=>c.addEventListener('click',()=>{const v=load(c),on=!c.classList.contains('snd');
@@ -1354,21 +1360,13 @@ h2.sweep{box-shadow:none!important}
   (()=>{const io=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('vis',e.isIntersecting)),{rootMargin:'100px'});
     document.querySelectorAll('.sweep,.stats-box,.marquee,.reels,.carousel').forEach(el=>io.observe(el));})();
 
-  // ---- smooth, weighted scrolling (wheel + trackpad); touch keeps native momentum ----
+  // ---- native scrolling (no wheel hijack); in-page links glide with the browser's own smooth scroll ----
   (()=>{
-    if(reduce||!matchMedia('(hover:hover) and (pointer:fine)').matches)return;
-    window.__smooth=true;
-    let tgt=scrollY,pos=scrollY,raf=0,driving=false;
-    const max=()=>document.documentElement.scrollHeight-innerHeight;
-    const step=()=>{pos+=(tgt-pos)*.16;if(Math.abs(tgt-pos)<.4)pos=tgt;driving=true;scrollTo(0,pos);
-      if(pos!==tgt)raf=requestAnimationFrame(step);else{raf=0;setTimeout(()=>{driving=false},50)}};
-    const go=y=>{tgt=Math.max(0,Math.min(max(),y));if(!raf){pos=scrollY;raf=requestAnimationFrame(step)}};
-    addEventListener('wheel',e=>{if(e.ctrlKey||e.defaultPrevented||Math.abs(e.deltaX)>Math.abs(e.deltaY))return;const isMouse=e.deltaMode===1||(e.wheelDeltaY&&Math.abs(e.wheelDeltaY)%120===0&&Math.abs(e.deltaY)>=40);if(!isMouse&&!raf)return;
-      let el=e.target instanceof Element?e.target:null;while(el&&el!==document.body){const cs=getComputedStyle(el);if(/(auto|scroll)/.test(cs.overflowY)&&el.scrollHeight>el.clientHeight)return;el=el.parentElement}
-      e.preventDefault();const d=e.deltaMode===1?e.deltaY*32:e.deltaMode===2?e.deltaY*innerHeight:e.deltaY;go((raf?tgt:scrollY)+d)},{passive:false});
-    addEventListener('scroll',()=>{if(!driving&&!raf){tgt=pos=scrollY}},{passive:true});
-    document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const id=a.getAttribute('href').slice(1);const el=id?document.getElementById(id):null;
-      if(!el&&id)return;e.preventDefault();const tgtEl=id.startsWith('pov-')?document.getElementById('divisions'):el;go(tgtEl?tgtEl.getBoundingClientRect().top+scrollY-(id==='top'?0:80):0)});
+    document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a||e.defaultPrevented)return;const id=a.getAttribute('href').slice(1);const el=id?document.getElementById(id):null;
+      if(!el&&id)return;e.preventDefault();const off=id==='top'?0:80,beh=reduce?'auto':'smooth';
+      const go=()=>scrollTo({top:el?el.getBoundingClientRect().top+scrollY-off:0,behavior:beh});go();
+      // content above can grow while gliding (lazy images, reveals): re-aim a couple of times
+      let n=0;const fix=()=>{if(!el||n++>3)return;const d=el.getBoundingClientRect().top-off;if(Math.abs(d)>6)go();setTimeout(fix,700)};setTimeout(fix,900)});
   })();
 
   // ---- studio intro (layered 3D) ----
@@ -1398,7 +1396,7 @@ h2.sweep{box-shadow:none!important}
       L.el.style.transform=q?'translate3d('+(L.rx*qe*160).toFixed(1)+'px,'+(-L.ry*qe*220).toFixed(1)+'px,'+(L.ry*qe*600).toFixed(1)+'px) rotateX('+(L.rz*qe*80).toFixed(1)+'deg) rotateZ('+(L.rx*qe*20).toFixed(1)+'deg)':'';
       L.el.style.opacity=(1-q*1.15).toFixed(3)})}
     const cq=seg(p,.01,.26),ce=cq*cq*(3-2*cq);
-    if(cq!==lastC){lastC=cq;coreLs.forEach(L=>{L.el.style.transform=cq?'translate3d('+(L.dx*ce*260).toFixed(1)+'px,'+(L.dy*ce*240).toFixed(1)+'px,'+(L.dz*ce*500).toFixed(1)+'px) rotateX('+(L.r*ce*70).toFixed(1)+'deg) rotateZ('+(L.r*ce*28).toFixed(1)+'deg)':'';L.el.style.opacity=(1-cq*1.1).toFixed(3);L.el.style.filter=cq>.05?'blur('+(ce*6).toFixed(1)+'px)':''})}
+    if(cq!==lastC){lastC=cq;coreLs.forEach(L=>{L.el.style.transform=cq?'translate3d('+(L.dx*ce*260).toFixed(1)+'px,'+(L.dy*ce*240).toFixed(1)+'px,'+(L.dz*ce*500).toFixed(1)+'px) rotateX('+(L.r*ce*70).toFixed(1)+'deg) rotateZ('+(L.r*ce*28).toFixed(1)+'deg)':'';L.el.style.opacity=(1-cq*1.1).toFixed(3)})}
     foot.style.opacity=(1-seg(p,0,.14)).toFixed(3);foot.style.transform='translateY('+(seg(p,0,.14)*30).toFixed(1)+'px)';
     cue.style.opacity=(1-seg(p,0,.06)).toFixed(3);
     // dolly zoom: the car holds its size while the studio behind it stretches away
@@ -1456,7 +1454,7 @@ h2.sweep{box-shadow:none!important}
     const cv=document.getElementById('dots');if(!cv||!cv.getContext)return;
     const ctx=cv.getContext('2d');let W=0,H=0,dpr=1,pts=[],mx=-9999,my=-9999,run=true;
     const build=()=>{dpr=1;W=innerWidth;H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
-      const n=Math.round(Math.min(80,Math.max(30,W*H/17000)));pts=[];
+      const n=Math.round(Math.min(56,Math.max(24,W*H/24000)));pts=[];
       for(let i=0;i<n;i++){const hx=Math.random()*W,hy=Math.random()*H;
         pts.push({hx,hy,x:hx,y:hy,vx:0,vy:0,ph:Math.random()*6.28,sp:.15+Math.random()*.35,amp:10+Math.random()*26,r:Math.random()<.18?1.8:1.1,g:Math.random()<.22})}};
     const draw=t=>{
@@ -1474,7 +1472,10 @@ h2.sweep{box-shadow:none!important}
       for(const p of pts){ctx.fillStyle=p.g?'rgba(255,140,26,.85)':'rgba(245,242,234,.45)';ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,6.283);ctx.fill()}
     };
     const introEl=document.getElementById('intro');
-    const loop=t=>{if(run&&scrollY>introEl.offsetHeight-innerHeight*1.05)draw(t);requestAnimationFrame(loop)};
+    let lastD=0,scrolling=0;addEventListener('scroll',()=>{scrolling=performance.now()},{passive:true});
+    const coarse=!matchMedia('(hover:hover) and (pointer:fine)').matches;
+    const loop=t=>{requestAnimationFrame(loop);if(!run||t-lastD<33||t-scrolling<140)return;if(scrollY>introEl.offsetHeight-innerHeight*1.05){lastD=t;draw(t)}};
+    if(coarse){cv.style.display='none';return}
     build();addEventListener('resize',build);
     addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY},{passive:true});
     document.addEventListener('mouseleave',()=>{mx=my=-9999});
@@ -1519,7 +1520,7 @@ h2.sweep{box-shadow:none!important}
     const loop=t=>{const dt=prev?Math.min(40,t-prev):16;prev=t;
       if(glide&&t>=glide.t0){const k=Math.min(1,(t-glide.t0)/1400),e=k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2;x=glide.from+(glide.to-glide.from)*e;if(k>=1)glide=null}
       else if(!drag&&!glide){const target=t<hold?0:drift;v+=(target-v)*.03;x+=v*dt/16}
-      wrap();tr.style.transform='translate3d('+x.toFixed(2)+'px,0,0)';requestAnimationFrame(loop)};
+      wrap();if(car.classList.contains('vis')||glide)tr.style.transform='translate3d('+x.toFixed(2)+'px,0,0)';requestAnimationFrame(loop)};
     const step=d=>{glide={from:x,to:x-d*cardW(),t0:performance.now()};v=0};
     document.getElementById('hubPrev').addEventListener('click',()=>step(-1));
     document.getElementById('hubNext').addEventListener('click',()=>step(1));

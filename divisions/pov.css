@@ -189,10 +189,10 @@ body{background:radial-gradient(1200px 800px at 0% 0%,rgba(65,105,225,.10),trans
 .lux .sub{line-height:1.7}
 .lux .slab{background:linear-gradient(160deg,#1c1c1f,#121214 70%)}
 .lux .price h3,.lux .feature h3,.lux .story h3{letter-spacing:-.01em}
-body.lux::after{content:"";position:fixed;inset:0;z-index:200;pointer-events:none;opacity:.07;mix-blend-mode:overlay;
+body.lux::after{content:"";position:fixed;inset:0;z-index:200;pointer-events:none;opacity:.035;transform:translateZ(0);
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-.lux .rv{opacity:0;transform:translateY(28px);filter:blur(8px);transition:opacity 1.1s cubic-bezier(.2,.7,.2,1),transform 1.1s cubic-bezier(.2,.7,.2,1),filter 1.1s cubic-bezier(.2,.7,.2,1)}
-.lux .rv.in{opacity:1;transform:none;filter:none}
+.lux .rv{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.lux .rv.in{opacity:1;transform:none}
 /* manifesto band */
 .mf{text-align:center;padding-block:clamp(70px,11vw,150px);position:relative}
 .mf::before,.mf::after{content:"";position:absolute;left:50%;width:1px;height:clamp(36px,5vw,60px);background:linear-gradient(transparent,rgba(255,140,26,.7));transform:translateX(-50%)}
@@ -200,3 +200,7 @@ body.lux::after{content:"";position:fixed;inset:0;z-index:200;pointer-events:non
 .mf p{font:500 clamp(36px,6vw,84px)/1.04 var(--serif,"Cormorant Garamond",Georgia,serif);letter-spacing:-.015em;max-width:18ch;margin:0 auto;text-wrap:balance}
 .mf small{display:block;margin-top:22px;font:600 11px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--grey)}
 @media (prefers-reduced-motion:reduce){.lux .rv{opacity:1;transform:none;filter:none}}
+
+/* perf: lighter glass on scroll-heavy pages */
+header .nav{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.trio figure,.cw figure{contain:paint}
