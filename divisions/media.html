@@ -51,7 +51,7 @@
 .brands.open .brand-btn.extra{display:inline-block;animation:pop .45s var(--ease) both}
 .brands.open .brand-btn.extra{animation-delay:calc(var(--k,0)*35ms)}
 @keyframes pop{from{opacity:0;transform:translateY(8px) scale(.96)}to{opacity:1;transform:none}}
-.brand-more{height:44px;padding:0 6px 0 10px;border:0;background:none;color:var(--ink);font:600 15px/1 var(--sans);cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.brand-more{height:44px;padding:0 18px;border:0;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(255,140,26,.6);text-decoration:none;background:none;color:var(--ink);font:600 15px/1 var(--sans);cursor:pointer;display:inline-flex;align-items:center;gap:8px}
 .brand-more i{font-style:normal;display:inline-block;transition:transform .35s var(--ease)}
 .brand-more:hover i{transform:translateX(4px)}
 .work-title{color:var(--grey);font-size:16px;margin-top:6px}
@@ -172,9 +172,10 @@
     {brand:'Private dealerships',items:[{dealer:'',type:'Stock imagery',img:''},{dealer:'',type:'Showroom',img:''},{dealer:'',type:'Detail',img:''}]}
   ];
   WORK.forEach(w=>w.items.forEach(x=>{if(x.img)x.img='../'+x.img+'?v=3'}));
+  WORK.splice(0,WORK.length,...WORK.filter(w=>['Audi','Volkswagen','Jetour'].includes(w.brand)));
   const preload=()=>WORK.forEach(w=>w.items.forEach(x=>{if(x.img){const i=new Image();i.decoding='async';i.src=x.img}}));
   setTimeout(()=>{(window.requestIdleCallback||setTimeout)(preload)},600);
-  const FIRST=5; // brands shown before "More"
+  const FIRST=3; // brands shown before "More"
   const brandsEl=document.getElementById('brands'),gal=document.getElementById('gallery');
   const show=i=>{
     const w=WORK[i];
@@ -188,14 +189,7 @@
     track('work_brand_viewed',{brand:w.brand});
   };
   WORK.forEach((w,i)=>{const b=document.createElement('button');b.className='brand-btn'+(i>=FIRST?' extra':'');b.type='button';b.setAttribute('role','tab');b.textContent=w.brand;if(i>=FIRST)b.style.setProperty('--k',i-FIRST);b.addEventListener('click',()=>show(i));brandsEl.appendChild(b)});
-  if(WORK.length>FIRST){
-    const more=document.createElement('button');more.type='button';more.className='brand-more';more.setAttribute('aria-expanded','false');
-    more.innerHTML='More <i>→</i>';
-    brandsEl.insertBefore(more,brandsEl.children[FIRST]);
-    more.addEventListener('click',()=>{const open=brandsEl.classList.toggle('open');more.setAttribute('aria-expanded',open);more.innerHTML=open?'Less <i>←</i>':'More <i>→</i>';
-      if(open)brandsEl.appendChild(more);else brandsEl.insertBefore(more,brandsEl.children[FIRST]);
-      if(!open&&+brandsEl.dataset.sel>=FIRST)show(0);});
-  }
+  {const more=document.createElement('a');more.className='brand-more';more.href='demo.html';more.innerHTML='&hellip; and loads more <i>&rarr;</i>';brandsEl.appendChild(more);}
   show(0);
 })();
 </script>

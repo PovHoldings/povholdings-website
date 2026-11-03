@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Book a demo shoot · POV Media</title>
+<meta name="description" content="See POV Media on your own stock. Book a demo shoot at your dealership.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="pov.css">
+<style>
+.bk{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,4vw,56px);align-items:start}@media (max-width:900px){.bk{grid-template-columns:1fr}}
+.bk form{display:grid;gap:14px;background:none;padding:0;box-shadow:none}
+.bk label{display:grid;gap:7px;font:600 12px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
+.bk input,.bk select{height:50px;border-radius:14px;border:1px solid var(--hair);background:#141416;color:var(--ink);padding:0 16px;font:500 16px var(--sans);outline:none;width:100%;box-sizing:border-box;color-scheme:dark}
+.bk input:focus,.bk select:focus{border-color:#ff8c1a}
+.bk .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media (max-width:520px){.bk .two{grid-template-columns:1fr}}
+.chipset{display:flex;flex-wrap:wrap;gap:8px}
+.chipset button{border:0;cursor:pointer;padding:11px 15px;border-radius:999px;background:#141416;color:#cfcbc2;font:600 13.5px/1 var(--sans);box-shadow:0 0 0 1px var(--hair);transition:all .2s}
+.chipset button.on{background:rgba(255,140,26,.14);color:#fff;box-shadow:0 0 0 1px #ff8c1a}
+.chipset button.on::before{content:"\2713\00a0";color:#ff8c1a}
+.go{height:54px;border:0;border-radius:999px;background:#ff8c1a;color:#0d0d0f;font:800 15.5px/1 var(--sans);cursor:pointer;box-shadow:0 0 30px -6px rgba(255,140,26,.6);transition:transform .2s}.go:hover{transform:translateY(-2px)}
+.bkmsg{min-height:1.2em;margin:0;font-size:14px;color:#f2a08a}
+.bkalt{font-size:14px;color:var(--grey);margin:0}.bkalt a{color:#ff8c1a}
+.demo{padding-block:clamp(48px,7vw,96px) clamp(40px,6vw,80px)}
+.demo h1{font:600 clamp(42px,6vw,76px)/1 "Cormorant Garamond",Georgia,serif;margin:14px 0 0;color:#f5f2ea}
+.demo h1 em{font-style:italic;color:#ff8c1a}
+.demo .sub{color:#cfcbc2;max-width:460px;margin-top:18px;line-height:1.65}
+.demo ul.pts{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:12px}
+.demo ul.pts li{display:flex;gap:12px;color:#dcd8cf;font:500 15px/1.5 var(--sans)}
+.demo ul.pts li::before{content:"";flex:none;width:9px;height:5px;margin-top:.5em;border:solid #ff8c1a;border-width:0 0 2px 2px;transform:rotate(-45deg)}
+.demo .slab{padding:clamp(24px,3vw,40px)}
+.bk textarea{min-height:96px;border-radius:14px;border:1px solid var(--hair);background:#141416;color:var(--ink);padding:14px 16px;font:500 16px var(--sans);outline:none;width:100%;resize:vertical}
+.bk textarea:focus{border-color:#ff8c1a}
+
+</style>
+</head>
+<body class="lux">
+<header><div class="nav"><a class="back homeback" href="../index.html?home=1" aria-label="Back to POV Holdings home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span>Home</span></a><span class="brandname"><span>POV</span> Media</span><a class="arrow" href="media.html"><i>←</i> POV Media</a></div></header>
+<main>
+  <section class="wrap demo">
+    <div class="slab bk rv">
+      <div><p class="kicker">Book a demo shoot</p><h1>See it on <em>your stock.</em></h1>
+        <p class="sub">We shoot for dealerships across every major brand. The best way to see the standard is on your own floor. Tell us where and when, and we'll come to you.</p>
+        <ul class="pts"><li>A demo shoot on your own stock</li><li>Edited and delivered within 24 hours</li><li>No obligation to sign</li></ul>
+        <p class="bkalt" style="margin-top:22px;color:#a9a49a">Prefer email? <a href="mailto:info@povholdings.co.za?subject=Demo%20shoot" style="color:#ff8c1a">info@povholdings.co.za</a></p></div>
+      <form id="dmf" novalidate>
+        <div class="two"><label>Dealership<input id="dDl" autocomplete="organization" placeholder="e.g. Audi Hatfield" maxlength="80" required></label><label>Your name<input id="dNm" autocomplete="name" placeholder="Full name" maxlength="60"></label></div>
+        <div class="two"><label>Phone<input id="dPh" type="tel" autocomplete="tel" placeholder="e.g. 082 123 4567" maxlength="20"></label><label>Your role<select id="dRl"><option>Dealer principal</option><option>General sales manager</option><option>Sales manager</option><option>Marketing</option><option>Other</option></select></label></div>
+        <div class="two"><label>Date we can come see you<input id="dDt" type="date" required></label><label>Time<select id="dTm"><option>Morning</option><option>Afternoon</option></select></label></div>
+        <label>Anything we should know<textarea id="dNt" maxlength="400" placeholder="Brands on your floor, new or used, anything else"></textarea></label>
+        <p class="bkmsg" id="dMsg" aria-live="polite"></p>
+        <button class="go" type="submit">Book my demo shoot →</button>
+      </form>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap"><span>© 2026 POV Holdings · POV Media · Point of View Holdings (Pty) Ltd · Reg. 2024/130036/07</span></div></footer>
+<script>
+(function(){var t=document.getElementById('dDt');var n=new Date();n.setDate(n.getDate()+1);t.min=n.toISOString().slice(0,10);
+document.getElementById('dmf').addEventListener('submit',function(e){e.preventDefault();
+  var g=function(i){return document.getElementById(i).value.trim()},m=document.getElementById('dMsg');
+  if(!g('dDl')||!g('dDt')){m.textContent='Please add your dealership and a date.';return}
+  var day=new Date(g('dDt')+'T12:00').toLocaleDateString('en-ZA',{weekday:'long',day:'numeric',month:'long'});
+  var txt='Hi POV, I\'d like to book a demo shoot.\n\nDealership: '+g('dDl')+(g('dNm')?'\nName: '+g('dNm')+' ('+g('dRl')+')':'')+(g('dPh')?'\nPhone: '+g('dPh'):'')+'\nDate: '+day+', '+g('dTm')+(g('dNt')?'\nNotes: '+g('dNt'):'');
+  m.textContent='';window.open('https://wa.me/27786880944?text='+encodeURIComponent(txt),'_blank','noopener');
+  try{if(window.gtag)gtag('event','demo_request',{place:'media'});if(window.fbq)fbq('track','Lead')}catch(_){}
+});})();
+</script>
+<script src="trio.js" defer></script>
+<script src="../assistant.js" defer></script>
+</body>
+</html>
