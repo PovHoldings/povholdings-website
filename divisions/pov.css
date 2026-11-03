@@ -148,7 +148,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 .flegal{display:flex;flex-wrap:wrap;gap:6px 18px}.flegal a{color:var(--grey);text-decoration:none;transition:color .2s}.flegal a:hover{color:var(--ink)}
 
 /* brand palette: charcoal black, royal blue, tangerine */
-body{background:radial-gradient(1200px 800px at 0% 0%,rgba(65,105,225,.10),transparent 60%),radial-gradient(1000px 700px at 100% 100%,rgba(255,140,26,.07),transparent 60%),var(--bg);background-attachment:fixed}
+body{background:radial-gradient(1200px 800px at 0% 0%,rgba(65,105,225,.10),transparent 60%),radial-gradient(1000px 700px at 100% 100%,rgba(255,140,26,.07),transparent 60%),var(--bg);background-attachment:scroll}
 .pill{background:var(--royal);border-color:var(--royal);color:#fff;box-shadow:0 10px 30px -12px rgba(65,105,225,.7)}
 .pill:hover{background:var(--tang);border-color:var(--tang);color:#141416;box-shadow:0 10px 30px -12px rgba(255,140,26,.7)}
 .arrow::after{background:linear-gradient(90deg,var(--royal-l),var(--tang))}
@@ -189,8 +189,7 @@ body{background:radial-gradient(1200px 800px at 0% 0%,rgba(65,105,225,.10),trans
 .lux .sub{line-height:1.7}
 .lux .slab{background:linear-gradient(160deg,#1c1c1f,#121214 70%)}
 .lux .price h3,.lux .feature h3,.lux .story h3{letter-spacing:-.01em}
-body.lux::after{content:"";position:fixed;inset:0;z-index:200;pointer-events:none;opacity:.035;transform:translateZ(0);
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+body.lux::after{content:none}
 .lux .rv{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
 .lux .rv.in{opacity:1;transform:none}
 /* manifesto band */
@@ -202,5 +201,6 @@ body.lux::after{content:"";position:fixed;inset:0;z-index:200;pointer-events:non
 @media (prefers-reduced-motion:reduce){.lux .rv{opacity:1;transform:none;filter:none}}
 
 /* perf: lighter glass on scroll-heavy pages */
-header .nav{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+header .nav{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:linear-gradient(160deg,rgba(52,50,47,.97),rgba(34,33,32,.97))!important}
+.mbar{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:rgba(16,16,18,.97)!important}
 .trio figure,.cw figure{contain:paint}
