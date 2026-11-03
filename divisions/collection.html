@@ -44,6 +44,16 @@ body{background:var(--bg)}
 .wall-track img:first-child{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 75px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 75px),transparent)}
 .wall-track img:last-child{-webkit-mask-image:linear-gradient(90deg,transparent,#000 75px);mask-image:linear-gradient(90deg,transparent,#000 75px)}
 }
+
+/* hero: one backdrop, three ranges */
+.th{background:var(--bg);text-align:center;overflow:hidden}
+.th-copy{padding:clamp(40px,6vw,76px) 16px 0;position:relative;z-index:2}
+.th-copy h1{font:600 clamp(46px,8vw,118px)/.92 var(--serif);text-transform:uppercase;letter-spacing:.01em;color:#f3efe6;margin:0}
+.th-copy p{margin:clamp(12px,1.6vw,20px) 0 0;font:700 clamp(10.5px,1vw,12.5px)/1 var(--sans);letter-spacing:.42em;text-transform:uppercase;color:#a9a49a;padding-left:.42em}
+.th-pic{position:relative;margin-top:clamp(-40px,-2vw,-10px)}
+.th-pic img{display:block;width:min(100%,1000px);height:auto;margin:0 auto;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.th-pic::after{content:"";position:absolute;inset:auto 0 0 0;height:10%;background:linear-gradient(180deg,rgba(13,13,15,0),var(--bg));pointer-events:none}
+@media (max-width:760px){.th-pic{margin-top:18px}}
 .wall-cta{position:absolute;left:50%;bottom:clamp(18px,3vw,40px);transform:translateX(-50%);display:flex;align-items:center;gap:20px;padding:10px 10px 10px 26px;border-radius:999px;background:rgba(13,13,15,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 0 0 1px rgba(255,140,26,.55),0 20px 60px -10px rgba(0,0,0,.8);white-space:nowrap}
 .wall-cta p{margin:0;font:800 14px/1.1 var(--sans);letter-spacing:.16em;text-transform:uppercase}
 .wall-cta p span{color:var(--neon)}
@@ -169,13 +179,9 @@ footer{padding-bottom:110px}
 <div class="ticker" aria-hidden="true"><div><span>New drop · Executive · Ivory · Greyston</span><span>Now R599 · was R749.99</span><span>Delivered across South Africa</span><span>7-day returns</span><span>See it differently</span><span>New drop · Executive · Ivory · Greyston</span><span>Now R599 · was R749.99</span><span>Delivered across South Africa</span><span>7-day returns</span><span>See it differently</span></div></div>
 <header class="sh"><div class="w"><a class="l" href="../index.html">← <span>POV Holdings</span></a><a class="brand" href="#top" aria-label="POV Collection"><b>POV<i>✦</i></b><small>POINT OF VIEW</small></a><a class="bag" href="#buy" data-go="buy"><span>Shop</span><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><em id="bagN">0</em></a></div></header>
 <main id="top">
-  <section class="wall" aria-label="Campaign">
-    <div class="wall-track" id="wall">
-      <img src="../work/collection/banner-ivory.jpg?v=7" alt="Ivory Range: See it differently.">
-      <img src="../work/collection/banner-executive.jpg?v=7" alt="Executive Range: Point of view. Oversized fit, embroidered detail." fetchpriority="high">
-      <img src="../work/collection/banner-greyston.jpg?v=7" alt="Greyston Range: Style refined." loading="lazy">
-    </div>
-    <div class="dots" id="dots"><i class="on"></i><i></i><i></i></div>
+  <section class="wall th" aria-label="Campaign">
+    <div class="th-copy"><h1>Point of view.</h1><p>See it differently.</p></div>
+    <div class="th-pic"><img src="../work/collection/trio.jpg?v=4" srcset="../work/collection/trio-sm.jpg?v=4 756w, ../work/collection/trio.jpg?v=4 1512w" sizes="(max-width:760px) 100vw, 1000px" alt="The Frame Tee in Ivory, Executive and Greyston" fetchpriority="high"></div>
     <div class="wall-cta"><p>The Frame Tee <s style="color:#8d8980;font-weight:600;margin-left:6px">R749.99</s> <span>R599</span></p><a class="pill solid" href="#shop" data-go="shop">Shop now <i>→</i></a></div>
   </section>
 
@@ -285,11 +291,11 @@ window.POV_PIXEL_ID=window.POV_PIXEL_ID||'';   // Meta Pixel ID for ad tracking
   $('buyTee').addEventListener('click',e=>{if(!size){e.preventDefault();$('buyMsg').textContent='Pick your size first.';const z=$('sz');z.classList.remove('shake');void z.offsetWidth;z.classList.add('shake');return}
     dl('cta_clicked',{cta:'order_tee',colour:col,size,qty:n,value:599*n});fbq('track','InitiateCheckout',{content_name:'Frame Tee',value:599*n,currency:'ZAR',num_items:n})});
   document.querySelectorAll('[data-go]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();go(a.dataset.go)}));
-  const wall=$('wall'),dots=[...$('dots').children];let wi=0,wt=null;
+  const wall=$('wall');if(wall){const dots=[...$('dots').children];let wi=0,wt=null;
   const mob=()=>matchMedia('(max-width:760px)').matches;
   wall.addEventListener('scroll',()=>{const i=Math.round(wall.scrollLeft/wall.clientWidth);if(i!==wi){wi=i;dots.forEach((d,j)=>d.classList.toggle('on',j===i))}},{passive:true});
   const auto=()=>{clearInterval(wt);wt=setInterval(()=>{if(!mob()||document.hidden)return;const r=wall.getBoundingClientRect();if(r.bottom<0)return;wall.scrollTo({left:((wi+1)%3)*wall.clientWidth,behavior:'smooth'})},4200)};
-  wall.addEventListener('touchstart',()=>clearInterval(wt),{passive:true});wall.addEventListener('touchend',()=>setTimeout(auto,4000),{passive:true});auto();
+  wall.addEventListener('touchstart',()=>clearInterval(wt),{passive:true});wall.addEventListener('touchend',()=>setTimeout(auto,4000),{passive:true});auto();}
   const bar=$('sbar');let past=false,buyIn=false;const sync=()=>{const on=past&&!buyIn;bar.classList.toggle('on',on);bar.setAttribute('aria-hidden',!on)};
   new IntersectionObserver(es=>{past=!es[0].isIntersecting&&es[0].boundingClientRect.top<0;sync()}).observe(document.querySelector('.wall-cta'));
   new IntersectionObserver(es=>{buyIn=es[0].isIntersecting;sync()},{threshold:.2}).observe(document.querySelector('.info'));
