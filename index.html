@@ -1252,7 +1252,7 @@ h2.sweep{box-shadow:none!important}
 
   // ---- pictures counter: 1.87M on 30 Oct 2026, +2,200 a day, ticking live ----
   (()=>{const el=document.getElementById('picCount');if(!el)return;
-    const BASE=1870000,PER_DAY=2200,FROM=Date.UTC(2026,9,29,22,0,0);
+    const BASE=1870000,PER_DAY=1150,FROM=Date.UTC(2026,9,29,22,0,0);
     const now=()=>Math.floor(BASE+Math.max(0,(Date.now()-FROM)/864e5)*PER_DAY);
     const fmt=n=>String(n).replace(/\B(?=(\d{3})+(?!\d))/g,' ');
     let shown=null;const tick=()=>{const n=now();if(n!==shown){shown=n;el.textContent=fmt(n)}};

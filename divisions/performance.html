@@ -50,6 +50,15 @@ a.partner{text-decoration:none}a.partner i{font-style:normal;color:var(--gold)}
 .fit3{display:grid;gap:10px}.fit3 div{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px;border-radius:14px;background:#141416;box-shadow:0 0 0 1px var(--hair)}
 .fit3 small{color:var(--grey);font-size:13px}.fit3 b{font:900 22px/1 var(--display);text-transform:uppercase}
 .fit3 div:nth-child(2) b{color:#c7a6f2}.fit3 div:nth-child(3) b{color:#ff9a3c}
+
+.fstats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:24px}@media (max-width:760px){.fstats{grid-template-columns:1fr}}
+.fstats div{padding:20px 22px;border-radius:18px;background:linear-gradient(160deg,#1f1f23,#141416);box-shadow:0 0 0 1px rgba(255,140,26,.28)}
+.fstats b{display:block;font:900 clamp(36px,4vw,52px)/1 var(--display);color:#ff8c1a}.fstats span{display:block;color:#cfcbc2;font-size:14px;margin-top:8px;line-height:1.4}
+.fqs{columns:3 300px;column-gap:14px;margin-top:16px}
+.fq{break-inside:avoid;margin:0 0 14px;padding:22px 22px 20px;border-radius:18px;background:#17171a;box-shadow:0 0 0 1px var(--hair)}
+.fq .st{color:#ff8c1a;letter-spacing:.12em;font-size:14px}
+.fq blockquote{margin:10px 0 0;font:500 clamp(19px,1.7vw,22px)/1.35 var(--serif,"Cormorant Garamond",Georgia,serif);color:var(--ink)}
+.fq figcaption{margin-top:12px;font:600 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
 </style>
 </head>
 <body class="lux">
@@ -100,6 +109,10 @@ a.partner{text-decoration:none}a.partner i{font-style:normal;color:var(--gold)}
       <div class="chips"><span>Automotive dealerships</span><span>Dealer principals</span><span>General sales managers</span><span>New sales executives</span><span>Experienced sales executives</span><span>Sales management teams</span></div></div>
     <div class="block"><div class="slab cc"><div><p class="kicker">How it fits</p><h2 style="margin-top:14px">A development process, <em>not a course.</em></h2></div>
       <div class="fit3"><div><small>Parent brand</small><b>POV</b></div><div><small>Sales training &amp; development</small><b>POV Performance</b></div><div><small>Technology platform</small><b>MiLife</b></div></div></div></div>
+    <div class="block" id="feedback"><p class="kicker">From the floor</p><h2 style="margin-top:14px">What the salespeople <em>said.</em></h2>
+      <div class="fstats"><div><b>6/6</b><span>rated the session 5 out of 5</span></div><div><b>6/6</b><span>would recommend it to other dealerships</span></div><div><b>6/6</b><span>very or extremely confident it will improve customer experience</span></div></div>
+      <div class="fqs"><figure class="fq"><span class="st" aria-label="5 out of 5">★★★★★</span><blockquote>&ldquo;Knowing about different personalities is an eye opener and something I must definitely look out for when engaging with prospects.&rdquo;</blockquote><figcaption>Sales executive · MiLife session</figcaption></figure><figure class="fq"><span class="st" aria-label="5 out of 5">★★★★★</span><blockquote>&ldquo;It helped me see the importance of understanding different personalities, improving communication, and adapting to customers' needs.&rdquo;</blockquote><figcaption>Sales executive · MiLife session</figcaption></figure><figure class="fq"><span class="st" aria-label="5 out of 5">★★★★★</span><blockquote>&ldquo;Informative, practical, and valuable. It helped me gain a better understanding of the processes, improve my knowledge and skills, and build confidence in my role.&rdquo;</blockquote><figcaption>Sales executive · MiLife session</figcaption></figure><figure class="fq"><span class="st" aria-label="5 out of 5">★★★★★</span><blockquote>&ldquo;It's always good to understand yourself better and find ways to improve. Self-awareness is key to personal growth.&rdquo;</blockquote><figcaption>Sales executive · MiLife session</figcaption></figure><figure class="fq"><span class="st" aria-label="5 out of 5">★★★★★</span><blockquote>&ldquo;The experience was amazing and teachable thus far, I can't wait for the next session.&rdquo;</blockquote><figcaption>Sales executive · MiLife session</figcaption></figure><figure class="fq"><span class="st" aria-label="5 out of 5">★★★★★</span><blockquote>&ldquo;I found it to be very helpful. I suggest that they also attend it, they will learn a lot from it.&rdquo;</blockquote><figcaption>Sales executive · MiLife session</figcaption></figure></div>
+      <p class="fine" style="color:var(--grey);font-size:13px;margin-top:14px">Anonymous feedback forms from a POV Performance session on 29 October 2026, shared with each salesperson's permission.</p></div>
     <div class="block faqm"><h2>Good to <em>know</em></h2>
       <details><summary>Is this a once-off training day?</summary><p>No. Training is followed by ongoing development on MiLife, with weekly reporting for management.</p></details>
       <details><summary>Does it take salespeople off the floor?</summary><p>As little as possible. Sessions are planned around your trading hours, and MiLife runs on a phone.</p></details>
