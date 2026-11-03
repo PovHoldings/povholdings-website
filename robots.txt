@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pointofviewholdings.co.za/sitemap.xml
