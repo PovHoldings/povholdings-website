@@ -156,7 +156,7 @@
     tabs.forEach(t=>{if(t.getAttribute('href')==='#'+v)t.setAttribute('aria-current','page');else t.removeAttribute('aria-current')});
     if(window.__ready){const top=document.querySelector('.tabs-wrap').getBoundingClientRect().top+scrollY-84;scrollTo({top,behavior:'smooth'})}};
   addEventListener('hashchange',show);show();window.__ready=true;scrollTo(0,0);
-  document.getElementById('resetCookies').addEventListener('click',e=>{try{localStorage.removeItem('pov_consent')}catch(_){}e.target.textContent='Reset. You'll be asked again on the next page you open.'});
+  document.getElementById('resetCookies').addEventListener('click',e=>{try{localStorage.removeItem('pov_consent')}catch(_){}e.target.textContent='Reset. You will be asked again on the next page you open.'});
 })();
 </script>
 <script src="assistant.js" defer></script>
