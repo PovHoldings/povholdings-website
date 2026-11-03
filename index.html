@@ -887,6 +887,10 @@ section[id]{scroll-margin-top:84px}
 .eco-core{perspective:900px}
 .eco-core span,.eco-core small{white-space:nowrap}
 .eco-core .cl{display:inline-block;font-style:normal;will-change:transform,opacity,filter;transform-style:preserve-3d}
+
+.door .lp{position:absolute;left:50%;top:var(--t,0);height:100%;width:auto;max-width:none;transform:translateX(var(--x,-50%));z-index:-2;filter:brightness(.92);-webkit-mask-image:linear-gradient(180deg,#000 82%,transparent);mask-image:linear-gradient(180deg,#000 82%,transparent);transition:filter .8s,transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.door:hover .lp{filter:brightness(1.03);transform:translateX(var(--x,-50%)) scale(1.04)}
+.door:has(.lp){background:#0b0b0d}
 </style>
 </head>
 <body>
@@ -951,14 +955,14 @@ section[id]{scroll-margin-top:84px}
       <div class="phead rv"><p class="pk">Start here</p><h2 class="ph2">Where are you <em>headed?</em></h2><p class="psub">Six divisions, four lanes. Pick yours and we'll take you straight there.</p></div>
       <div class="doors rv">
         <div class="door" data-href="divisions/dealers.html">
-          <img class="dimg3" src="work/porsche-gt3rs-rear.jpg" alt="Black Porsche 911 GT3 RS from the rear, Fouché" loading="lazy">
+          <img class="lp" style="--t:-16%;--x:-50%" src="work/lane-meeting.jpg" alt="Managers in a meeting around a table" loading="lazy">
           <span class="dn">01</span>
           <div class="dc"><small>Dealer principals &amp; GSMs</small><b>I run a <em>dealership</em></b><p>How your cars look, get seen and get sold.</p>
             <nav class="dl" aria-label="Dealership divisions"><a href="divisions/media.html">Media</a><a href="divisions/meta.html">Meta</a><a href="divisions/performance.html">Performance</a><a href="divisions/program.html">Program</a></nav>
             <a class="dgo" href="divisions/dealers.html" data-cta="door" data-place="dealers">For dealerships <i>→</i></a></div>
         </div>
         <div class="door" data-href="divisions/sales.html">
-          <img class="dimg2" src="work/porsche-wheel.jpg" alt="Black Porsche, front wheel and fender" loading="lazy">
+          <img class="lp" style="--t:-13%;--x:-45%" src="work/lane-drafting.jpg" alt="Salesperson planning at a desk" loading="lazy">
           <span class="dn">02</span>
           <div class="dc"><small>Sales executives</small><b>I <em>sell</em> cars</b><p>Build your name and bring in your own leads.</p>
             <nav class="dl" aria-label="Salesperson divisions"><a href="divisions/program.html">Program</a><a href="divisions/growth.html">Growth · R1 999</a><a href="divisions/performance.html">Performance</a></nav>
@@ -972,7 +976,7 @@ section[id]{scroll-margin-top:84px}
             <a class="dgo" href="divisions/collection.html" data-cta="door" data-place="shop">Shop POV <i>→</i></a></div>
         </div>
         <div class="door dmeta" data-href="divisions/meta.html">
-          <img class="dimg5" src="work/porsche-gt3rs-street.jpg" alt="Black Porsche 911 GT3 RS on a tree-lined street" loading="lazy">
+          <img class="lp" style="--t:-10%;--x:-54%" src="work/lane-eye.jpg" alt="Close-up of an eye reflecting lines of code" loading="lazy">
           <span class="dn">04</span>
           <div class="dc"><small>Shopify brands</small><b>I sell <em>online</em></b>
             <div class="mrow" aria-label="ConversionCo Shopify client results"><div><b>R3.36m</b><span>store sales, 90 days</span></div><div><b>13.7×</b><span>return on ad spend</span></div><div><b>443</b><span>orders, 90 days</span></div></div>
