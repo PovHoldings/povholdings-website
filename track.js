@@ -11,6 +11,14 @@
       fbq('init',PX);fbq('track','PageView');}
   }
   window.povTrack=load;
+  // every WhatsApp, email and phone tap counts as a contact (only reported once tracking is on)
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href')||'';
+    var m=/wa\.me|whatsapp/i.test(h)?'whatsapp':/^mailto:/i.test(h)?'email':/^tel:/i.test(h)?'phone':'';if(!m)return;
+    var page=location.pathname.split('/').pop().replace('.html','')||'home';
+    try{if(window.gtag)gtag('event','generate_lead',{method:m,page:page,label:(a.textContent||'').trim().slice(0,60)})}catch(_){}
+    try{if(window.fbq)fbq('track','Contact',{content_name:page,method:m})}catch(_){}
+  },true);
   var c=null;try{c=localStorage.getItem('pov_consent')}catch(_){}
   if(c==='all'){load();return}
   if(c)return;

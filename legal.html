@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="claude:viewport-fit-sides" content="cover">
 <title>POV Holdings Legal</title>
+<script src="track.js"></script>
 <meta name="description" content="Terms, privacy (POPIA), cookies, refunds and business information for POV Holdings.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Manrope:wght@400;500;600;700&display=swap">
@@ -27,7 +28,7 @@
 </style>
 </head>
 <body>
-<header><div class="nav"><a class="back" href="index.html">← POV Holdings</a><span class="brandname"><span>POV</span> Legal</span><a class="arrow" href="index.html">Home <i>→</i></a></div></header>
+<header><div class="nav"><a class="back homeback" href="index.html?home=1" aria-label="Back to POV Holdings home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span>Home</span></a><span class="brandname"><span>POV</span> Legal</span><a class="arrow" href="index.html">Home <i>→</i></a></div></header>
 <main>
   <section class="hero"><div class="wrap">
     <p class="kicker">Legal</p>
@@ -37,7 +38,7 @@
   <div class="tabs-wrap"><div class="wrap"><nav class="tabs" aria-label="Legal pages"><a href="#terms">Terms</a><a href="#privacy">Privacy</a><a href="#cookies">Cookies</a><a href="#refunds">Refunds</a><a href="#company">Company info</a></nav></div></div>
 
   <section class="view wrap legal" data-view="terms">
-    <h2>Terms and conditions</h2><p class="upd">Last updated 30 October 2026</p>
+    <h2>Terms and conditions</h2><p class="upd">Last updated 3 November 2026</p>
     <h3>1. Who we are</h3>
     <p>This website is operated by Point of View Holdings (Pty) Ltd, trading as POV Holdings ("POV", "we", "us"), a South African business offering automotive photography, video and content (POV Media), sales coaching (POV Performance, in partnership with MiLife), clothing (POV Collection), a dealership content system (POV Program), a course (POV Growth) and Meta advertising (POV Meta, in partnership with ConversionCo). Our full business details are on the Company info tab.</p>
     <h3>2. Accepting these terms</h3>
@@ -70,7 +71,7 @@
   </section>
 
   <section class="view wrap legal" data-view="privacy" hidden>
-    <h2>Privacy policy</h2><p class="upd">Last updated 30 October 2026 · Protection of Personal Information Act 4 of 2013 (POPIA)</p>
+    <h2>Privacy policy</h2><p class="upd">Last updated 3 November 2026 · Protection of Personal Information Act 4 of 2013 (POPIA)</p>
     <h3>1. Responsible party and information officer</h3>
     <p>The responsible party for your personal information is Point of View Holdings (Pty) Ltd, trading as POV Holdings. Our information officer is Robert Christopher Denny, reachable at info@povholdings.co.za.</p>
     <h3>2. What we collect</h3>
@@ -92,7 +93,7 @@
     </ul>
     <p>We rely on your consent, the need to perform a contract with you, our legitimate interest in running and improving our business, and compliance with the law, as POPIA allows.</p>
     <h3>4. Who we share it with</h3>
-    <p>We do not sell your personal information. We share it only with service providers who help us operate, under confidentiality and data-protection obligations: our hosting and website platform, our online store and payment provider, WhatsApp (Meta) when you message us, Google Analytics if you accept analytics cookies, and our partners MiLife (POV Performance) and ConversionCo (POV Meta) where you buy their joint service. Some of these providers store data outside South Africa; we use providers that offer adequate protection as required by section 72 of POPIA.</p>
+    <p>We do not sell your personal information. We share it only with service providers who help us operate, under confidentiality and data-protection obligations: our hosting and website platform, our online store and payment provider, WhatsApp (Meta) when you message us, Google (Google Analytics and Search Console) and Meta (the Meta Pixel, used to measure and improve our Facebook and Instagram adverts) if you accept analytics and advertising cookies, and our partners MiLife (POV Performance) and ConversionCo (POV Meta) where you buy their joint service. Some of these providers store data outside South Africa; we use providers that offer adequate protection as required by section 72 of POPIA.</p>
     <h3>5. How long we keep it</h3>
     <p>We keep enquiry information for up to 2 years, client and transaction records for 5 years as tax law requires, and reviews until you delete them or ask us to. After that we delete or anonymise it.</p>
     <h3>6. How we protect it</h3>
@@ -102,17 +103,18 @@
   </section>
 
   <section class="view wrap legal" data-view="cookies" hidden>
-    <h2>Cookies</h2><p class="upd">Last updated 30 October 2026</p>
+    <h2>Cookies</h2><p class="upd">Last updated 3 November 2026</p>
     <p>Cookies are small files a website saves in your browser. We use as few as possible.</p>
     <h3>Essential</h3>
     <p>Needed for the website to work, for example remembering your cookie choice and keeping you signed in to leave a review. These are always on.</p>
-    <h3>Analytics (optional)</h3>
-    <p>If you choose "Accept", we use Google Analytics to understand how visitors use the site and which adverts bring enquiries, so we can improve. If you choose "Essential only", these are not set. You can change your choice any time using the Cookie settings link at the bottom of every page.</p>
+    <h3>Analytics and advertising (optional)</h3>
+    <p>If you choose "Accept", we use Google Analytics to understand how visitors use the site, and the Meta Pixel to measure which Facebook and Instagram adverts bring enquiries and to show our adverts to people likely to be interested. Both record pages visited, buttons used (for example a WhatsApp or booking button), device and browser type and approximate location. Google and Meta process this data under their own privacy policies, and some of it is stored outside South Africa.</p>
+    <p>If you choose "Essential only", none of these are set. You can change your choice any time using the button below.</p>
     <p><button class="pill" type="button" id="resetCookies">Change cookie settings</button></p>
   </section>
 
   <section class="view wrap legal" data-view="refunds" hidden>
-    <h2>Refunds and cancellations</h2><p class="upd">Last updated 30 October 2026 · ECTA sections 42 to 44 and the CPA</p>
+    <h2>Refunds and cancellations</h2><p class="upd">Last updated 3 November 2026 · ECTA sections 42 to 44 and the CPA</p>
     <h3>Online purchases: 7-day cooling-off</h3>
     <p>For goods bought online, such as POV Collection clothing, you may cancel without reason within 7 days of receiving the goods, under section 44 of ECTA. Return the item unused and in its original condition; the only cost to you is the direct cost of returning it. We refund the full purchase price within 30 days of cancellation.</p>
     <h3>POV Package (digital course)</h3>
@@ -154,7 +156,7 @@
     tabs.forEach(t=>{if(t.getAttribute('href')==='#'+v)t.setAttribute('aria-current','page');else t.removeAttribute('aria-current')});
     if(window.__ready){const top=document.querySelector('.tabs-wrap').getBoundingClientRect().top+scrollY-84;scrollTo({top,behavior:'smooth'})}};
   addEventListener('hashchange',show);show();window.__ready=true;scrollTo(0,0);
-  document.getElementById('resetCookies').addEventListener('click',e=>{try{localStorage.removeItem('pov_consent')}catch(_){}e.target.textContent='Reset. Your choice will be asked again on the home page.'});
+  document.getElementById('resetCookies').addEventListener('click',e=>{try{localStorage.removeItem('pov_consent')}catch(_){}e.target.textContent='Reset. You'll be asked again on the next page you open.'});
 })();
 </script>
 <script src="assistant.js" defer></script>
