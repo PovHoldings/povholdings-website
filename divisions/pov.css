@@ -241,3 +241,10 @@ header .nav{backdrop-filter:none!important;-webkit-backdrop-filter:none!importan
 .jok{padding:24px;border-radius:24px;background:radial-gradient(100% 80% at 100% 0%,rgba(255,140,26,.2),transparent 60%),#17171a;box-shadow:0 0 0 1px rgba(255,140,26,.5);display:grid;align-content:center;gap:8px}
 .jok small{font:600 11px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:#ff9a3c}.jok b{font:900 clamp(56px,7vw,90px)/.9 var(--display);color:#fff}.jok span{color:#cfcbc2;font-size:14px}
 @media (max-width:860px){.proof,.plan,.journey{grid-template-columns:1fr}.dk{grid-template-columns:1fr 1fr}.workgrid{grid-template-columns:1fr}.plan .ph{justify-self:center}}
+
+/* one consistent way home on every division */
+header a.homeback.homeback{justify-self:start;align-self:center;width:auto;display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 13px 0 9px;border-radius:999px;font:600 11.5px/1 Manrope,system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#cfcbc2;background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);white-space:nowrap;flex:none;text-decoration:none;transition:color .25s,box-shadow .25s,background .25s}
+header a.homeback svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+header a.homeback:hover{color:#fff;background:rgba(255,140,26,.1);box-shadow:inset 0 0 0 1px rgba(255,140,26,.6)}
+@media (max-width:420px){header a.homeback.homeback{height:32px;padding:0 11px 0 8px;font-size:10.5px}}
+header a.homeback span{display:inline!important}
