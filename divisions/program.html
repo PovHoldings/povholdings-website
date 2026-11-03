@@ -9,7 +9,47 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="pov.css">
-<style id="acc">:root{--gold:#f0954a}.hero::after{background:radial-gradient(circle,rgba(232,128,52,.18),transparent 65%)!important}.slab{box-shadow:0 0 0 1px rgba(232,128,52,.22),inset 0 1px 0 rgba(255,255,255,.06),0 30px 60px -30px rgba(0,0,0,1)!important}.slab::before,.nav::before{background:linear-gradient(90deg,transparent,rgba(232,128,52,.7),transparent)!important}.partner{margin-top:14px;display:inline-flex;gap:8px;align-items:center;font:600 13px/1 var(--sans);letter-spacing:.06em;color:var(--grey);padding:9px 14px;border-radius:999px;box-shadow:0 0 0 1px rgba(232,128,52,.4)}.partner b{color:var(--gold);font-weight:700}</style>
+<style id="acc">:root{--gold:#f0954a}.hero::after{background:radial-gradient(circle,rgba(232,128,52,.18),transparent 65%)!important}.slab{box-shadow:0 0 0 1px rgba(232,128,52,.22),inset 0 1px 0 rgba(255,255,255,.06),0 30px 60px -30px rgba(0,0,0,1)!important}.slab::before,.nav::before{background:linear-gradient(90deg,transparent,rgba(232,128,52,.7),transparent)!important}.partner{margin-top:14px;display:inline-flex;gap:8px;align-items:center;font:600 13px/1 var(--sans);letter-spacing:.06em;color:var(--grey);padding:9px 14px;border-radius:999px;box-shadow:0 0 0 1px rgba(232,128,52,.4)}.partner b{color:var(--gold);font-weight:700}
+/* POV Program pricing: orange outlined 3D blocks */
+.pp h2 em{font-style:italic;color:var(--gold,#f0954a)}
+.pp-note{margin:18px 0 0;font:700 11px/1 Manrope,system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8d8980}
+.pp-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.4vw,30px);margin-top:34px;perspective:1400px;align-items:stretch}
+.pp-card{position:relative;border-radius:24px;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.pp-card::before{content:"";position:absolute;inset:0;border-radius:24px;transform:translate3d(12px,14px,-40px);background:linear-gradient(150deg,rgba(255,140,26,.5),rgba(255,140,26,.12));box-shadow:0 0 0 1px rgba(255,140,26,.55)}
+.pp-face{position:relative;height:100%;display:flex;flex-direction:column;padding:clamp(24px,2.6vw,34px);border-radius:24px;background:linear-gradient(170deg,#1c1c20,#121215);box-shadow:inset 0 0 0 1.5px #ff8c1a,inset 0 1px 0 2px rgba(255,255,255,.04),0 30px 60px -30px rgba(0,0,0,.9)}
+.pp-card:hover{transform:translateY(-6px) rotateX(4deg) rotateY(-4deg)}
+.pp-card.hot{transform:translateY(-14px)}
+.pp-card.hot:hover{transform:translateY(-20px) rotateX(4deg) rotateY(-4deg)}
+.pp-card.hot .pp-face{background:linear-gradient(170deg,#2a1b0e,#151215 60%);box-shadow:inset 0 0 0 2px #ff8c1a,0 40px 80px -30px rgba(255,140,26,.45)}
+.pp-pop{position:absolute;z-index:2;top:-13px;left:50%;transform:translateX(-50%);padding:7px 14px;border-radius:999px;background:#ff8c1a;color:#0d0d0f;font:800 10.5px/1 Manrope,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+.pp-face h3{font:600 clamp(26px,2.4vw,32px)/1 "Cormorant Garamond",Georgia,serif;color:#fff;margin:0}
+.pp-who{margin:8px 0 0;color:#a9a49a;font:600 13.5px/1.3 Manrope,system-ui,sans-serif}
+.pp-amt{margin:22px 0 4px;font:600 clamp(46px,4.6vw,62px)/1 "Cormorant Garamond",Georgia,serif;color:#fff;letter-spacing:-.01em;white-space:nowrap}
+.pp-amt span{font-size:.5em;vertical-align:.7em;margin-right:3px;color:#ff8c1a}
+.pp-amt small{font:600 14px/1 Manrope,system-ui,sans-serif;color:#8d8980;margin-left:6px;letter-spacing:0}
+.pp-face ul{list-style:none;margin:20px 0 26px;padding:20px 0 0;border-top:1px solid rgba(255,255,255,.1);display:grid;gap:11px;flex:1}
+.pp-face li{position:relative;padding-left:24px;color:#dcd8cf;font:500 14.5px/1.45 Manrope,system-ui,sans-serif}
+.pp-face li::before{content:"";position:absolute;left:2px;top:.42em;width:9px;height:5px;border:solid #ff8c1a;border-width:0 0 2px 2px;transform:rotate(-45deg)}
+.pp-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:50px;padding:0 22px;border-radius:999px;font:700 13.5px/1 Manrope,system-ui,sans-serif;color:#fff;text-decoration:none;box-shadow:inset 0 0 0 1.5px #ff8c1a;transition:background .25s,color .25s}
+.pp-btn:hover,.pp-card.hot .pp-btn,.pp-btn.solid{background:#ff8c1a;color:#0d0d0f}
+.pp-btn i{font-style:normal}
+.pp-eg{margin:44px 0 0;padding:16px 20px;border-radius:16px;background:rgba(255,140,26,.07);box-shadow:inset 0 0 0 1px rgba(255,140,26,.3);color:#cfcbc2;font:500 14.5px/1.5 Manrope,system-ui,sans-serif}
+.pp-eg b{color:#fff}.pp-eg span{color:#ff8c1a;font-weight:700}
+.pp-two{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.pp-box{padding:24px clamp(20px,2.4vw,30px);border-radius:20px;background:#141417;box-shadow:inset 0 0 0 1px rgba(255,255,255,.09)}
+.pp-box dl{margin:14px 0 0}
+.pp-box dl div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 0;border-top:1px solid rgba(255,255,255,.07)}
+.pp-box dt{color:#dcd8cf;font:500 14.5px/1.4 Manrope,system-ui,sans-serif}
+.pp-box dt small{display:block;color:#8d8980;font-size:12px}
+.pp-box dd{margin:0;color:#ff8c1a;font:700 15px/1.2 Manrope,system-ui,sans-serif;white-space:nowrap;text-align:right}
+.pp-box dd small{color:#8d8980;font-weight:600}
+.pp-roi{margin-top:36px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:clamp(22px,3vw,34px);border-radius:24px;background:linear-gradient(120deg,#1d140c,#121215);box-shadow:inset 0 0 0 1.5px rgba(255,140,26,.55)}
+.pp-roi p{margin:0;font:600 clamp(24px,2.6vw,34px)/1.15 "Cormorant Garamond",Georgia,serif;color:#fff;max-width:560px}
+.pp-roi em{color:#ff8c1a}
+@media (max-width:900px){.pp-grid{grid-template-columns:1fr;max-width:460px;margin-inline:auto;gap:34px}.pp-card.hot,.pp-card.hot:hover{transform:none}.pp-card:hover{transform:none}.pp-two{grid-template-columns:1fr}.pp-roi .pp-btn{width:100%}}
+@media (max-width:420px){.pp-card::before{transform:translate3d(7px,8px,-40px)}.pp-box dl div{flex-direction:column;gap:4px}.pp-box dd{text-align:left}}
+@media (prefers-reduced-motion:reduce){.pp-card,.pp-card:hover{transition:none;transform:none}}
+</style>
 </head>
 <body class="lux">
 <header><div class="nav"><a class="back homeback" href="../index.html?home=1" aria-label="Back to POV Holdings home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span>Home</span></a><span class="brandname"><span>POV</span> Program</span><a class="arrow" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20to%20find%20out%20more%20about%20POV%20Program." target="_blank" rel="noopener">Get in touch <i>→</i></a></div></header>
@@ -33,10 +73,21 @@
 
   <section class="view wrap" id="v-overview" data-view="overview">
     <div class="block"><h2>What you <em>get</em></h2><div class="grid3"><article class="slab feature"><span class="num">01</span><h3>Daily content plans</h3><p>Every salesperson knows exactly what to post today.</p></article><article class="slab feature"><span class="num">02</span><h3>Built for SA dealerships</h3><p>Ideas made for South African showrooms, stock and buyers.</p></article><article class="slab feature"><span class="num">03</span><h3>Runs from a phone</h3><p>No studio needed. Shoot, edit and post from the floor.</p></article></div></div>
-    <div class="block"><h2>How it <em>works</em></h2><div class="steps"><div class="step"><b>Set up</b><span>We load your dealership and your sales team.</span></div><div class="step"><b>Plan</b><span>Each salesperson gets their daily content plan.</span></div><div class="step"><b>Post</b><span>They shoot and post from their phone.</span></div><div class="step"><b>Grow</b><span>More reach, more enquiries, more cars sold.</span></div></div></div>
+    <div class="block"><h2>How it <em>works</em></h2><div class="steps"><div class="step"><b>We load your team</b><span>Personal logins by email, one device each.</span></div><div class="step"><b>Scripts written for them</b><span>Your brand, your models, your suburb, Monday to Friday.</span></div><div class="step"><b>They post and log results</b><span>Views and leads per post show what sells.</span></div><div class="step"><b>Managers see it at 17:00</b><span>A daily email: who posted, who didn’t, and today’s leads.</span></div></div></div></div>
   </section>
   <section class="view wrap" id="v-pricing" data-view="pricing" hidden>
-    <div class="block"><h2>Pricing</h2><p class="sub">Every package is quoted to fit you. Pick the one closest to what you need and we'll come back to you the same working day.</p><div class="grid3"><article class="slab price"><span class="tag">Per person</span><h3>Salesperson</h3><p class="amt">Price on enquiry</p><ul><li>Daily content plan</li><li>Content ideas library</li><li>Runs on your phone</li></ul><a class="arrow" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20a%20quote%20for%20POV%20Program%3A%20Salesperson." target="_blank" rel="noopener">Get a quote <i>→</i></a></article><article class="slab price hot"><span class="tag">Most popular</span><h3>Dealership</h3><p class="amt">Price on enquiry</p><ul><li>Your whole sales team on the Program</li><li>Manager overview</li><li>Onboarding on your floor</li></ul><a class="arrow" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20a%20quote%20for%20POV%20Program%3A%20Dealership." target="_blank" rel="noopener">Get a quote <i>→</i></a></article><article class="slab price"><span class="tag">Multi-branch</span><h3>Group</h3><p class="amt">Price on enquiry</p><ul><li>Every branch on one system</li><li>Group-wide content themes</li><li>Dedicated support</li></ul><a class="arrow" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20a%20quote%20for%20POV%20Program%3A%20Group." target="_blank" rel="noopener">Get a quote <i>→</i></a></article></div></div>
+    <div class="block pp">
+      <h2>Choose a package <em>per department.</em></h2>
+      <p class="sub">A Monday–Friday content plan with a script written for each salesperson, no two alike, plus lead tracking and a 17:00 report to the manager every day.</p>
+      <p class="pp-note">Per department, per month · excl. VAT</p>
+      <div class="pp-grid"><article class="pp-card"><div class="pp-face"><h3>Launch</h3><p class="pp-who">Up to 5 salespeople</p><p class="pp-amt"><span>R</span>3 500<small>/month</small></p><ul><li>Monday–Friday content plan</li><li>A unique script for every salesperson</li><li>Fresh extra ideas every Monday</li><li>Progress &amp; lead tracker</li><li>17:00 daily email report to the manager</li></ul><a class="pp-btn" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20to%20start%20POV%20Program%20on%20the%20Launch%20package." target="_blank" rel="noopener">Choose Launch <i>→</i></a></div></article><article class="pp-card hot"><span class="pp-pop">Most popular</span><div class="pp-face"><h3>Accelerate</h3><p class="pp-who">Up to 12 salespeople</p><p class="pp-amt"><span>R</span>5 000<small>/month</small></p><ul><li>Everything in Launch</li><li>Up to 12 salespeople</li><li>Monthly performance review with your manager</li><li>Priority support</li></ul><a class="pp-btn" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20to%20start%20POV%20Program%20on%20the%20Accelerate%20package." target="_blank" rel="noopener">Choose Accelerate <i>→</i></a></div></article><article class="pp-card"><div class="pp-face"><h3>Dominate</h3><p class="pp-who">Unlimited salespeople</p><p class="pp-amt"><span>R</span>7 500<small>/month</small></p><ul><li>Everything in Accelerate</li><li>Unlimited salespeople</li><li>Launch content for your brand’s new models</li><li>Quarterly on-site filming &amp; training session</li></ul><a class="pp-btn" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20to%20start%20POV%20Program%20on%20the%20Dominate%20package." target="_blank" rel="noopener">Choose Dominate <i>→</i></a></div></article></div>
+      <p class="pp-eg"><b>Example:</b> New vehicles on Accelerate + Used vehicles on Launch = <span>R8 500 per month.</span></p>
+      <div class="pp-two">
+        <div class="pp-box"><p class="kicker">Getting started</p><dl><div><dt>Once-off setup &amp; onboarding</dt><dd>from R2 500</dd></div><div><dt>30-day pilot <small>credited if you sign</small></dt><dd>R2 500</dd></div><div><dt>Extra salesperson</dt><dd>R350 <small>/month</small></dd></div></dl></div>
+        <div class="pp-box"><p class="kicker">Save more</p><dl><div><dt>Dealer groups <small>3+ departments</small></dt><dd>up to 15% off</dd></div><div><dt>Pay annually</dt><dd>2 months free</dd></div><div><dt>POV photography &amp; lead campaigns</dt><dd>bundle price</dd></div></dl></div>
+      </div>
+      <div class="pp-roi"><p>One extra vehicle sale a month <em>pays for your package.</em></p><a class="pp-btn solid" href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%27d%20like%20to%20ask%20about%20a%2030-day%20POV%20Program%20pilot%20for%20our%20department." target="_blank" rel="noopener">Ask about a 30-day pilot <i>→</i></a></div>
+    </div>
   </section>
   <section class="view wrap" id="v-stories" data-view="stories" hidden>
     <div class="block"><p class="kicker">Clients</p><h2 style="margin-top:14px">Who we work with</h2><p class="sub">POV Program is new. The first clients will be listed here.</p></div>
