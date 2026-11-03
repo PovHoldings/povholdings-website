@@ -1542,9 +1542,12 @@ section[id]{scroll-margin-top:84px}
       measure();let to=-(c.offsetLeft-(car.clientWidth-c.offsetWidth)/2);while(to>0)to-=half;while(to<=-half)to+=half;
       // nearest equivalent position so the glide is short
       if(half){const alt=[to,to-half,to+half].filter(t=>t<=0);to=alt.reduce((a,b)=>Math.abs(b-x)<Math.abs(a-x)?b:a,to)}
-      const sec=document.getElementById('divisions');const r=car.getBoundingClientRect();
-      const y=r.top+scrollY-Math.max(90,(innerHeight-r.height)/2);
-      scrollTo({top:Math.max(0,y),behavior:smooth?'smooth':'auto'});
+      // centre the chosen card between the header and the bottom bar (bars differ per device)
+      const aim=()=>{const cr=c.getBoundingClientRect(),hd=document.querySelector('#hdr .nav'),mb=document.querySelector('.mbar');
+        const topB=hd?hd.getBoundingClientRect().bottom+12:90,botB=(mb&&getComputedStyle(mb).display!=='none')?mb.getBoundingClientRect().top-12:innerHeight-16;
+        return Math.max(0,cr.top+scrollY-(topB+Math.max(0,(botB-topB-cr.height)/2)))};
+      scrollTo({top:aim(),behavior:smooth?'smooth':'auto'});
+      let tries=0;const fix=()=>{if(tries++>4)return;const d=aim()-scrollY;if(Math.abs(d)>8)scrollTo({top:aim(),behavior:'smooth'});setTimeout(fix,600)};setTimeout(fix,smooth?900:200);
       glide={from:x,to,t0:performance.now()+(smooth?450:0)};v=0;hold=performance.now()+6500;
       tr.querySelectorAll('.dcard.sel').forEach(d=>d.classList.remove('sel'));car.classList.add('picking');
       const twin=[...tr.querySelectorAll('.dcard[data-slug="'+slug+'"]')];twin.forEach(d=>d.classList.add('sel'));
