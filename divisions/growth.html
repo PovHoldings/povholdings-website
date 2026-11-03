@@ -409,7 +409,7 @@ footer{padding-bottom:120px}
   // live picture counter (same as home page)
   const base=1870000,start=Date.UTC(2026,9,29,22),perDay=2200;const pics=()=>{const v=base+Math.max(0,(Date.now()-start)/864e5*perDay);$('pics').textContent=(v/1e6).toFixed(2)+'M+'};pics();setInterval(pics,4000);
   // proof reels: play only what's on screen
-  const R=[['fouche-motors-rolls-royce-2','Fouche Motors · Rolls-Royce'],['jetour-menlyn-jetour-t2-aspire-2','Jetour Menlyn · T2'],['audi-centurion-audi-q5','Audi Centurion · Q5'],['0513-2','Private client · GT3 RS'],['audi-rs3-the-sportiest-in-its-class-2','Audi · RS3'],['byd-menlyn-byd-sealion-8','BYD Menlyn · Sealion 8'],['omoda-jaecoo-waterfall-what-you-need','Omoda & Jaecoo Waterfall']];
+  const R=[['fouche-motors-rolls-royce-2','Fouche Motors · Rolls-Royce'],['jetour-menlyn-jetour-t2-aspire-2','Jetour Menlyn · T2'],['audi-q5','Audi · Q5'],['0513-2','Private client · GT3 RS'],['audi-rs3-the-sportiest-in-its-class-2','Audi · RS3'],['byd-menlyn-byd-sealion-8','BYD Menlyn · Sealion 8'],['omoda-jaecoo-waterfall-what-you-need','Omoda & Jaecoo Waterfall']];
   const row=$('reelrow');row.innerHTML=R.map(([f,c])=>'<figure><video data-src="../vid/reels/'+f+'.mp4" poster="../vid/reels/'+f+'.jpg" muted loop playsinline preload="none"></video><figcaption>'+c+'</figcaption></figure>').join('');
   const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting&&e.intersectionRatio>.55){if(!v.src)v.src=v.dataset.src;v.play().catch(()=>{})}else if(v.src)v.pause()}),{threshold:[0,.55]});
   row.querySelectorAll('video').forEach(v=>vio.observe(v));
