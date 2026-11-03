@@ -894,6 +894,17 @@ section[id]{scroll-margin-top:84px}
 .door .lpb{top:-1%;height:100%!important;transform:translateX(-48%);filter:brightness(.82)}
 .door:hover .lpb{transform:translateX(-48%) scale(1.04)}
 .door .lpw{height:64%!important;-webkit-mask-image:linear-gradient(180deg,#000 70%,transparent);mask-image:linear-gradient(180deg,#000 70%,transparent)}
+
+/* reviews: clean empty state, nothing under the fixed bars */
+#reviews{padding-bottom:clamp(40px,8vw,90px)}
+#reviews .head{display:block}
+#reviews .head h2{text-align:left;padding:0;margin:0;transform:none}
+#reviews .head p{margin:12px 0 22px}
+.rev-top.none{display:none}
+#revEmpty{display:grid;justify-items:center;gap:18px;text-align:center;padding:clamp(28px,5vw,44px) 22px;border:1px solid rgba(255,140,26,.28);border-style:solid;border-radius:22px;background:linear-gradient(160deg,#1c1c1f,#141416);color:#cfcbc2;font-size:16px;line-height:1.5}
+#revEmpty[hidden]{display:none}
+#revEmpty .pill{margin:0}
+@media (max-width:820px){#reviews{padding-bottom:110px}}
 </style>
 </head>
 <body>
@@ -1045,7 +1056,7 @@ section[id]{scroll-margin-top:84px}
         <p class="rev-msg" id="revMsg" aria-live="polite"></p>
         <div class="rev-actions"><button class="pill solid" type="submit" id="revSubmit">Post review <i>→</i></button><button class="arrow" type="button" id="revCancel">Cancel</button></div>
       </form>
-      <div class="rev-list" id="revList"><p class="rev-empty" id="revEmpty">Worked with POV? Tell other dealerships how it went.</p></div>
+      <div class="rev-list" id="revList"><div class="rev-empty" id="revEmpty"><span>Worked with POV? Tell other dealerships how it went.</span><button class="pill solid" type="button" id="revOpen2">Write a review <i>→</i></button></div></div>
     </div>
   </section>
 
@@ -1563,7 +1574,8 @@ section[id]{scroll-margin-top:84px}
 
   // ---- client reviews (shared, one review per signed-in person; owner can remove) ----
   (async()=>{const list=document.getElementById('revList'),empty=document.getElementById('revEmpty'),form=document.getElementById('revForm'),msg=document.getElementById('revMsg');
-    const openBtn=document.getElementById('revOpen');let rating=0,me=null,db=null,user=null,owner=false,rows=[];
+    const openBtn=document.getElementById('revOpen');
+    document.getElementById('revOpen2').addEventListener('click',()=>{openBtn.click();if(!form.hidden){document.querySelector('.rev-top').classList.remove('none');document.getElementById('revEmpty').hidden=true}else{document.querySelector('.rev-top').classList.remove('none')}});let rating=0,me=null,db=null,user=null,owner=false,rows=[];
     const picks=[...document.querySelectorAll('#ratePick button')];
     const paint=v=>picks.forEach(b=>{const on=+b.dataset.v<=v;b.classList.toggle('on',on);b.setAttribute('aria-checked',+b.dataset.v===v?'true':'false')});
     picks.forEach(b=>{b.addEventListener('click',()=>{rating=+b.dataset.v;paint(rating)});b.addEventListener('mouseenter',()=>paint(+b.dataset.v));b.addEventListener('mouseleave',()=>paint(rating))});
@@ -1589,12 +1601,12 @@ section[id]{scroll-margin-top:84px}
     try{[db,user]=await Promise.all([claude.use('db'),claude.use('user')])}catch(_){}
     if(!db||!user){openBtn.addEventListener('click',()=>{msg.textContent='Sign in to claude.ai to leave a review, or send yours to info@povholdings.co.za.'});return}
     owner=await user.isOwner().catch(()=>false);me=await user.id().catch(()=>null);
-    const to=setTimeout(()=>{empty.textContent='Worked with POV? Tell other dealerships how it went.'},10000);
+    const to=setTimeout(()=>{empty.firstChild.textContent='Worked with POV? Tell other dealerships how it went.'},10000);
     db.collection('reviews').orderBy('createdAt','desc').limit(60).onSnapshot(snap=>{clearTimeout(to);
       rows=snap.docs.map(d=>Object.assign({id:d.id},d.data())).filter(r=>r.rating>=1&&r.rating<=5);render();
       const mine=rows.find(r=>r.id===me);if(mine){openBtn.innerHTML='Edit your review <i>→</i>';document.getElementById('rv-name').value=mine.name||'';document.getElementById('rv-co').value=mine.company||'';
         document.getElementById('rv-title').value=mine.title||'';document.getElementById('rv-text').value=mine.text||'';document.getElementById('rv-div').value=mine.division||'POV Media';rating=mine.rating;paint(rating)}
-    },err=>{clearTimeout(to);empty.textContent='Worked with POV? Tell other dealerships how it went.'});
+    },err=>{clearTimeout(to);empty.firstChild.textContent='Worked with POV? Tell other dealerships how it went.'});
     form.addEventListener('submit',async e=>{e.preventDefault();
       const v=id=>document.getElementById(id).value.trim();
       if(!rating){msg.textContent='Tap the stars to choose a rating.';return}
