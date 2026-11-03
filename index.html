@@ -944,6 +944,28 @@ section[id]{scroll-margin-top:84px}
 .rl-foot{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;margin-top:18px}
 .rl-foot p{margin:0;font-size:12.5px;color:#6f6b64;max-width:70ch}
 @media (max-width:520px){.tm2 div{min-width:0;flex:1}.tm2{width:100%}.rl-clock{width:100%}}
+
+.rl-grid .rg{align-items:flex-start;justify-content:flex-start}
+.coins{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.coins span{display:grid;place-items:center;border-radius:50%;font:900 15px/1 'Big Shoulders Display',sans-serif}
+.coins .c1{width:38px;height:38px;background:#2a2a2f;color:#cfcbc2;box-shadow:inset 0 0 0 2px #45454c}
+.coins .c2{width:86px;height:86px;font-size:22px;color:#1a0f05;background:radial-gradient(circle at 35% 30%,#ffd29e,#ff8c1a 60%,#c25f00);box-shadow:0 0 40px -6px rgba(255,140,26,.7),inset 0 -4px 0 rgba(0,0,0,.18);transform:scale(.3);transition:transform 1.2s .3s cubic-bezier(.2,1.4,.3,1)}
+.coins i{font-style:normal;color:#ff8c1a;font-size:20px}
+.rl-grid.go .coins .c2{transform:none}
+.rg-ring{position:relative}
+.rg-ring svg{width:124px;height:124px;transform:rotate(-90deg);margin-bottom:14px}
+.rg-ring .tr{fill:none;stroke:#26262b;stroke-width:9}
+.rg-ring .pr{fill:none;stroke:#ff8c1a;stroke-width:9;stroke-linecap:round;stroke-dasharray:327;stroke-dashoffset:327;transition:stroke-dashoffset 2.2s .2s cubic-bezier(.2,.7,.2,1);filter:drop-shadow(0 0 6px rgba(255,140,26,.6))}
+.rl-grid.go .rg-ring .pr{stroke-dashoffset:0}
+.rc-in{position:absolute;left:24px;top:28px;width:124px;height:124px;display:grid;place-content:center;text-align:center}
+.rc-in b{font:900 40px/1 'Big Shoulders Display',sans-serif;color:#fff}.rc-in small{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#9b978f;margin-top:2px}
+.rg-ring>span{margin-top:0!important}
+.rcpt{width:150px;padding:14px 14px 10px;margin-bottom:16px;background:#f4efe6;color:#1a1a1a;border-radius:6px 6px 0 0;font:600 11px/1.4 Manrope,sans-serif;position:relative;transform:translateY(14px) rotate(-3deg);opacity:0;transition:transform 1s .3s cubic-bezier(.2,1.2,.3,1),opacity .6s .3s}
+.rcpt::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:8px;background:linear-gradient(-45deg,transparent 4px,#f4efe6 0) 0 0/8px 8px,linear-gradient(45deg,transparent 4px,#f4efe6 0) 0 0/8px 8px}
+.rcpt p{display:flex;justify-content:space-between;margin:0;padding:3px 0;border-bottom:1px dashed #c9c2b6}
+.rcpt .tot{font-weight:800;font-size:13px;border:0}.rcpt .tot span:last-child{color:#c25f00}
+.rcpt .bc{height:16px;margin-top:6px;border:0;background:repeating-linear-gradient(90deg,#1a1a1a 0 2px,transparent 2px 4px,#1a1a1a 4px 5px,transparent 5px 8px)}
+.rl-grid.go .rcpt{transform:rotate(-3deg);opacity:1}
 </style>
 </head>
 <body>
@@ -1056,9 +1078,9 @@ section[id]{scroll-margin-top:84px}
         <div class="rl-bar" aria-hidden="true"><i class="a" style="--w:6.07%"></i><i class="b"></i></div>
       </div>
       <div class="rl-grid rv">
-        <div class="rg"><b data-to="16.5" data-dec="1" data-suf="×">0×</b><span>Every <strong>R1</strong> in ads brought back <strong>R16.47</strong></span></div>
-        <div class="rg"><b data-to="127">0</b><span>online orders straight from our ads</span></div>
-        <div class="rg"><b data-to="8787" data-pre="R">R0</b><span>average order value from ad buyers</span></div>
+        <div class="rg rg-coin"><div class="coins" aria-hidden="true"><span class="c1">R1</span><i>→</i><span class="c2">R16.47</span></div><b data-to="16.5" data-dec="1" data-suf="×">0×</b><span>Every <strong>R1</strong> in ads came back as <strong>R16.47</strong> in sales</span></div>
+        <div class="rg rg-ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52" class="tr"/><circle cx="60" cy="60" r="52" class="pr"/></svg><div class="rc-in"><b data-to="127">0</b><small>orders</small></div><span>Paid orders straight from our ads, about <strong>2 every day</strong> since launch</span></div>
+        <div class="rg rg-rcpt"><div class="rcpt" aria-hidden="true"><p><span>Ad order</span><span>avg.</span></p><p class="tot"><span>Total</span><span>R8 787</span></p><p class="bc"></p></div><b data-to="8787" data-pre="R">R0</b><span>The average order a buyer placed after seeing our ad</span></div>
       </div>
       <div class="rl-foot rv"><p>Shopify store clients of ConversionCo, POV's ads partner. Meta Ads Manager figures since 31 August 2026. Results vary by business, offer and budget.</p><a class="pill solid" href="divisions/meta.html">See POV Meta <i>→</i></a></div>
     </div>
