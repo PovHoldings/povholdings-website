@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="claude:viewport-fit-sides" content="cover">
 <title>The POV Package · POV Growth</title>
+<script src="../track.js"></script>
 <link rel="canonical" href="https://pointofviewholdings.co.za/divisions/growth.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="POV Holdings">
@@ -22,7 +23,7 @@
 <script>
 // POV Package checkout. Paste the Shopify product or checkout link here when the store is live.
 window.POV_PACKAGE_URL='';
-window.POV_PIXEL_ID=window.POV_PIXEL_ID||'';
+window.POV_PIXEL_ID=window.POV_PIXEL_ID||'1457818873194913';
 </script>
 <style>
 :root{--neon:#ff8c1a;--royal:#4169e1;--bg:#0b0b0d;--tile:#141417;--serif:"Cormorant Garamond",Georgia,serif}
@@ -434,7 +435,7 @@ document.querySelectorAll('[data-wait]').forEach(function(a){a.href=W;a.target='
   let attr={};try{const q=new URLSearchParams(location.search);['utm_source','utm_medium','utm_campaign','utm_content','fbclid'].forEach(k=>{if(q.get(k))attr[k]=q.get(k)});if(Object.keys(attr).length)sessionStorage.setItem('pov_attr',JSON.stringify(attr));else attr=JSON.parse(sessionStorage.getItem('pov_attr')||'{}')}catch(_){}
   let consent=null;try{consent=localStorage.getItem('pov_consent')}catch(_){}
   const fbq=(...a)=>{try{if(window.fbq)window.fbq(...a)}catch(_){}};
-  if(window.POV_PIXEL_ID&&consent==='all'){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');window.fbq('init',window.POV_PIXEL_ID);window.fbq('track','PageView');window.fbq('track','ViewContent',{content_name:'POV Package',value:1999,currency:'ZAR'})}
+  if(window.POV_PIXEL_ID&&consent==='all'&&!window.__px){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');window.fbq('init',window.POV_PIXEL_ID);window.fbq('track','PageView');window.fbq('track','ViewContent',{content_name:'POV Package',value:1999,currency:'ZAR'})}
   // checkout drawer: name, email, WhatsApp, then Shopify checkout (or WhatsApp until the store is live)
   const url=window.POV_PACKAGE_URL,ref=attr.utm_campaign?' [ad: '+attr.utm_campaign+']':'';
   const co=$('co'),coF=$('coF');let lastF=null;

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="claude:viewport-fit-sides" content="cover">
 <title>The Frame Tee · POV Collection</title>
+<script src="../track.js"></script>
 <link rel="canonical" href="https://pointofviewholdings.co.za/divisions/collection.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="POV Holdings">
@@ -295,7 +296,7 @@ var iv=setInterval(t,1000);t()})();</script>
 <footer><div class="wrap"><span>© 2026 POV Holdings · POV Collection · Point of View Holdings (Pty) Ltd · Reg. 2024/130036/07</span><nav class="flegal" aria-label="Legal"><a href="../legal.html#terms">Terms</a><a href="../legal.html#privacy">Privacy</a><a href="../legal.html#refunds">Refunds</a><a href="../legal.html#company">Company info</a></nav></div></footer>
 <script>
 window.POV_SHOP_URL=window.POV_SHOP_URL||'';   // Shopify product link, once the store is live
-window.POV_PIXEL_ID=window.POV_PIXEL_ID||'';   // Meta Pixel ID for ad tracking
+window.POV_PIXEL_ID=window.POV_PIXEL_ID||'1457818873194913';   // Meta Pixel ID for ad tracking
 (function(){
   if('scrollRestoration' in history)history.scrollRestoration='manual';
   if(!location.hash)scrollTo(0,0);
@@ -306,7 +307,7 @@ window.POV_PIXEL_ID=window.POV_PIXEL_ID||'';   // Meta Pixel ID for ad tracking
   let attr={};try{const q=new URLSearchParams(location.search);['utm_source','utm_medium','utm_campaign','utm_content','fbclid'].forEach(k=>{if(q.get(k))attr[k]=q.get(k)});if(Object.keys(attr).length)sessionStorage.setItem('pov_attr',JSON.stringify(attr));else attr=JSON.parse(sessionStorage.getItem('pov_attr')||'{}')}catch(_){}
   let consent=null;try{consent=localStorage.getItem('pov_consent')}catch(_){}
   const fbq=(...a)=>{try{if(window.fbq)window.fbq(...a)}catch(_){}};
-  if(window.POV_PIXEL_ID&&consent==='all'){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');window.fbq('init',window.POV_PIXEL_ID);window.fbq('track','PageView');window.fbq('track','ViewContent',{content_name:'Frame Tee',value:599,currency:'ZAR'})}
+  if(window.POV_PIXEL_ID&&consent==='all'&&!window.__px){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');window.fbq('init',window.POV_PIXEL_ID);window.fbq('track','PageView');window.fbq('track','ViewContent',{content_name:'Frame Tee',value:599,currency:'ZAR'})}
   const dl=(e,p)=>{try{(window.dataLayer=window.dataLayer||[]).push(Object.assign({event:e},p||{}))}catch(_){}};
   const swap=(img,u)=>{const pre=new Image();pre.onload=()=>{img.style.opacity=0;setTimeout(()=>{img.src=u;img.style.opacity=1},150)};pre.src=u};
   const go=id=>{const el=$(id);scrollTo({top:el.getBoundingClientRect().top+scrollY-80,behavior:'smooth'})};

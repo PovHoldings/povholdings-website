@@ -10,6 +10,7 @@ var nav=(performance.getEntriesByType&&performance.getEntriesByType('navigation'
 if(last&&!home&&nav!=='back_forward'&&Date.now()-last.t<3*3600e3&&!/[?&]home\b/.test(location.search)){location.replace(last.u);}}catch(e){}})();
 </script>
 <title>POV Holdings</title>
+<script src="track.js"></script>
 <link rel="canonical" href="https://pointofviewholdings.co.za/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="POV Holdings">
@@ -1208,7 +1209,7 @@ section[id]{scroll-margin-top:84px}
   // cookie consent (POPIA): analytics only load after "Accept"
   window.POV_GA_ID=window.POV_GA_ID||''; // set to the GA4 measurement ID, e.g. 'G-XXXXXXX'
   const ck=document.getElementById('ck');
-  const loadGA=()=>{if(!window.POV_GA_ID||window.__ga)return;window.__ga=1;window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config',window.POV_GA_ID);const sc=document.createElement('script');sc.async=1;sc.src='https://www.googletagmanager.com/gtag/js?id='+window.POV_GA_ID;document.head.appendChild(sc)};
+  const loadGA=()=>{window.povTrack&&window.povTrack()};
   let consent=null;try{consent=localStorage.getItem('pov_consent')}catch(_){}
   if(consent==='all')loadGA();else if(!consent)setTimeout(()=>{ck.hidden=false},1200);
   ck.addEventListener('click',e=>{const b=e.target.closest('[data-ck]');if(!b)return;try{localStorage.setItem('pov_consent',b.dataset.ck)}catch(_){}ck.hidden=true;track('cookie_consent',{choice:b.dataset.ck});if(b.dataset.ck==='all')loadGA()});
