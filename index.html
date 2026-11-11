@@ -365,6 +365,8 @@ footer{border-top:1px solid var(--hair);padding-block:34px calc(34px + 96px)}
   background:linear-gradient(100deg,#ff8c1a 0%,#ffc27a 25%,#ffd9a8 50%,#ff9a3c 75%,#ffb366 100%) 0 0/600% 100%;background-position:calc(var(--d)*11%) 0;
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#ff9a3c;
   animation:ecobreathe 4.5s ease-in-out infinite,ecoflow 9s ease-in-out infinite;animation-delay:calc(var(--d)*.18s),calc(var(--d)*-.4s)}
+.eco-word em{animation-play-state:paused}.rw.in.eco-word em,.rw.in .eco-word em{animation-play-state:running}
+.intro.past .eco-word em{animation-play-state:paused}
 @keyframes ecoflow{0%,100%{background-position:calc(var(--d)*11%) 0}50%{background-position:calc(var(--d)*11% + 40%) 0}}
 @keyframes ecobreathe{0%,100%{transform:translateY(0)}50%{transform:translateY(-.05em)}}
 .scrollcue{position:absolute;left:50%;bottom:clamp(120px,19vh,180px);z-index:4;width:1px;height:46px;margin-left:-.5px;background:rgba(245,242,234,.25);overflow:hidden;display:none}
@@ -1411,11 +1413,11 @@ section[id]{scroll-margin-top:84px}
     let W=0,H=0,dpr=1,spores=[],last=0,t=0;
     const nodes=NAMES.map((n,i)=>({n,a:i/NAMES.length*6.283,sp:.00011+(i%3)*.00003,r:1+(i%2?.12:0)}));
     const size=()=>{dpr=1;W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
-      spores=Array.from({length:Math.round(Math.min(110,W*H/9000))},()=>({x:Math.random()*W,y:Math.random()*H,v:.12+Math.random()*.35,s:Math.random()*6.28,r:Math.random()<.2?1.8:1}))};
+      spores=Array.from({length:Math.round(Math.min(W<700?14:70,W*H/14000))},()=>({x:Math.random()*W,y:Math.random()*H,v:.12+Math.random()*.35,s:Math.random()*6.28,r:Math.random()<.2?1.8:1}))};
     const sage='255,140,26',gold='255,190,120';
     const pos=(nd,cx,cy,rx,ry)=>({x:cx+Math.cos(nd.a)*rx*nd.r,y:cy+Math.sin(nd.a)*ry*nd.r,d:(Math.sin(nd.a)+1)/2});
     const introB=document.getElementById('intro');let lastF=0,lastV=-1;
-    const frame=ts=>{requestAnimationFrame(frame);const v=window.__ecoV||0;if(v!==lastV){lastV=v;cv.style.opacity=v.toFixed(3)}if(v<=0.001||document.hidden||scrollY>introB.offsetHeight){last=ts;return}if(ts-lastF<33)return;lastF=ts;
+    const frame=ts=>{requestAnimationFrame(frame);const v=window.__ecoV||0;if(v!==lastV){lastV=v;cv.style.opacity=v.toFixed(3)}if(v<=0.001||document.hidden||scrollY>(introB._h||(introB._h=introB.offsetHeight))){last=ts;return}if(ts-lastF<(W<700?50:33))return;lastF=ts;
       const dt=last?Math.min(50,ts-last):16;last=ts;t+=dt;
       const mob=W<700,cx=W/2,cy=H/2,rx=mob?W*.3:Math.min(W*.4,560),ry=mob?H*.32:rx*.42;
       ctx.clearRect(0,0,W,H);
@@ -1502,7 +1504,8 @@ section[id]{scroll-margin-top:84px}
   let lastC=-1;
   let target=0,cur=0,mx=0,my=0,tx=0,ty=0,flipDone=false,killed=false,lastQ=-1,lastP=-1,lastT=9;
   setTimeout(()=>{flipDone=true},2200);
-  const read=()=>{const r=intro.getBoundingClientRect(),total=intro.offsetHeight-innerHeight;target=clamp(-r.top/total)};
+  let iTop=0,iTot=1;const measure=()=>{iTop=intro.getBoundingClientRect().top+scrollY;iTot=Math.max(1,intro.offsetHeight-innerHeight)};measure();addEventListener('resize',measure);addEventListener('load',measure);
+  const read=()=>{target=clamp((scrollY-iTop)/iTot);const past=scrollY>iTop+iTot+innerHeight;if(past!==intro._past){intro._past=past;intro.classList.toggle('past',past)}};
   const draw=p=>{
     const q=seg(p,0,.34),qe=q*q;
     if(!killed&&(flipDone||q>0)){killed=true;letters.forEach(L=>{L.el.style.animation='none'})}
@@ -1529,14 +1532,15 @@ section[id]{scroll-margin-top:84px}
     window.__ecoV=seg(p,.55,.82);
     const w=seg(p,.58,.86);rws.forEach((el,i)=>el.classList.toggle('in',w>i/rws.length));
   };
-  const loop=()=>{cur+=(target-cur)*(window.__smooth?1:.3);if(Math.abs(target-cur)<.0005)cur=target;
-    if(cur!==lastP&&(cur<1||lastP<1)){lastP=cur;draw(cur)}
+  const loop=()=>{cur+=(target-cur)*(window.__smooth?1:.3);if(Math.abs(target-cur)<.0008)cur=target;
+    if(cur!==lastP&&(cur<1||lastP<1)&&(Math.abs(cur-lastP)>.0015||cur===target)){lastP=cur;draw(cur)}
     tx+=(mx-tx)*.08;ty+=(my-ty)*.08;
     if(cur>=1||Math.abs(tx-lastT)<.0005&&Math.abs(ty)<1&&lastT===tx){requestAnimationFrame(loop);return}
     lastT=tx;
     if(cur>.02){if(tilt.style.transform)tilt.style.transform='';copy.style.transform=''}else tilt.style.transform='rotateY('+(tx*1.4).toFixed(2)+'deg) rotateX('+(-ty*.9).toFixed(2)+'deg) translate3d('+(tx*-4).toFixed(1)+'px,'+(ty*-2).toFixed(1)+'px,0)';
     copy.style.transform='translate3d('+(tx*4).toFixed(1)+'px,'+(ty*2).toFixed(1)+'px,0)';
     requestAnimationFrame(loop)};
+  {const sh=document.querySelector('.sheen');if(sh)sh.addEventListener('animationend',()=>sh.remove(),{once:true})}
   if(reduce){intro.classList.add('static')}
   else{
     cue.addEventListener('click',()=>scrollBy({top:innerHeight*.9,behavior:'smooth'}));
@@ -1559,8 +1563,11 @@ section[id]{scroll-margin-top:84px}
 
   // ---- headings swipe into colour ----
   const sweeps=[...document.querySelectorAll('.sweep')];
-  const sweepFrame=()=>sweeps.forEach(el=>{const t=el.getBoundingClientRect().top;const v=reduce?1:clamp((innerHeight*.95-t)/(innerHeight*.45));el.style.setProperty('--p',v.toFixed(3));if(v>=1&&!reduce)el.classList.add('done')});
-  sweepFrame();let swq=false;addEventListener('scroll',()=>{if(!swq){swq=true;requestAnimationFrame(()=>{sweepFrame();swq=false})}},{passive:true});
+  const swNear=new Set();
+  const sweepFrame=()=>{if(!swNear.size)return;const tops=[...swNear].map(el=>[el,el.getBoundingClientRect().top]);tops.forEach(([el,t])=>{const v=reduce?1:clamp((innerHeight*.95-t)/(innerHeight*.45));if(el._p!==v){el._p=v;el.style.setProperty('--p',v.toFixed(3))}if(v>=1&&!reduce){el.classList.add('done');swNear.delete(el);swIo.unobserve(el)}})};
+  const swIo=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)swNear.add(e.target);else swNear.delete(e.target)});sweepFrame()},{rootMargin:'20% 0px'});
+  sweeps.forEach(el=>swIo.observe(el));
+  let swq=false;addEventListener('scroll',()=>{if(swNear.size&&!swq){swq=true;requestAnimationFrame(()=>{sweepFrame();swq=false})}},{passive:true});
 
 
   // ---- dot field: slow drifting points, linked like strands, that spring away from the pointer ----
