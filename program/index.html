@@ -45,7 +45,7 @@ a{color:inherit}h1,h2,h3{margin:0;font-weight:600}em{font-style:italic;color:var
 .top .btn{height:42px;padding:0 20px;font-size:14px}
 .hero{position:relative;padding:clamp(34px,6vw,80px) 0 clamp(26px,4vw,48px);overflow:hidden}
 .hero::before{content:"";position:absolute;right:-25%;top:-35%;width:85vw;height:85vw;max-width:900px;max-height:900px;background:radial-gradient(circle,rgba(255,140,26,.22),transparent 62%);pointer-events:none}
-.hgrid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,5vw,64px);align-items:center}
+.hgrid{position:relative;display:grid;grid-template-columns:1fr minmax(0,500px);gap:clamp(24px,5vw,64px);align-items:center}
 .hero h1{font:600 clamp(48px,7.4vw,96px)/.96 var(--serif)}
 .hero .lede{color:#cfcbc2;font-size:clamp(17px,1.7vw,20px);margin:18px 0 0}
 .live{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:9px 16px 9px 12px;border-radius:999px;background:rgba(61,220,132,.08);box-shadow:inset 0 0 0 1px rgba(61,220,132,.25);font:700 14px/1 var(--sans)}
@@ -62,7 +62,8 @@ a{color:inherit}h1,h2,h3{margin:0;font-weight:600}em{font-style:italic;color:var
 .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
 .shots span{aspect-ratio:9/13;border-radius:10px;background:linear-gradient(160deg,#2a2a30,#17171a);display:grid;place-items:end start;padding:6px;font:700 9.5px/1 var(--sans);color:var(--grey)}
 .done{display:flex;align-items:center;justify-content:center;margin-top:12px;height:42px;border-radius:999px;background:var(--o);color:#0d0d0f;font:800 13px/1 var(--sans)}
-.feats{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:8px 0 0}
+.feats.lp{justify-content:flex-start;padding:22px 0 0}
+.feats{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:8px 0 clamp(48px,7vw,90px)}
 .feats span{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:999px;background:var(--tile);box-shadow:inset 0 0 0 1px var(--hair);font:700 14px/1 var(--sans)}
 .feats svg{width:17px;height:17px;fill:none;stroke:var(--o);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .pricing{padding:clamp(48px,7vw,90px) 0 clamp(56px,8vw,100px)}
@@ -131,101 +132,27 @@ footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}foo
       <h1>Your sales team, <em>posting daily.</em></h1>
       <p class="lede">Daily scripts. Shot on their phones. Tracked by your manager.</p>
       <p class="live"><i></i>Used by 100+ salespeople</p>
-      <div class="ctas"><a class="btn solid" href="#pricing">See prices <i>↓</i></a></div>
-    </div>
-    <div class="phone" aria-hidden="true"><div class="scr">
-      <div class="app-h">Today<span class="chip">New script</span></div>
-      <div class="card"><small>Post</small><p>"Polo Vivo special. Hook in 2 seconds."</p></div>
-      <div class="card"><small>Shoot</small><div class="shots"><span>Front ¾</span><span>Interior</span><span>You</span></div></div>
-      <div class="done">Posted ✓</div>
-    </div></div>
-  </div></section>
-
-  <div class="w feats">
+      <div class="feats lp">
     <span><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Daily content</span><span><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Manager dashboard</span><span><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Scripts on your specials</span><span><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Shooting guide</span><span><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>More visibility</span>
   </div>
-
-  <section class="pricing" id="pricing"><div class="w">
-    <div class="ph"><h2>Pick your team size.</h2><p class="note">Per department · per month · excl. VAT</p></div>
-    <div class="pp">
-      <article class="pk" data-buy="launch"><div class="face"><h3>Launch</h3><span class="who">0–5 salespeople</span><p class="amt"><span>R</span>3 500<small>/month</small></p><button class="btn" type="button">Buy now <svg class="ap" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.5 2-3.6-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.9-3-.8C6.9 7.3 5.5 8.2 4.7 9.6c-1.6 2.8-.4 7 1.2 9.2.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.2.9-1.3 1.3-2.5 1.3-2.6 0 0-2.5-1-2.5-3.7zM14.1 5.6c.6-.8 1.1-1.8 1-2.9-.9 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2.1-.5 2.7-1.3z"/></svg>Pay</button></div></article>
-      <article class="pk hot" data-buy="accelerate"><span class="pop">Most popular</span><div class="face"><h3>Accelerate</h3><span class="who">6–12 salespeople</span><p class="amt"><span>R</span>5 000<small>/month</small></p><button class="btn solid" type="button">Buy now <svg class="ap" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.5 2-3.6-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.9-3-.8C6.9 7.3 5.5 8.2 4.7 9.6c-1.6 2.8-.4 7 1.2 9.2.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.2.9-1.3 1.3-2.5 1.3-2.6 0 0-2.5-1-2.5-3.7zM14.1 5.6c.6-.8 1.1-1.8 1-2.9-.9 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2.1-.5 2.7-1.3z"/></svg>Pay</button></div></article>
-      <article class="pk" data-buy="dominate"><div class="face"><h3>Dominate</h3><span class="who">13+ · unlimited</span><p class="amt"><span>R</span>7 500<small>/month</small></p><button class="btn" type="button">Buy now <svg class="ap" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.5 2-3.6-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.9-3-.8C6.9 7.3 5.5 8.2 4.7 9.6c-1.6 2.8-.4 7 1.2 9.2.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.2.9-1.3 1.3-2.5 1.3-2.6 0 0-2.5-1-2.5-3.7zM14.1 5.6c.6-.8 1.1-1.8 1-2.9-.9 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2.1-.5 2.7-1.3z"/></svg>Pay</button></div></article>
     </div>
-    <div class="pays" aria-label="Payment methods">
-      <span class="pm"><svg viewBox="0 0 24 24" class="lg-ap"><path fill="#fff" d="M16.4 12.6c0-2.4 2-3.5 2-3.6-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.9-3-.8C6.9 7.3 5.5 8.2 4.7 9.6c-1.6 2.8-.4 7 1.2 9.2.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.2.9-1.3 1.3-2.5 1.3-2.6 0 0-2.5-1-2.5-3.7zM14.1 5.6c.6-.8 1.1-1.8 1-2.9-.9 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2.1-.5 2.7-1.3z"/></svg>Pay</span>
-      <span class="pm"><svg viewBox="0 0 24 24" class="lg-g"><path fill="#4285F4" d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.3z"/><path fill="#34A853" d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H3.1v2.6A10 10 0 0 0 12 22z"/><path fill="#FBBC05" d="M6.4 14a6 6 0 0 1 0-3.9V7.5H3.1a10 10 0 0 0 0 9z"/><path fill="#EA4335" d="M12 5.9c1.5 0 2.8.5 3.8 1.5l2.9-2.9A10 10 0 0 0 3.1 7.5l3.3 2.6C7.2 7.7 9.4 5.9 12 5.9z"/></svg>Pay</span>
-      <span class="pm visa">VISA</span>
-      <span class="pm"><svg viewBox="0 0 38 24" class="lg-mc"><circle cx="14" cy="12" r="9" fill="#EB001B"/><circle cx="24" cy="12" r="9" fill="#F79E1B"/><path fill="#FF5F00" d="M19 4.5a9 9 0 0 1 0 15 9 9 0 0 1 0-15z"/></svg><em>mastercard</em></span>
-      <span class="pm stitch">stitch</span>
-    </div>
+    <div id="pricing" data-pov-pay data-tier="accelerate"></div>
   </div></section>
+
+
 </main>
 <footer><div class="w"><span>© 2026 POV Holdings · Reg. 2024/130036/07</span><nav><a href="../legal.html#terms">Terms</a><a href="../legal.html#privacy">Privacy</a><a href="https://wa.me/27786880944?text=Hi%20POV%2C%20I%20have%20a%20question%20about%20POV%20Program." target="_blank" rel="noopener">WhatsApp us</a></nav></div></footer>
 
 <div class="sbar" id="sbar"><div><b>POV Program</b><small>From R3 500/month</small></div><a class="btn solid" href="#pricing">Buy now</a></div>
 
-<div class="co" id="co" role="dialog" aria-modal="true" aria-labelledby="coT">
-  <div class="co-p">
-    <div class="co-h"><b id="coT">Checkout</b><button class="co-x" type="button" id="coX" aria-label="Close">×</button></div>
-    <div class="tiers" role="group" aria-label="Package">
-      <button type="button" data-t="launch">Launch<b>R3 500</b>0–5</button>
-      <button type="button" data-t="accelerate">Accelerate<b>R5 000</b>6–12</button>
-      <button type="button" data-t="dominate">Dominate<b>R7 500</b>13+</button>
-    </div>
-    <form id="coF" novalidate>
-      <div class="seg" role="group" aria-label="Department"><button type="button" data-d="New vehicles" aria-pressed="true">New vehicles</button><button type="button" data-d="Pre-owned" aria-pressed="false">Pre-owned</button></div>
-      <input id="fDl" autocomplete="organization" placeholder="Dealership" maxlength="80" aria-label="Dealership">
-      <input id="fNm" autocomplete="name" placeholder="Your name" maxlength="60" aria-label="Your name">
-      <input id="fPh" type="tel" autocomplete="tel" placeholder="Mobile number" maxlength="20" aria-label="Mobile number">
-      <p class="msg" id="fMsg" aria-live="polite"></p>
-      <button class="btn solid" type="submit" id="fGo"><svg class="ap" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.5 2-3.6-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.9-3-.8C6.9 7.3 5.5 8.2 4.7 9.6c-1.6 2.8-.4 7 1.2 9.2.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.2.9-1.3 1.3-2.5 1.3-2.6 0 0-2.5-1-2.5-3.7zM14.1 5.6c.6-.8 1.1-1.8 1-2.9-.9 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2.1-.5 2.7-1.3z"/></svg>Pay <span id="fAmt">R5 000</span></button>
-      <div class="pays mini">
-      <span class="pm"><svg viewBox="0 0 24 24" class="lg-ap"><path fill="#fff" d="M16.4 12.6c0-2.4 2-3.5 2-3.6-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.9-3-.8C6.9 7.3 5.5 8.2 4.7 9.6c-1.6 2.8-.4 7 1.2 9.2.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.2.9-1.3 1.3-2.5 1.3-2.6 0 0-2.5-1-2.5-3.7zM14.1 5.6c.6-.8 1.1-1.8 1-2.9-.9 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2.1-.5 2.7-1.3z"/></svg>Pay</span>
-      <span class="pm"><svg viewBox="0 0 24 24" class="lg-g"><path fill="#4285F4" d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.3z"/><path fill="#34A853" d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H3.1v2.6A10 10 0 0 0 12 22z"/><path fill="#FBBC05" d="M6.4 14a6 6 0 0 1 0-3.9V7.5H3.1a10 10 0 0 0 0 9z"/><path fill="#EA4335" d="M12 5.9c1.5 0 2.8.5 3.8 1.5l2.9-2.9A10 10 0 0 0 3.1 7.5l3.3 2.6C7.2 7.7 9.4 5.9 12 5.9z"/></svg>Pay</span>
-      <span class="pm visa">VISA</span>
-      <span class="pm"><svg viewBox="0 0 38 24" class="lg-mc"><circle cx="14" cy="12" r="9" fill="#EB001B"/><circle cx="24" cy="12" r="9" fill="#F79E1B"/><path fill="#FF5F00" d="M19 4.5a9 9 0 0 1 0 15 9 9 0 0 1 0-15z"/></svg><em>mastercard</em></span>
-      <span class="pm stitch">stitch</span>
-    </div>
-      <p class="fine">Monthly · excl. VAT · <a href="../legal.html#refunds">Terms &amp; cancellations</a></p>
-    </form>
-  </div>
-</div>
 <script>
-(function(){
-  var T={launch:{n:'Launch',w:'0–5 salespeople',p:3500},accelerate:{n:'Accelerate',w:'6–12 salespeople',p:5000},dominate:{n:'Dominate',w:'13+ salespeople',p:7500}};
-  var $=function(i){return document.getElementById(i)},cur='accelerate',dep='New vehicles',fmt=function(n){return 'R'+String(n).replace(/\B(?=(\d{3})+(?!\d))/g,' ')};
-  var attr={};try{var q=new URLSearchParams(location.search);['utm_source','utm_medium','utm_campaign','utm_content','fbclid'].forEach(function(k){if(q.get(k))attr[k]=q.get(k)})}catch(_){}
-  function ev(name,params,fb){try{if(window.gtag)gtag('event',name,params)}catch(_){}try{if(window.fbq&&fb)fbq('track',fb,params)}catch(_){}}
-  ev('view_item',{item_name:'POV Program'},'ViewContent');
-  function pick(t){cur=t;$('fAmt').textContent=fmt(T[t].p);document.querySelectorAll('.tiers button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.t===t)})}
-  function open(t){pick(t);$('co').classList.add('open');document.body.style.overflow='hidden';ev('begin_checkout',{item_name:'POV Program '+T[t].n,value:T[t].p,currency:'ZAR'},'InitiateCheckout')}
-  function close(){$('co').classList.remove('open');document.body.style.overflow=''}
-  document.querySelectorAll('[data-buy]').forEach(function(b){b.addEventListener('click',function(){open(b.dataset.buy)})});
-  document.querySelectorAll('.tiers button').forEach(function(b){b.addEventListener('click',function(){pick(b.dataset.t)})});
-  document.querySelectorAll('.seg button').forEach(function(b){b.addEventListener('click',function(){dep=b.dataset.d;document.querySelectorAll('.seg button').forEach(function(x){x.setAttribute('aria-pressed',x===b)})})});
-  $('coX').addEventListener('click',close);$('co').addEventListener('click',function(e){if(e.target===this)close()});
-  addEventListener('keydown',function(e){if(e.key==='Escape')close()});
-  $('coF').addEventListener('submit',function(e){e.preventDefault();var g=function(i){return $(i).value.trim()},m=$('fMsg');
-    if(!g('fDl')||!g('fNm')||!g('fPh')){m.textContent='Please fill in all three.';return}
-    m.textContent='';var x=T[cur];
-    try{sessionStorage.setItem('pov_program_order',JSON.stringify({tier:cur,dep:dep,dealer:g('fDl'),name:g('fNm'),phone:g('fPh')}))}catch(_){}
-    ev('add_payment_info',{item_name:'POV Program '+x.n,value:x.p,currency:'ZAR'},'AddPaymentInfo');
-    var link=(window.POV_PROGRAM_PAY||{})[cur];
-    if(link){location.href=link;return}
-    var tag=attr.utm_campaign?'\n[ad: '+attr.utm_campaign+']':'';
-    var txt='Hi POV, I want POV Program.\n\n'+x.n+' ('+x.w+') '+fmt(x.p)+'/month\n'+dep+'\nDealership: '+g('fDl')+'\nName: '+g('fNm')+'\nMobile: '+g('fPh')+'\n\nPlease send my Apple Pay link.'+tag;
-    ev('generate_lead',{method:'program_checkout',value:x.p,currency:'ZAR'},'Lead');
-    window.open('https://wa.me/27786880944?text='+encodeURIComponent(txt),'_blank','noopener');
-    m.style.color='#9be3b4';m.textContent='Sent. Your Apple Pay link is on its way on WhatsApp.';
-  });
-  try{var bq=new URLSearchParams(location.search).get('buy');if(T[bq])setTimeout(function(){open(bq)},150)}catch(_){}
-  var bar=$('sbar'),inP=false;
-  new IntersectionObserver(function(es){inP=es[0].isIntersecting;sync()},{threshold:.1}).observe($('pricing'));
-  function sync(){bar.classList.toggle('on',scrollY>200&&!inP)}
-  addEventListener('scroll',sync,{passive:true});
+(function(){try{if(window.gtag)gtag('event','view_item',{item_name:'POV Program'});if(window.fbq)fbq('track','ViewContent')}catch(_){}
+  var bar=document.getElementById('sbar'),pr=document.getElementById('pricing'),inP=false;
+  new IntersectionObserver(function(es){inP=es[0].isIntersecting;sync()},{threshold:.1}).observe(pr);
+  function sync(){bar.classList.toggle('on',scrollY>200&&!inP)}addEventListener('scroll',sync,{passive:true});
 })();
 </script>
+<script src="pay.js"></script>
 <script src="../assistant.js" defer></script>
 </body>
 </html>
