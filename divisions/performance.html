@@ -154,10 +154,10 @@ a.partner{text-decoration:none}a.partner i{font-style:normal;color:var(--gold)}
 <script>
 (function(){
   const views=[...document.querySelectorAll('[data-view]')],tabs=[...document.querySelectorAll('.tabs a')];
-  const show=()=>{const h=(location.hash||'#overview').slice(1),v=views.some(x=>x.dataset.view===h)?h:'overview';if(h==='services')setTimeout(()=>{const el=document.getElementById('services');if(el)scrollTo({top:el.getBoundingClientRect().top+scrollY-150,behavior:'smooth'})},300);
+  const show=()=>{const h=(location.hash||'#overview').slice(1),v=views.some(x=>x.dataset.view===h)?h:'overview';if(h==='services'&&!window.__navjs)setTimeout(()=>{const el=document.getElementById('services');if(el)scrollTo({top:el.getBoundingClientRect().top+scrollY-150,behavior:'smooth'})},300);
     views.forEach(x=>x.hidden=x.dataset.view!==v);
     tabs.forEach(t=>{if(t.getAttribute('href')==='#'+v)t.setAttribute('aria-current','page');else t.removeAttribute('aria-current')});
-    if(window.__ready&&location.hash&&views.some(x=>x.dataset.view===h)){const top=document.querySelector('.tabs-wrap').getBoundingClientRect().top+scrollY-84;if(scrollY>top+10||scrollY<top-400)scrollTo({top,behavior:'smooth'})}};
+    if(!window.__navjs&&window.__ready&&location.hash&&views.some(x=>x.dataset.view===h)){const top=document.querySelector('.tabs-wrap').getBoundingClientRect().top+scrollY-84;if(scrollY>top+10||scrollY<top-400)scrollTo({top,behavior:'smooth'})}};
   if('scrollRestoration' in history)history.scrollRestoration='manual';
   const views0=['overview','pricing','stories'];
   if(!views0.includes((location.hash||'').slice(1)))scrollTo(0,0);
@@ -167,5 +167,6 @@ a.partner{text-decoration:none}a.partner i{font-style:normal;color:var(--gold)}
 </script>
 <script src="trio.js" defer></script>
 <script src="../assistant.js" defer></script>
+<script src="nav.js" defer></script>
 </body>
 </html>
