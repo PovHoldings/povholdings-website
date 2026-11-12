@@ -219,6 +219,7 @@ footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}foo
     window.open('https://wa.me/27786880944?text='+encodeURIComponent(txt),'_blank','noopener');
     m.style.color='#9be3b4';m.textContent='Sent. Your Apple Pay link is on its way on WhatsApp.';
   });
+  try{var bq=new URLSearchParams(location.search).get('buy');if(T[bq])setTimeout(function(){open(bq)},150)}catch(_){}
   var bar=$('sbar'),inP=false;
   new IntersectionObserver(function(es){inP=es[0].isIntersecting;sync()},{threshold:.1}).observe($('pricing'));
   function sync(){bar.classList.toggle('on',scrollY>200&&!inP)}
