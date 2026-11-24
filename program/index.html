@@ -12,23 +12,23 @@
 <meta property="og:title" content="POV Program · Your sales team, posting daily">
 <meta property="og:description" content="A script for every salesperson, Monday to Friday. From R1 499 per department per month. No setup fee.">
 <meta property="og:url" content="https://pointofviewholdings.co.za/program/">
-<meta property="og:image" content="https://pointofviewholdings.co.za/work/og-program3.jpg">
+<meta property="og:image" content="https://pointofviewholdings.co.za/work/og-program4.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#ff8c1a">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap">
-<link rel="preload" as="image" href="../work/program-hero.webp" imagesrcset="../work/program-hero-sm.webp 720w, ../work/program-hero.webp 1152w" imagesizes="(max-width:640px) 360px, 560px">
+<link rel="preload" as="image" href="../work/program-bg.webp" imagesrcset="../work/program-bg-sm.webp 800w, ../work/program-bg.webp 1400w" imagesizes="100vw">
 <script>
 /* Stitch payment links (Apple Pay, card). Paste each package's link here when Stitch is live. */
 window.POV_PROGRAM_PAY={launch:'',accelerate:'',dominate:''};
 </script>
 <style>
-:root{--bg:#0d0d0f;--tile:#151518;--tile2:#1b1b1f;--ink:#f3efe6;--grey:#a9a49a;--dim:#77736b;--hair:rgba(255,255,255,.1);--o:#ff8c1a;
+:root{--bg:#0d0d0f;--tile:rgba(21,21,24,.86);--tile2:#1b1b1f;--ink:#f3efe6;--grey:#a9a49a;--dim:#77736b;--hair:rgba(255,255,255,.1);--o:#ff8c1a;
   --serif:"Cormorant Garamond",Georgia,serif;--sans:Manrope,system-ui,-apple-system,sans-serif;--gl:max(16px,env(safe-area-inset-left));--gr:max(16px,env(safe-area-inset-right))}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:110px}
-body{margin:0;background:var(--bg);color:var(--ink);font:500 16px/1.55 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{margin:0;background:#050506;color:var(--ink);font:500 16px/1.55 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}h1,h2,h3,p{margin:0}em{font-style:italic;color:var(--o)}
 .w{max-width:1160px;margin:0 auto;padding-left:var(--gl);padding-right:var(--gr)}
 .k{font:800 11px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--grey)}
@@ -64,14 +64,15 @@ a{color:inherit}h1,h2,h3,p{margin:0}em{font-style:italic;color:var(--o)}
 .sh .btn{justify-self:end;height:40px;padding:0 18px;font-size:11px}
 
 /* hero */
-.hero{position:relative;text-align:center;overflow:hidden;background:radial-gradient(60% 55% at 50% 62%,rgba(255,140,26,.22),transparent 70%),var(--bg)}
-.hero-copy{position:relative;z-index:2;padding:clamp(30px,4vw,56px) 16px 0}
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:#050506}
+.bg img{position:absolute;inset:-4%;width:108%;height:108%;object-fit:cover;object-position:50% 48%;transform:scale(1.04)}
+.bg::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 45%,transparent,rgba(5,5,6,.55) 80%),linear-gradient(180deg,rgba(5,5,6,.25),rgba(5,5,6,.55))}
+.hero{position:relative;text-align:center;min-height:calc(100svh - 104px);display:flex;flex-direction:column;justify-content:center;padding-bottom:20px}
+.hero-copy{position:relative;z-index:2;padding:clamp(30px,4vw,56px) 16px 0;will-change:transform}
 .hero h1{font:800 clamp(42px,8.6vw,124px)/.9 var(--sans);text-transform:uppercase;letter-spacing:-.04em}
 .hero h1 span{display:block}
 .hero .tag{margin-top:clamp(14px,1.8vw,22px);font:800 clamp(10.5px,1vw,12.5px)/1.5 var(--sans);letter-spacing:.42em;text-transform:uppercase;color:var(--grey);padding-left:.42em}
-.hero-pic{position:relative;margin-top:clamp(-30px,-2vw,-8px);height:clamp(220px,21vw,300px)}
-.hero-pic img{position:absolute;left:50%;top:0;transform:translateX(-50%);height:100%;width:auto;max-width:none;-webkit-mask-image:radial-gradient(closest-side,#000 62%,transparent);mask-image:radial-gradient(closest-side,#000 62%,transparent);opacity:.95}
-.hero-cta{position:relative;z-index:3;display:inline-flex;align-items:center;gap:18px;margin:clamp(-90px,-6vw,-40px) auto 0;padding:9px 9px 9px 26px;border-radius:999px;background:rgba(13,13,15,.84);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 0 0 1px rgba(255,255,255,.14),0 30px 70px -30px rgba(0,0,0,.9)}
+.hero-cta{position:relative;z-index:3;display:inline-flex;align-items:center;gap:18px;margin:clamp(26px,3.4vw,44px) auto 0;padding:9px 9px 9px 26px;border-radius:999px;background:rgba(13,13,15,.84);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 0 0 1px rgba(255,255,255,.14),0 30px 70px -30px rgba(0,0,0,.9)}
 .hero-cta p{font:800 13px/1.1 var(--sans);letter-spacing:.16em;text-transform:uppercase;text-align:left}
 .hero-cta p span{color:var(--o)}.hero-cta p small{display:block;margin-top:5px;font:600 10.5px/1 var(--sans);letter-spacing:.16em;color:var(--grey)}
 .proof{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 28px;padding:30px 16px clamp(56px,7vw,90px)}
@@ -80,7 +81,7 @@ a{color:inherit}h1,h2,h3,p{margin:0}em{font-style:italic;color:var(--o)}
 .proof .live::before{background:#5fd38a;box-shadow:0 0 0 4px rgba(95,211,138,.18)}
 
 section{position:relative}
-.sec{padding:clamp(64px,9vw,120px) 0;border-top:1px solid var(--hair)}
+.sec{padding:clamp(64px,9vw,120px) 0;border-top:1px solid var(--hair);background:rgba(8,8,10,.42)}
 
 /* what they get + phone */
 .get{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,6vw,80px);align-items:center}
@@ -136,11 +137,11 @@ section{position:relative}
 .box dt small{display:block;color:var(--dim);font-size:12.5px}
 
 /* close */
-.close{text-align:center;padding:clamp(80px,11vw,150px) 16px;background:radial-gradient(50% 70% at 50% 100%,rgba(255,140,26,.2),transparent 70%)}
+.close{text-align:center;padding:clamp(80px,11vw,150px) 16px;background:radial-gradient(50% 70% at 50% 100%,rgba(255,140,26,.2),transparent 70%),rgba(8,8,10,.3)}
 .close h2{font:800 clamp(38px,7vw,100px)/.92 var(--sans);text-transform:uppercase;letter-spacing:-.04em}
 .close h2 em{display:block}
 .close .row{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:36px}
-footer{border-top:1px solid var(--hair);padding:30px 0 110px;color:var(--dim);font-size:13px}
+footer{border-top:1px solid var(--hair);padding:30px 0 110px;color:#8d8980;font-size:13px;background:rgba(5,5,6,.85)}
 footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 footer nav{display:flex;flex-wrap:wrap;gap:8px 16px}footer a{color:var(--grey);text-decoration:none}footer a:hover{color:var(--ink)}
 
@@ -176,7 +177,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 16px}footer a{color:var(--grey);t
 @media (max-width:640px){
   .hero-copy{padding-top:30px}.hero h1{font-size:clamp(38px,11.4vw,52px)}.hero .tag{letter-spacing:.26em;font-size:9.5px}
   .cd{margin-top:16px;gap:8px}.cd span{min-width:58px;padding:8px 4px 7px}.cd b{font-size:22px}.cd p{font-size:10px;letter-spacing:.18em}
-  .hero-pic{height:190px;margin-top:4px}.hero-cta{margin-top:-40px}
+  .hero{min-height:calc(100svh - 96px)}.hero-cta{margin-top:24px}
   .proof{padding:20px 12px 40px}
 }
 </style>
@@ -192,6 +193,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 16px}footer a{color:var(--grey);t
   <a class="btn solid" href="#pricing">Sign up</a>
 </div></header>
 
+<div class="bg" aria-hidden="true"><img src="../work/program-bg.webp" srcset="../work/program-bg-sm.webp 800w, ../work/program-bg.webp 1400w" sizes="100vw" alt="" fetchpriority="high"></div>
 <main id="top">
   <section class="hero">
     <div class="hero-copy">
@@ -199,7 +201,6 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 16px}footer a{color:var(--grey);t
       <p class="tag">Scripts · Shot on their phones · Tracked by your manager</p>
       <div class="cd" data-cd><p>Limited offer · ends 31 Dec 2026</p><div><span><b data-u="d">00</b><i>days</i></span><span><b data-u="h">00</b><i>hrs</i></span><span><b data-u="m">00</b><i>min</i></span><span><b data-u="s">00</b><i>sec</i></span></div></div>
     </div>
-    <div class="hero-pic"><img src="../work/program-hero.webp" srcset="../work/program-hero-sm.webp 720w, ../work/program-hero.webp 1152w" sizes="(max-width:640px) 360px, 560px" alt="A salesperson's phone, ready to film" fetchpriority="high"></div>
     <div class="hero-cta"><p>From <span>R1 499</span> / month<small>Offer ends 31 Dec · no setup fee</small></p><a class="btn solid" href="#pricing">Sign up <i>→</i></a></div>
     <div class="proof"><span class="live">Used by 100+ salespeople</span><span>Monday to Friday</span><span>Nothing upfront</span></div>
   </section>
@@ -285,6 +286,9 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 16px}footer a{color:var(--grey);t
   function t(){var d=Math.floor((end-Date.now())/1000);if(d<=0){els.forEach(function(e){e.hidden=true});return}
     els.forEach(function(e){e.querySelector('[data-u=d]').textContent=p(Math.floor(d/86400));e.querySelector('[data-u=h]').textContent=p(Math.floor(d%86400/3600));e.querySelector('[data-u=m]').textContent=p(Math.floor(d%3600/60));e.querySelector('[data-u=s]').textContent=p(d%60)})}
   t();setInterval(t,1000)})();</script>
+<script>(function(){var h=document.querySelector('.hero-copy'),c=document.querySelector('.hero-cta'),pr=document.querySelector('.proof');if(!h||matchMedia('(prefers-reduced-motion: reduce)').matches)return;var tk=false;
+  function f(){tk=false;var y=scrollY,H=innerHeight;if(y>H*1.2)return;var k=Math.min(1,y/(H*.8));h.style.transform='translate3d(0,'+(-y*.35).toFixed(1)+'px,0)';h.style.opacity=(1-k*.9).toFixed(3);c.style.transform='translate3d(0,'+(-y*.18).toFixed(1)+'px,0)';pr.style.opacity=(1-k).toFixed(3)}
+  addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(f)}},{passive:true});f()})();</script>
 <script src="pay.js?v=6"></script>
 <script src="../assistant.js" defer></script>
 </body>
