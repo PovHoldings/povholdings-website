@@ -35,13 +35,13 @@
   function mount(box){
     var cur=box.getAttribute('data-tier')||'accelerate',dep='New vehicles';
     try{var bq=new URLSearchParams(location.search).get('buy');if(T[bq])cur=bq}catch(_){}
-    box.innerHTML='<div class="pvp"><div class="pvp-h"><b>Choose &amp; pay</b><span>Per department<br> · per month · excl. VAT</span></div>'
+    box.innerHTML='<div class="pvp"><div class="pvp-h"><b>Choose &amp; pay</b><span>Per department<br> · per month</span></div>'
       +'<div class="pvp-t" role="group" aria-label="Package">'+Object.keys(T).map(function(k){return '<button type="button" data-t="'+k+'">'+T[k].n+'<b>'+fmt(T[k].p)+'</b>'+T[k].r+'</button>'}).join('')+'</div>'
       +'<div class="pvp-s" role="group" aria-label="Department"><button type="button" data-d="New vehicles">New vehicles</button><button type="button" data-d="Pre-owned">Pre-owned</button></div>'
       +'<form novalidate><input data-f="dl" autocomplete="organization" placeholder="Dealership" maxlength="80" aria-label="Dealership"><input data-f="nm" autocomplete="name" placeholder="Your name" maxlength="60" aria-label="Your name"><input data-f="ph" type="tel" autocomplete="tel" placeholder="Mobile number" maxlength="20" aria-label="Mobile number">'
       +'<p class="pvp-m" aria-live="polite"></p><button class="pvp-go" type="submit">'+AP+'Pay <span class="pvp-a"></span></button></form>'
       +'<div class="pvp-l" aria-label="Payment methods"><span>'+AP.replace('<svg ','<svg class="ap" ')+'Pay</span><span>'+G+'Pay</span><span class="visa">VISA</span><span>'+MC+'<em>mastercard</em></span><span class="st">stitch</span></div>'
-      +'<p class="pvp-f">Monthly · excl. VAT · <a href="'+root+'legal.html#refunds">Terms &amp; cancellations</a></p></div>';
+      +'<p class="pvp-f">Monthly · <a href="'+root+'legal.html#refunds">Terms &amp; cancellations</a></p></div>';
     var $=function(s){return box.querySelector(s)};
     function pick(t){cur=t;$('.pvp-a').textContent=fmt(T[t].p);box.querySelectorAll('.pvp-t button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.t===t)})}
     function setDep(d){dep=d;box.querySelectorAll('.pvp-s button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.d===d)})}
